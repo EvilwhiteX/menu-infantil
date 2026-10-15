@@ -42,3 +42,9 @@ Comedor con guardado inmediato en perfiles existentes, acceso a registro manual 
 - Los fallos de almacenamiento muestran un error sin confirmaciones falsas de guardado.
 - Recuperación de referencias, fechas, contenedores y semanas incompletas de datos locales antiguos, conservando los datos válidos.
 - Sin cambios de diseño ni incorporación de servicios externos.
+
+### V0.3.0 · Copias de seguridad
+
+En Ajustes, **Exportar copia** descarga un archivo JSON con perfiles, semanas, platos propios, registros escolares, marcas de compra y apariencia. **Restaurar copia** permite elegir ese archivo en el mismo dispositivo o en otro. Se valida el formato, las referencias y los campos antes de mostrar un resumen y pedir confirmación para sustituir los datos actuales. No mezcla datos. La escritura se completa antes de cambiar el estado de la app; si falla, conserva los datos anteriores.
+
+Los archivos se procesan localmente, sin subirse a GitHub ni a un servidor. El archivo contiene los datos de los perfiles: debe guardarse en un lugar privado. Formato de copia 1, límite de 10 MB. No convierte el prototipo en un generador pediátrico validado.
