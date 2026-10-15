@@ -21,3 +21,7 @@ Basada en el archivo V0.2 de previsualización. Se corrigieron dos cadenas con s
 - Texto normal, grande y muy grande; color principal personalizado y cuatro colores sugeridos. Contraste automático del color de acento y del texto de botones. Se mantienen los modos día y noche.
 - Interfaz simplificada y autoría con enlace de correo, a petición del autor.
 - Conserva los datos locales de V0.2. No incorpora un algoritmo de equilibrio nutricional ni raciones pediátricas validadas.
+
+## Actualización V0.2.2
+
+Tarjetas de día separadas y columnas adaptadas al ancho disponible. Etiquetas de tomas con colores suaves y menos texto repetido. Logo vectorial de mandarina con hoja verde y nombre Menú Infantil. Conserva ajustes y registros locales.
