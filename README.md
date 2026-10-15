@@ -1,4 +1,4 @@
-# Menú Infantil V0.5.0
+# Menú Infantil V0.6.0
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -81,3 +81,12 @@ Las fichas incluyen composición culinaria, estado de los ingredientes antes de 
 Cada adaptación tiene un identificador estable. Los menús históricos conservan sus ingredientes al cambiar la edad del perfil; las fichas anteriores o de otra etapa se señalan para revisión. Se conserva el colegio separado y el bloqueo automático ante restricciones.
 
 **Alcance pendiente:** no se han creado composiciones nutricionales cuantificadas ni raciones pediátricas. Los campos de cantidad y nutrientes siguen sin valor validado, en lugar de rellenarlos con estimaciones. La revisión profesional de recetas y reglas numéricas prevista en la especificación inicial sigue pendiente. No se certifica adecuación nutricional por ampliar la edad.
+
+
+### V0.6.0 · Composición y referencias de cantidades
+
+En **Recetario → Composición de alimentos · por 100 g** se consultan 49 alimentos y 12 componentes de ANSES-CIQUAL 2025. En cada ficha, **Calcular composición de esta receta** estima los nutrientes a partir de los alimentos y gramos que se seleccionan e introducen explícitamente. Es un cálculo de ingredientes, sin rendimientos ni factores de retención de cocción; no prescribe una ración por edad. Los pesos de esta calculadora son temporales y no modifican el menú ni la compra.
+
+Dentro de **Preparación para… → Consultar cantidades de referencia por edad** se muestran referencias de ASPCAT: escolares de 3 años en adelante e infantiles diarias con sus condiciones para menores de 3. Se enlazan las tablas y sus notas, sin convertirlas en gramajes automáticos de las recetas.
+
+La calculadora conserva límites «menor que», trazas y datos ausentes; no convierte lo desconocido en cero. Los productos sin equivalencia identificada requieren comprobar el alimento real. No se han validado clínicamente las recetas ni se certifica cobertura de necesidades. Investigación, licencias, metodología y pendientes en [FUENTES_NUTRICION.md](FUENTES_NUTRICION.md).

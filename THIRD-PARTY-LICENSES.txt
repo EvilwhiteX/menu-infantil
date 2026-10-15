@@ -122,3 +122,22 @@ INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
 DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
+
+
+ANSES-CIQUAL 2025 - selected food composition data
+Attribution: Anses. 2025. Table de composition nutritionnelle des aliments Ciqual.
+Source: https://doi.org/10.57745/RDMHWY
+Data version: 2025-11-03. Retrieved: 2026-10-15.
+Source workbook MD5: 0d9758ce23f3f13dd63a005bc1bb4f2c
+Reuse under the Licence Ouverte / Open Licence, with attribution and version.
+Official terms: https://ciqual.anses.fr/cms/en/node/22
+Licence text: https://www.etalab.gouv.fr/licence-ouverte-open-licence/
+Changes: 49 records and 12 components selected; Spanish display labels added;
+original French food names and raw component strings preserved; numbers parsed
+without turning missing values or traces into zero; less-than limits preserved.
+Calculated results are produced by this independent application, not by ANSES.
+ANSES has not endorsed this application. No institutional logo is used.
+
+ASPCAT quantity references: May 2020 school table and 2022 early-childhood guide.
+Attribution, original document links, page locations, context and limitations:
+FUENTES_NUTRICION.md and gramajes.js. Source PDFs are linked, not bundled.

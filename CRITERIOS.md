@@ -1,4 +1,4 @@
-# Recetario y planificación familiar · V0.5.0
+# Recetario y planificación familiar · V0.6.0
 
 Edades de planificación: 12–203 meses (1–16 años inclusive). Consultado el 15 de octubre de 2026.
 
@@ -56,3 +56,12 @@ Las especies de alto mercurio se excluyen del catálogo automático para todas l
 Los ingredientes y sus pasos son propuestas culinarias de la app, no recetas publicadas o aprobadas por esas instituciones. Se registra su estado de preparación; no se realizan conversiones de crudo a cocido ni se suman cantidades incompatibles. No se ha incorporado una base de nutrientes ni se han inventado gramajes por edad. La especificación inicial exige revisar profesionalmente las tablas numéricas antes de incorporarlas; esa revisión y las raciones verificadas siguen pendientes. Tampoco se afirma que todas las subcomposiciones comerciales o trazas estén identificadas.
 
 Las franjas de presentación no son baremos de necesidades nutricionales. El reparto semanal sigue siendo editorial y no cambia artificialmente sus cantidades según la edad. Los porcentajes del gráfico siguen representando platos por categoría.
+
+
+## Datos cuantitativos V0.6.0
+
+Se añade consulta de 49 alimentos y 12 componentes de ANSES-CIQUAL 2025, junto a una calculadora de ingredientes con pesos introducidos y elección explícita del alimento y estado. Esta función sí calcula estimaciones nutricionales; no asigna cantidades al generar ni calcula necesidades individuales. Las limitaciones descritas arriba para el generador se mantienen.
+
+También se añaden referencias institucionales de cantidades, con contexto, unidades, población y notas; no se aplican automáticamente a las recetas. Las tablas se han contrastado visualmente. La revisión profesional de las recetas y sus cantidades sigue pendiente.
+
+Detalles y fuentes: [FUENTES_NUTRICION.md](FUENTES_NUTRICION.md). El colegio continúa fuera de la compra, cálculo y organización del menú de casa.
