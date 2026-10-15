@@ -54,3 +54,11 @@ Los archivos se procesan localmente, sin subirse a GitHub ni a un servidor. El a
 En **Mi semana → Compartir PDF**, la app prepara el menú de la semana y abre el selector nativo del dispositivo cuando el navegador admite compartir archivos. Las aplicaciones disponibles dependen del dispositivo. Si no se admite esta función o el navegador la bloquea, ofrece **Descargar PDF** para guardarlo o adjuntarlo manualmente. Cancelar el selector no descarga ni envía nada.
 
 El PDF incluye el nombre del perfil, la semana, las tomas visibles y las anotaciones del colegio. No incluye edad, peso, estatura, restricciones ni una copia completa de los datos. Se genera localmente, con texto seleccionable y continuación en varias páginas para anotaciones largas. Solo se comparte cuando el usuario selecciona un destino y confirma en el sistema.
+
+### V0.3.2 · Compra, perfiles y porcentajes
+
+- **Compra → Compartir PDF** prepara la lista completa con grupos, cantidades introducidas y marcas de comprado. Usa el selector nativo cuando está disponible y la descarga como alternativa.
+- Azul por defecto para instalaciones nuevas y al restablecer; se conserva el color que ya esté guardado en cada navegador.
+- Todos los perfiles, incluido el de demostración, se pueden eliminar desde **Perfiles → Editar → Eliminar**. Una confirmación dentro de la app identifica el perfil; siempre queda uno. Si falla el guardado, se conservan los datos.
+- Bajo el gráfico aparecen barras con el porcentaje de platos de cada categoría. Los ceros se muestran en rojo y se identifica el caso sin platos. Los porcentajes redondeados pueden no sumar exactamente 100; no describen nutrientes ni raciones.
+- Google Drive no se ha integrado ni activado: sigue disponible la copia local de seguridad.
