@@ -29,3 +29,7 @@ Tarjetas de día separadas y columnas adaptadas al ancho disponible. Etiquetas d
 
 ### V0.2.3
 El color principal genera una paleta común para fondos, bordes, navegación, selectores y botones en modo día y noche. Se mantienen las etiquetas de comidas y los colores informativos.
+
+
+### V0.2.4
+Comedor con guardado inmediato en perfiles existentes, acceso a registro manual desde cada día y exclusión prioritaria sobre platos fijados. Engranaje simétrico nuevo. Revisión de presencia de grupos por ingredientes, con avisos de ausencias y revisión incompleta; no valida nutrientes, raciones ni equilibrio nutricional.
