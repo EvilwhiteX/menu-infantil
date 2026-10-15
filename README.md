@@ -8,7 +8,7 @@ Los perfiles y los menús se guardan en el navegador (localStorage), sin sincron
 
 ## Uso
 
-Abre la aplicación en GitHub Pages o sirve `index.html` desde un servidor estático. No requiere instalación, dependencias ni claves.
+Abre la aplicación en GitHub Pages o sirve la carpeta completa desde un servidor estático. No requiere instalación ni claves. El generador PDF y la fuente se incluyen en la carpeta; sus licencias están en `THIRD-PARTY-LICENSES.txt`.
 
 ## Versión recuperada
 
@@ -48,3 +48,9 @@ Comedor con guardado inmediato en perfiles existentes, acceso a registro manual 
 En Ajustes, **Exportar copia** descarga un archivo JSON con perfiles, semanas, platos propios, registros escolares, marcas de compra y apariencia. **Restaurar copia** permite elegir ese archivo en el mismo dispositivo o en otro. Se valida el formato, las referencias y los campos antes de mostrar un resumen y pedir confirmación para sustituir los datos actuales. No mezcla datos. La escritura se completa antes de cambiar el estado de la app; si falla, conserva los datos anteriores.
 
 Los archivos se procesan localmente, sin subirse a GitHub ni a un servidor. El archivo contiene los datos de los perfiles: debe guardarse en un lugar privado. Formato de copia 1, límite de 10 MB. No convierte el prototipo en un generador pediátrico validado.
+
+### V0.3.1 · Compartir el menú en PDF
+
+En **Mi semana → Compartir PDF**, la app prepara el menú de la semana y abre el selector nativo del dispositivo cuando el navegador admite compartir archivos. Las aplicaciones disponibles dependen del dispositivo. Si no se admite esta función o el navegador la bloquea, ofrece **Descargar PDF** para guardarlo o adjuntarlo manualmente. Cancelar el selector no descarga ni envía nada.
+
+El PDF incluye el nombre del perfil, la semana, las tomas visibles y las anotaciones del colegio. No incluye edad, peso, estatura, restricciones ni una copia completa de los datos. Se genera localmente, con texto seleccionable y continuación en varias páginas para anotaciones largas. Solo se comparte cuando el usuario selecciona un destino y confirma en el sistema.
