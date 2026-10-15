@@ -1,4 +1,4 @@
-# Menú Infantil V0.2
+# Menú Infantil V0.4.0
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -62,3 +62,11 @@ El PDF incluye el nombre del perfil, la semana, las tomas visibles y las anotaci
 - Todos los perfiles, incluido el de demostración, se pueden eliminar desde **Perfiles → Editar → Eliminar**. Una confirmación dentro de la app identifica el perfil; siempre queda uno. Si falla el guardado, se conservan los datos.
 - Bajo el gráfico aparecen barras con el porcentaje de platos de cada categoría. Los ceros se muestran en rojo y se identifica el caso sin platos. Los porcentajes redondeados pueden no sumar exactamente 100; no describen nutrientes ni raciones.
 - Google Drive no se ha integrado ni activado: sigue disponible la copia local de seguridad.
+
+### V0.4.0 · Recetario familiar y reglas locales
+
+40 fichas con ingredientes, pasos, alérgenos identificados y adaptación de textura. Cuatro preparaciones se reservan para elección manual. Las recetas son propuestas basadas en nombres de platos familiares, no recetas exactas confirmadas. No se publican las fotografías.
+
+**Generar → Generar semana familiar** utiliza reglas de variedad para perfiles de 24–35 meses sin alergias ni alimentos excluidos. Conserva platos fijados, comidas externas, tomas ocultas y diario escolar; no genera la comida de los días de comedor. Mantiene los menús históricos y las copias previas. No usa servicios de IA ni envía perfiles fuera del navegador.
+
+La app ofrece un recetario consultable y una revisión limitada de ingredientes con advertencias específicas. No calcula raciones ni nutrientes y no certifica adecuación pediátrica. El reparto semanal es una plantilla editorial, no una pauta oficial. Detalles, fuentes y limitaciones en [CRITERIOS.md](CRITERIOS.md).
