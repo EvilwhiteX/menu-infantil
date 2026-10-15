@@ -33,3 +33,12 @@ El color principal genera una paleta común para fondos, bordes, navegación, se
 
 ### V0.2.4
 Comedor con guardado inmediato en perfiles existentes, acceso a registro manual desde cada día y exclusión prioritaria sobre platos fijados. Engranaje simétrico nuevo. Revisión de presencia de grupos por ingredientes, con avisos de ausencias y revisión incompleta; no valida nutrientes, raciones ni equilibrio nutricional.
+
+### V0.2.5 · Revisión de código
+
+- Eliminar identifica el perfil mostrado y conserva el perfil activo cuando se borra otro. Limpia sus menús, diario y marcas de compra.
+- Restablecer recupera todas las tomas originales, aunque se hubieran ocultado previamente.
+- Las semanas nuevas de perfiles con restricciones o alimentos excluidos empiezan en blanco; tampoco se ofrecen sustituciones automáticas en esos perfiles.
+- Los fallos de almacenamiento muestran un error sin confirmaciones falsas de guardado.
+- Recuperación de referencias, fechas, contenedores y semanas incompletas de datos locales antiguos, conservando los datos válidos.
+- Sin cambios de diseño ni incorporación de servicios externos.
