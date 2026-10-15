@@ -25,3 +25,7 @@ Basada en el archivo V0.2 de previsualización. Se corrigieron dos cadenas con s
 ## Actualización V0.2.2
 
 Tarjetas de día separadas y columnas adaptadas al ancho disponible. Etiquetas de tomas con colores suaves y menos texto repetido. Logo vectorial de mandarina con hoja verde y nombre Menú Infantil. Conserva ajustes y registros locales.
+
+
+### V0.2.3
+El color principal genera una paleta común para fondos, bordes, navegación, selectores y botones en modo día y noche. Se mantienen las etiquetas de comidas y los colores informativos.
