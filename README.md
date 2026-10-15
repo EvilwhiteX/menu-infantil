@@ -1,4 +1,4 @@
-# Menú Infantil V0.4.0
+# Menú Infantil V0.5.0
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -70,3 +70,14 @@ El PDF incluye el nombre del perfil, la semana, las tomas visibles y las anotaci
 **Generar → Generar semana familiar** utiliza reglas de variedad para perfiles de 24–35 meses sin alergias ni alimentos excluidos. Conserva platos fijados, comidas externas, tomas ocultas y diario escolar; no genera la comida de los días de comedor. Mantiene los menús históricos y las copias previas. No usa servicios de IA ni envía perfiles fuera del navegador.
 
 La app ofrece un recetario consultable y una revisión limitada de ingredientes con advertencias específicas. No calcula raciones ni nutrientes y no certifica adecuación pediátrica. El reparto semanal es una plantilla editorial, no una pauta oficial. Detalles, fuentes y limitaciones en [CRITERIOS.md](CRITERIOS.md).
+
+
+### V0.5.0 · De 1 a 16 años
+
+El generador y las sustituciones admiten edades de 12 a 203 meses (hasta 16 años y 11 meses). Hay 40 platos con seis adaptaciones de presentación: 12–23 meses, 24–35 meses, 3–6, 7–12, 13–15 y 16 años. No son 240 recetas diferentes. Las franjas organizan la interfaz; las reglas de seguridad usan meses exactos.
+
+Las fichas incluyen composición culinaria, estado de los ingredientes antes de utilizarlos, alérgenos identificados, preparación y enlaces oficiales. Se utiliza arroz blanco antes de 3 años e integral después; las texturas se adaptan a capacidades individuales. Los avisos de pescado distinguen menores de 10 años y 10–14 años; se añade precaución sobre bebidas energéticas.
+
+Cada adaptación tiene un identificador estable. Los menús históricos conservan sus ingredientes al cambiar la edad del perfil; las fichas anteriores o de otra etapa se señalan para revisión. Se conserva el colegio separado y el bloqueo automático ante restricciones.
+
+**Alcance pendiente:** no se han creado composiciones nutricionales cuantificadas ni raciones pediátricas. Los campos de cantidad y nutrientes siguen sin valor validado, en lugar de rellenarlos con estimaciones. La revisión profesional de recetas y reglas numéricas prevista en la especificación inicial sigue pendiente. No se certifica adecuación nutricional por ampliar la edad.

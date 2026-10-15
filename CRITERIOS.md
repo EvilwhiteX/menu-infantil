@@ -1,6 +1,6 @@
-# Recetario y planificación familiar · V0.4.0
+# Recetario y planificación familiar · V0.5.0
 
-Referencia de desarrollo: 24–35 meses. Consultado el 15 de octubre de 2026.
+Edades de planificación: 12–203 meses (1–16 años inclusive). Consultado el 15 de octubre de 2026.
 
 ## Qué aporta esta versión
 
@@ -34,3 +34,25 @@ Con alergias o exclusiones declaradas no se genera ni se sustituye automáticame
 - [AEP: prevención de atragantamientos](https://www.aeped.es/actualidad/atragantamientos-navidad). Precaución con frutos secos enteros, uvas y otros alimentos de riesgo.
 
 Las fuentes respaldan las orientaciones indicadas; no han revisado, aprobado ni certificado esta app o sus recetas. Esta versión no es un generador pediátrico validado.
+
+
+## Ampliación V0.5.0: edades y trazabilidad
+
+`edades.js` registra las fuentes, versión o fecha, localización, población en meses, tipo de regla, unidad cuando procede y estado de revisión. Las fuentes se han contrastado para las orientaciones indicadas; no existe validación clínica profesional de la implementación.
+
+Se conservan 40 recetas de base históricas y se crean seis adaptaciones estables por receta. La selección del generador y del editor utiliza únicamente el catálogo de la etapa del perfil. La edad exacta, la etapa y la versión de reglas se guardan con las semanas nuevas y se conservan en las copias. Al cambiar de edad, un menú ya guardado no cambia de ingredientes ni de preparación; si procede se advierte que pertenece a otra etapa.
+
+Para 12–35 meses se conserva arroz blanco; a partir de 36 meses se propone integral. Las fichas infantiles añaden preparación blanda y adaptación de alimentos redondos. La edad no sustituye la valoración de la capacidad de masticación. En etapas posteriores se priorizan presentación familiar, participación y respeto del apetito.
+
+Fuentes añadidas:
+
+- [ASPCAT: guía escolar 2020](https://salutpublica.gencat.cat/web/.content/minisite/aspcat/promocio_salut/alimentacio_saludable/02Publicacions/pub_alim_inf/guia_alimentacio_saludable_etapa_escolar/guia_alimentacio_etapa_escolar_plecs.pdf), apartados 2.4 y 4. Variedad familiar, participación y acompañamiento respetuoso; no se extrapolan las frecuencias del comedor escolar a todas las tomas del hogar.
+- [AESAN: recomendaciones sobre bebidas energéticas](https://www.aesan.gob.es/en/actualidad/actualidad-noticias/recomendaciones_bebidas_energeticas). Aviso para niños y adolescentes; no se genera ninguna receta con estas bebidas.
+
+Las especies de alto mercurio se excluyen del catálogo automático para todas las etapas. En platos personalizados se advierte de evitarlas antes de 10 años; entre 10 y 14 años se informa del límite de 120 g/mes, sin afirmar que se controla ese consumo mensual. La app no conoce todo lo consumido fuera de ella.
+
+### Composición culinaria frente a composición nutricional
+
+Los ingredientes y sus pasos son propuestas culinarias de la app, no recetas publicadas o aprobadas por esas instituciones. Se registra su estado de preparación; no se realizan conversiones de crudo a cocido ni se suman cantidades incompatibles. No se ha incorporado una base de nutrientes ni se han inventado gramajes por edad. La especificación inicial exige revisar profesionalmente las tablas numéricas antes de incorporarlas; esa revisión y las raciones verificadas siguen pendientes. Tampoco se afirma que todas las subcomposiciones comerciales o trazas estén identificadas.
+
+Las franjas de presentación no son baremos de necesidades nutricionales. El reparto semanal sigue siendo editorial y no cambia artificialmente sus cantidades según la edad. Los porcentajes del gráfico siguen representando platos por categoría.
