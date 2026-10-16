@@ -82,12 +82,13 @@ function optimiseDay(recipes,editable,t,fraction){
  return best;
 }
 function generateQuantifiedWeek(old,seed,t){
+ const previousSchoolContext=SCHOOL_PLANNING_CONTEXT;SCHOOL_PLANNING_CONTEXT=schoolComplement()?DAYS.map((_,d)=>schoolMeal(d,'lunch')?schoolRecord(d,'lunch'):{text:'',groups:[]}):null;try{
  let best=null,bestScore=Infinity;const active=activeMeals(),budgetSum=active.reduce((s,[slot])=>s+SLOT_BUDGET[slot],0);
  // Different recipe candidates retain existing family quotas; optimisation never edits fixed meals.
  for(let attempt=0;attempt<8;attempt++){
   const fresh=buildFamilyWeek(old,seed+attempt),recipes={},all=[];let score=0,coveredFraction=0;
   for(let day=0;day<7;day++){const list=[],editable=[];let fraction=0;
-   for(const [slot] of active){if(schoolMeal(day,slot))continue;const m=fresh.days[day][slot];if(m.external)continue;const r=recipeById(m.recipeId);
+   for(const [slot] of active){if(schoolMeal(day,slot)){const school=schoolRecord(day,slot);if(schoolComplement()&&school.complete){list.push({ingredients:schoolIngredients(school)});fraction+=SLOT_BUDGET[slot]/budgetSum;}continue;}const m=fresh.days[day][slot];if(m.external)continue;const r=recipeById(m.recipeId);
     if(!r){score+=100;continue;}if(m.locked&&!nutritionVector(r).complete){score+=100;continue;}fraction+=SLOT_BUDGET[slot]/budgetSum;if(m.locked){list.push(r);continue;}
     const fruit=['Pera madura','Mandarina','Plátano maduro'][(day+attempt+(slot==='dinner'?1:0))%3],q=quantifiedProposal(r,slot,t,SLOT_BUDGET[slot]/budgetSum,fruit);recipes[day+'|'+slot]=q;list.push(q);editable.push(q);
    }
@@ -98,12 +99,13 @@ function generateQuantifiedWeek(old,seed,t){
   if(score<bestScore){bestScore=score;best={fresh,recipes};}
  }
  if(!best)throw Error('No se pudo preparar una propuesta cuantificada.');return best;
+ }finally{SCHOOL_PLANNING_CONTEXT=previousSchoolContext;}
 }
 function commitQuantifiedWeek(){
  try{const blocked=familyBlock();if(blocked)throw Error(blocked);const t=nutritionTargets();if(t.guard)throw Error('Revisa edad y peso con un profesional antes de generar.');
   const old=menu(),proposal=generateQuantifiedWeek(old,(old.seed||0)+1,t),custom={...state.customRecipes};
   for(const [key,r] of Object.entries(proposal.recipes)){const [day,slot]=key.split('|'),rid=id();custom[rid]={...r,id:rid};proposal.fresh.days[+day][slot].recipeId=rid;}
-  proposal.fresh.ruleVersion='quantified-'+BALANCE_VERSION;
+  proposal.fresh.ruleVersion='quantified-'+BALANCE_VERSION;if(schoolComplement())proposal.fresh.schoolBasis=schoolWeekSignature();
   const next={...state,customRecipes:custom,menus:{...state.menus,[mealKey()]:proposal.fresh},view:'week',modal:null};
   const {modal,...stored}=next;localStorage.setItem(STORAGE_KEY,JSON.stringify(stored));state=next;varietyChange=null;render();notify('Propuesta con cantidades guardada. Consulta la revisión nutricional y los objetivos pendientes.');return true;
  }catch(error){notify(error.message+' Se conserva el menú anterior.');return false;}
@@ -111,7 +113,7 @@ function commitQuantifiedWeek(){
 function dayNutritionReview(day){
  const list=[],pending=[];let school=false;
  for(const [slot] of activeMeals()){
-  if(schoolMeal(day,slot)){school=true;const record=state.schoolNutrition?.[schoolKey(day,slot)];if(record?.length)list.push({ingredients:record.map(e=>({...e,qty:e.grams,unit:'g'}))});else pending.push(slotLabel(slot)+' del colegio sin cantidades y referencias');continue;}
+  if(schoolMeal(day,slot)){school=true;const record=schoolRecord(day,slot);if(record.entries.length)list.push({ingredients:schoolIngredients(record)});if(!record.complete)pending.push(slotLabel(slot)+' del colegio sin composición completa revisada');continue;}
   const {m,recipe:r}=mealData(day,slot);if(m.external){pending.push(slotLabel(slot)+' fuera de casa');continue;}if(!r){pending.push(slotLabel(slot)+' sin plato');continue;}
   const vector=nutritionVector(r);list.push(r);if(!vector.complete)pending.push(slotLabel(slot)+' con datos incompletos');
  }

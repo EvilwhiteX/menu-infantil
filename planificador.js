@@ -18,6 +18,7 @@ function buildFamilyWeek(old,seed){
   if(!active.has(slot)||prev.locked||prev.external){days[day][slot]={...prev};if(active.has(slot)&&!prev.external&&['lunch','dinner'].includes(slot)){const r=recipeById(prev.recipeId);if(r){used[r.id]=(used[r.id]||0)+1;if(r.family){proteinCounts[r.protein]=(proteinCounts[r.protein]||0)+1;dayProteins[day].add(r.protein);}}}continue;}
   if(['lunch','dinner'].includes(slot))editableMain++;
  }
+ if(schoolComplement())for(let day=0;day<7;day++){const groups=schoolPlanningGroups(day).filter(g=>g!=='carne_procesada');if(groups.length)for(const group of groups){proteinCounts[group]=(proteinCounts[group]||0)+1/groups.length;dayProteins[day].add(group);}}
  const weights={legumbres:4,pescado:3,huevo:2,ave:2,carne_roja:1,vegetal:2};
  // Reparto editorial proporcional a las tomas de casa; nunca compensa el comedor.
  const fixed=Object.values(proteinCounts).reduce((a,b)=>a+b,0),total=editableMain+fixed,quotas=Object.fromEntries(Object.entries(weights).map(([key,w])=>[key,Math.floor(total*w/14)]));
@@ -30,7 +31,7 @@ function buildFamilyWeek(old,seed){
   const score=r=>{const repeats=(used[r.id]||0)*12,other=Object.values(days[day]).some(m=>m.recipeId===r.id)?100:0;
    if(!main)return repeats+other+rank(r)+(day+seed)%3*.01;
    const deficit=(quotas[r.protein]||0)-(proteinCounts[r.protein]||0);
-   return (deficit>0?-100-deficit*4:100+(proteinCounts[r.protein]||0)*10)+(dayProteins[day].has(r.protein)?40:0)+repeats+other+rank(r);
+   return schoolAvoidanceScore(r,day)+(deficit>0?-100-deficit*4:100+(proteinCounts[r.protein]||0)*10)+(dayProteins[day].has(r.protein)?40:0)+repeats+other+rank(r);
   };
   options.sort((a,b)=>score(a)-score(b));const chosen=options[0];if(!chosen)continue;days[day][slot]={recipeId:chosen.id,locked:false,external:false};used[chosen.id]=(used[chosen.id]||0)+1;
   if(main){proteinCounts[chosen.protein]=(proteinCounts[chosen.protein]||0)+1;dayProteins[day].add(chosen.protein);}

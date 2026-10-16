@@ -1,0 +1,16 @@
+.school-config{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+.school-wide{max-width:1050px;width:calc(100vw - 32px)}
+.school-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px;margin:20px 0}
+.school-weekday{text-align:center;color:var(--readable);font-size:.85rem}
+.school-date{min-width:0;display:flex;flex-direction:column;gap:7px;align-items:flex-start;text-align:left;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);min-height:128px;overflow-wrap:anywhere}
+.school-date span{font-size:.8rem;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.school-date small{font-size:.7rem;color:var(--readable);margin-top:auto}
+.school-date.school-loaded{background:var(--paper2);border-color:var(--accent-edge)}
+.school-library-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.school-library-row small,.school-component-note{display:block;color:var(--readable);font-size:.85rem;margin-top:5px}
+.school-preview-row,.school-component{border:1px solid var(--line);border-radius:13px;padding:16px;margin:15px 0;min-width:0;overflow-wrap:anywhere}
+.school-complete{display:flex;align-items:flex-start;gap:9px;font-size:.9rem;line-height:1.5;margin:12px 0}
+.school-config small{display:block}.school-component .field select{max-width:100%}
+.school-panel .school-list{margin-top:16px}.school-preview-row p{margin:10px 0}
+.school-preview-row>.feature-row{justify-content:flex-start;align-items:flex-start}.school-preview-row>.feature-row>span{flex:1}
+@media(max-width:700px){.school-calendar{grid-template-columns:1fr}.school-weekday,.school-spacer{display:none}.school-date{min-height:0;padding:13px}.school-date span{-webkit-line-clamp:unset}.school-wide{width:calc(100vw - 18px)}.school-library-row{align-items:flex-start;flex-wrap:wrap}.school-preview-row,.school-component{padding:12px}.school-wide .toolbar .btn{flex:1 1 160px}}

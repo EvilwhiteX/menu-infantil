@@ -264,3 +264,12 @@ Incluye verduras y legumbres con alcachofas, espárragos, coles, champiñones y 
 Diez preparaciones son de elección manual: atún, pizza con masa, loncheados, piquitos y repostería casera. Es una decisión editorial del generador, no una prohibición sanitaria por edad. Los loncheados usan productos concretos con 99% de carne; eso no elimina su sal ni los equipara a carne fresca. Piquitos: revisar dureza y habilidades de masticación; para los pequeños, pan blando y actualización de la referencia. Atún: referencia específica Thunnus albacares; comprobar la especie, alternar pescados y conservar las recomendaciones AESAN sobre mercurio.
 
 Los 180 campos principales nuevos (149 publicados y 31 estimados) tienen valor publicado o estimado, con procedencia por campo. Los 870 campos adicionales preservan los calificadores CIQUAL: datos desconocidos no equivalen a cero. Las etiquetas comerciales solo aportan lo que publican; sus micronutrientes no declarados se aproximan con alimentos comparables, identificados con ≈. No se certifica cobertura de todas las necesidades ni se sustituye la revisión profesional.
+
+
+## V0.17.0 · Menú del colegio mensual
+
+Calendario privado por perfil y fecha, importación revisada JSON/CSV/Excel pegado, biblioteca de correspondencias y repetición de una semana. Solo registrar conserva la generación anterior. Complementar en casa incluye los grupos escolares conocidos y, opcionalmente, cantidades orientativas revisadas como parte fija del día. Los nombres ambiguos siguen pendientes; no se inventan especies, datos ausentes o cantidades medidas. Nueve comparables sencillos evitan añadir guarniciones de una receta familiar a un componente escolar; no cambian las 120 preparaciones del recetario.
+
+Generación semanal, completar huecos y preparación del mes con guardado único: conserva comidas fijadas/externas y fechas fuera del mes. Menú previsto y registro de lo servido separados; cada toma se suma una sola vez y nunca entra en la compra. Copias anteriores compatibles y nueva biblioteca incluida en copias/exportaciones. Las fotos se convierten en archivo desde el chat; no hay OCR directo ni publicación mensual de datos.
+
+Instrucciones, formato de archivos, supuestos y límites en [MENU_COLEGIO.md](MENU_COLEGIO.md).
