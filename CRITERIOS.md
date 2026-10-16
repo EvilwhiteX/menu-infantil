@@ -120,3 +120,14 @@ Fuentes verificadas:
 - https://fdc.nal.usda.gov/download-datasets/ (SR Legacy abril 2018, dominio público/CC0)
 
 Reproducción local: completar-catalogo-v090.py, archivo USDA SHA256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0. Auditoría completa investigacion-nutricion/auditoria-referencias-v090.json. Solo JS y documentación propios se publican, no fotos, archivos de usuario ni descargas de investigación.
+
+
+## V0.10.0 — peso final medido
+
+Se añade un peso neto final opcional al lote, introducido por el usuario tras cocinar o preparar y sin el recipiente. Rango 1–100.000 g. No se precarga un rendimiento ficticio. Se muestra peso final por parte y estimación por 100 g finales: nutrientes sumados de ingredientes × 100 / peso final medido. El cálculo mantiene límites, ausencias y señales de estimación.
+
+Es una conversión de base de peso, sin factores de retención: no modela pérdidas de nutrientes ni lo realmente consumido. Solo resulta aplicable si se conserva toda la preparación; desechar caldo, grasa o componentes exige revisar la composición. El reparto supone mezcla homogénea y no equivale a una ración por edad. El texto lo explica junto al resultado. No se declara cerrada la retención ni la validación pediátrica.
+
+Al guardar en biblioteca o toma se conserva cookedBatchGrams junto al reparto elegido. Copias JSON validan y restauran ese dato opcional; copias antiguas sin él siguen siendo válidas. La compra mantiene gramos de ingredientes en sus estados originales, no gramos cocinados. Reutilizar conserva el peso medido. Editar ingredientes crea una receta nueva sin trasladar el peso final antiguo.
+
+Fuente metodológica: FAO/INFOODS, Recipes, https://www.fao.org/infoods/infoods/recipes/en/ y Food Composition Data, capítulo sobre cálculo de recetas, https://www.fao.org/4/y4705e/y4705e23.htm (consulta 16/10/2026): rendimiento y retención son cuestiones distintas. Se implementa medición de peso final y normalización; no factores de retención sin correspondencia con ingrediente y cocción.
