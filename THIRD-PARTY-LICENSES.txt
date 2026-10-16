@@ -152,3 +152,10 @@ https://fdc.nal.usda.gov/download-datasets/
 https://fdc.nal.usda.gov/api-guide/
 Retail product numeric facts: Condis and Mantequerias Arias, accessed 2026-10-16.
 No commercial photographs, logos, full descriptions or private records bundled.
+
+V0.11.0: USDA Nutrient Retention Factors, Release 6 (2007), public domain.
+36 preparation categories and 144 numeric factors selected, original codes,
+English descriptions and dates retained; Spanish display translations added.
+https://www.ars.usda.gov/ARSUserFiles/80400535/Data/retn/retn06.pdf
+https://www.ars.usda.gov/ARSUserFiles/80400535/Data/retn/retn06.txt
+Salt-equivalent derivation is an app calculation, not an original USDA factor.

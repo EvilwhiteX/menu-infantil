@@ -1,4 +1,4 @@
-# Menú Infantil V0.10.0
+# Menú Infantil V0.11.0
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -156,3 +156,16 @@ Es una conversión de base de peso, sin factores de retención: no modela pérdi
 Al guardar en biblioteca o toma se conserva cookedBatchGrams junto al reparto elegido. Copias JSON validan y restauran ese dato opcional; copias antiguas sin él siguen siendo válidas. La compra mantiene gramos de ingredientes en sus estados originales, no gramos cocinados. Reutilizar conserva el peso medido. Editar ingredientes crea una receta nueva sin trasladar el peso final antiguo.
 
 Fuente metodológica: FAO/INFOODS, Recipes, https://www.fao.org/infoods/infoods/recipes/en/ y Food Composition Data, capítulo sobre cálculo de recetas, https://www.fao.org/4/y4705e/y4705e23.htm (consulta 16/10/2026): rendimiento y retención son cuestiones distintas. Se implementa medición de peso final y normalización; no factores de retención sin correspondencia con ingrediente y cocción.
+
+
+## V0.11.0 — retención parcial por ingrediente
+
+Se incorporan 36 métodos y 144 factores originales de USDA Table of Nutrient Retention Factors, Release 6 (2007), cuatro factores por método: calcio, hierro, sodio y B12. Sal equivalente usa el factor de sodio como derivación de la app; no se atribuye un factor de sal original a USDA. Energía, proteínas, hidratos, grasas, azúcares, fibra y vitamina D permanecen sin ajuste, expresamente indicado en los resultados. No hay valores inventados para los componentes sin factor ni validación pediátrica.
+
+La tabla oficial no ofrece factores de vitamina D ni de macronutrientes. Aplicar el mismo porcentaje a todos los nutrientes sería incorrecto. Se elige el método de cada ingrediente de forma opcional y explícita; el valor predeterminado es «Sin ajuste de cocción». No se deduce la cocción por nombre de receta, edad o tiempo genérico. Las referencias ya cocidas y etiquetas propias no admiten factores de crudo. Solo se ofrecen correspondencias incorporadas y comprobables por alimento/estado: huevo, pollo, pescado según grupo de grasa, cerdo, vacuno picado, patata, tomate, verduras, zanahoria, harina, pasta de trigo, arroz y leche. No se aplica el método de pasta de trigo a la pasta de lentejas ni se asume otro tratamiento de legumbres ya cocidas.
+
+Fórmula por componente: sumar gramos de cada ingrediente /100 × componente de referencia × factor específico cuando se ha elegido un método compatible. Se conservan intervalos y ausencias. Por 100 g finales, dividir esa suma por el peso final medido y multiplicar por 100. No se aplica un rendimiento ficticio ni se multiplica dos veces por cocción. Cada resultado con ajuste conserva marca de estimación; componentes no cubiertos se identifican. Desechar grasa, caldo o alimentos sigue dejando incompleto el modelo energético/macronutricional: no se presenta como una corrección completa de la receta.
+
+El método se conserva por ingrediente al guardar preparaciones/tomas, reutilizar y hacer/restaurar copias. Cambiar la referencia en un formulario restablece su método a «Sin ajuste» y exige revisión. Las copias rechazan métodos desconocidos, de otro alimento, asociados a etiqueta o a una referencia cocida. Los menús históricos sin método conservan sus cálculos. La compra mantiene los gramos de ingredientes originales.
+
+Fuentes: https://www.ars.usda.gov/ARSUserFiles/80400535/Data/retn/retn06.pdf (diciembre 2007, introducción/metodología y tabla), datos originales https://www.ars.usda.gov/ARSUserFiles/80400535/Data/retn/retn06.txt, y https://www.fao.org/4/y4705e/y4705e23.htm. Consulta 16/10/2026. Fuente USDA de dominio público. No se publica el PDF íntegro. Factores reproducibles con preparar-retencion-v0110.py; SHA256 del original 5b71867f6649e801db3bf88c6cd1887b0673e853d4ba94aa0af2b3c091e983f9. Nombres españoles son traducciones editoriales, con denominación inglesa/código original y fechas por factor preservados.
