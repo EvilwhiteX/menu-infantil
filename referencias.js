@@ -10,7 +10,7 @@ nutritionCandidates=function(name){
   'crema 100% cacahuete sin trozos':'ref-cacahuete','lomo de cerdo fresco':'ref-lomo',
   'fruta madura de temporada':'ref-13397'
  };
- if(special[key])return [COMPLETED_BY_ID[special[key]]];
+ if(Object.hasOwn(special,key))return [COMPLETED_BY_ID[special[key]]];
  return ORIGINAL_NUTRITION_CANDIDATES(name).map(f=>COMPLETED_BY_ID['ref-'+f.id]);
 };
 function defaultCompositionReference(i){return nutritionCandidates(i.name)[0]||null;}

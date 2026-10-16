@@ -58,3 +58,10 @@ Tablas contrastadas visualmente en los PDF oficiales. Pruebas de fórmulas indep
 - Conserva menús históricos, fuentes originales, etiquetas, preparaciones y apariencia. Copias incluyen existencias y tamaños elegidos, validados estrictamente. Solo código y documentación se publican; no perfiles, fotos ni copias privadas.
 
 Pruebas: 192 edades mensuales y tres escenarios de sexo; 38 generaciones en límites de edad con/sin colegio; 480 lotes y correspondencias; 240 valores principales nuevos y 4524 celdas adicionales cotejados con el original; suma diaria/semanal y parcialidad; compra, existencias, marcas antiguas, copias y fallos atómicos; conservación de platos y límites; fuentes/retención, etiquetas y PDF. Navegador local con datos ficticios: Hoy, generar, Día/Semana, compra de patatas, descontar 100 g, búsqueda de pavo y celda escolar visible. PDF real de menú/compra generado, extraído y renderizado. Sin validación clínica ni garantía de dieta completa.
+
+
+## V0.14.1 · Fracción conocida y datos inválidos
+
+La optimización diaria y la puntuación semanal utilizan la misma suma de fracciones de tomas conocidas en casa. Las comidas externas y los platos fijados sin composición completa se conservan, pero no se incluyen como cero ni se intenta compensar su presupuesto con las demás tomas. Su información sigue pendiente en la revisión y el gráfico. La comida escolar continúa como registro manual, independiente de la compra y de la optimización.
+
+Los campos adicionales rechazan cantidades no positivas o fuera de rango. Los ceros publicados, las trazas, los límites y los datos ausentes siguen diferenciados. No se cambian tablas científicas, objetivos institucionales ni factores de cocción en esta revisión. Los menús antiguos mantienen sus cantidades y procedencia; solo las nuevas propuestas usan el modelo 0.14.1.

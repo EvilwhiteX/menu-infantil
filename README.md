@@ -1,10 +1,10 @@
-# Menú Infantil V0.14.0
+# Menú Infantil V0.14.1
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
-Incluye platos ilustrativos, edición manual de tomas, bloqueo de platos, comidas externas, lista de compra y gráfico descriptivo de grupos. La generación propone gramos editables y revisa 12 componentes con referencias por edad y escenarios de peso, sexo y actividad. Puede dejar objetivos pendientes; no garantiza suficiencia individual. La generación de ejemplos se bloquea si el perfil declara restricciones.
+Incluye platos ilustrativos, edición manual de tomas, bloqueo de platos, comidas externas, lista de compra y gráfico de aportes diarios y semanales. La generación propone gramos editables y revisa 12 componentes con referencias por edad y escenarios de peso, sexo y actividad. Puede dejar objetivos pendientes; no garantiza suficiencia individual. La generación de ejemplos se bloquea si el perfil declara restricciones.
 
-Los perfiles y los menús se guardan en el navegador (localStorage), sin sincronización ni envío a un servidor. El repositorio solo contiene código y un perfil ficticio. Evita introducir datos clínicos sensibles. El gráfico no evalúa el equilibrio nutricional.
+Los perfiles y los menús se guardan en el navegador (localStorage), sin sincronización ni envío a un servidor. El repositorio solo contiene código y un perfil ficticio. Evita introducir datos clínicos sensibles. El gráfico muestra estimaciones de cantidades planificadas; no certifica una dieta completa.
 
 ## Uso
 
@@ -208,3 +208,16 @@ Ver [modelo, referencias, supuestos y límites](MODELO_NUTRICIONAL.md). Cantidad
 - Conserva menús históricos, fuentes originales, etiquetas, preparaciones y apariencia. Copias incluyen existencias y tamaños elegidos, validados estrictamente. Solo código y documentación se publican; no perfiles, fotos ni copias privadas.
 
 Pruebas: 192 edades mensuales y tres escenarios de sexo; 38 generaciones en límites de edad con/sin colegio; 480 lotes y correspondencias; 240 valores principales nuevos y 4524 celdas adicionales cotejados con el original; suma diaria/semanal y parcialidad; compra, existencias, marcas antiguas, copias y fallos atómicos; conservación de platos y límites; fuentes/retención, etiquetas y PDF. Navegador local con datos ficticios: Hoy, generar, Día/Semana, compra de patatas, descontar 100 g, búsqueda de pavo y celda escolar visible. PDF real de menú/compra generado, extraído y renderizado. Sin validación clínica ni garantía de dieta completa.
+
+
+## V0.14.1 · Revisión y correcciones
+
+- Se corrige la marca de compra cuando dos productos distintos tienen el mismo nombre. Los tamaños guardados se validan antes de mostrarlos; no se interpretan como HTML.
+- Las piezas aproximadas solo se proponen para alimentos identificables, sin confundir «crema de patata» o «preparado» con piezas de patata o pera.
+- Los guardados de perfiles, platos manuales, cambios de colegio, fijación/comidas externas, semana en blanco, desmarcado y restablecimiento conservan los datos anteriores si falla la escritura del navegador.
+- Los formularios comprueban límites compatibles con las copias. La edición manual rechaza una toma que ya no corresponde a la semana abierta. Se reparan ajustes locales inválidos sin permitir cero tomas activas.
+- Los componentes adicionales no aceptan gramos negativos, cero o fuera de rango. Los nombres de ingredientes no acceden a propiedades heredadas de los diccionarios de referencias.
+- La puntuación del generador excluye comidas externas y platos fijados sin composición completa, tanto en el día como en la semana. Se conservan esos platos; el total sigue pendiente y no se intenta compensar lo desconocido.
+- El PDF de compra conserva las marcas antiguas de comprado. La impresión muestra la versión actual.
+
+Se conserva el almacenamiento local y el diseño. Las cantidades de menús anteriores no se recalculan al abrir la app. Ver [AUDITORIA_V0.14.1.md](AUDITORIA_V0.14.1.md) para alcance, pruebas y límites de esta revisión.

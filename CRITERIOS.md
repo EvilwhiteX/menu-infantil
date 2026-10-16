@@ -187,3 +187,8 @@ Ver [modelo, referencias, supuestos y límites](MODELO_NUTRICIONAL.md). Cantidad
 - Conserva menús históricos, fuentes originales, etiquetas, preparaciones y apariencia. Copias incluyen existencias y tamaños elegidos, validados estrictamente. Solo código y documentación se publican; no perfiles, fotos ni copias privadas.
 
 Pruebas: 192 edades mensuales y tres escenarios de sexo; 38 generaciones en límites de edad con/sin colegio; 480 lotes y correspondencias; 240 valores principales nuevos y 4524 celdas adicionales cotejados con el original; suma diaria/semanal y parcialidad; compra, existencias, marcas antiguas, copias y fallos atómicos; conservación de platos y límites; fuentes/retención, etiquetas y PDF. Navegador local con datos ficticios: Hoy, generar, Día/Semana, compra de patatas, descontar 100 g, búsqueda de pavo y celda escolar visible. PDF real de menú/compra generado, extraído y renderizado. Sin validación clínica ni garantía de dieta completa.
+
+
+## V0.14.1 · Correcciones de revisión
+
+Se mantienen las orientaciones y el diseño aprobados. Se corrigen la identidad de compra, los tamaños y piezas estimadas, la persistencia atómica, los límites de formularios y los ajustes locales. La generación no utiliza como cero una comida externa ni una toma fijada sin composición completa. Detalles y pruebas en [AUDITORIA_V0.14.1.md](AUDITORIA_V0.14.1.md).

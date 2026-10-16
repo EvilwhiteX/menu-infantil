@@ -3,10 +3,11 @@ for(const food of NEW_FOODS_V014){NUTRITION_DATA.foods.push(food);NUTRITION_BY_I
 Object.assign(RECIPE_BATCHES,NEW_BATCHES_V014);
 const CANDIDATES_BEFORE_V014=nutritionCandidates;
 const NEW_FOOD_NAMES=Object.fromEntries(NEW_FOODS_V014.map(f=>[f.label.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase(),f.id]));
-nutritionCandidates=function(name){const key=normalizedFood(name).trim();return NEW_FOOD_NAMES[key]?[NUTRITION_BY_ID[NEW_FOOD_NAMES[key]]]:CANDIDATES_BEFORE_V014(name);};
+nutritionCandidates=function(name){const key=normalizedFood(name).trim();return Object.hasOwn(NEW_FOOD_NAMES,key)?[NUTRITION_BY_ID[NEW_FOOD_NAMES[key]]]:CANDIDATES_BEFORE_V014(name);};
 function extraIngredientComposition(i){
  const result={};const ref=i.foodId&&!i.labelData?EXTRA_COMPOSITION.foods[i.foodId]||EXTRA_COMPOSITION.foods['ref-'+i.foodId]:null;
- for(const field of EXTRA_COMPOSITION.fields){const n=ref?.values[field.key];result[field.key]={value:n?.status==='value'&&Number.isFinite(i.qty)&&i.unit==='g'?n.value*i.qty/100:null,upper:n?.status==='lt'&&Number.isFinite(i.qty)&&i.unit==='g'?n.limit*i.qty/100:null,status:n?.status||'missing',estimated:!!ref?.estimated};}
+ const validWeight=Number.isFinite(i.qty)&&i.qty>0&&i.qty<=100000&&i.unit==='g';
+ for(const field of EXTRA_COMPOSITION.fields){const n=ref?.values[field.key];result[field.key]={value:n?.status==='value'&&validWeight?n.value*i.qty/100:null,upper:n?.status==='lt'&&validWeight?n.limit*i.qty/100:null,status:validWeight?n?.status||'missing':'missing',estimated:!!ref?.estimated};}
  return result;
 }
 function extraCompositionForIngredients(ingredients){

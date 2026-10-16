@@ -13,7 +13,7 @@ const NUTRITION_SUGGESTIONS={
  'pasta integral':['9870','9871'],'macarrones integrales':['9870','9871'],'pasta de sopa':['9810','9811'],
  'harina de trigo integral':['9415'],'leche entera pasteurizada':['19024'],'yogur natural sin azucar':['19593'],'pan integral bajo en sal':['7110']
 };
-function nutritionCandidates(name){return (NUTRITION_SUGGESTIONS[normalizedFood(name).trim()]||[]).map(id=>NUTRITION_BY_ID[id]);}
+function nutritionCandidates(name){return (Object.hasOwn(NUTRITION_SUGGESTIONS,normalizedFood(name).trim())?NUTRITION_SUGGESTIONS[normalizedFood(name).trim()]:[]).map(id=>NUTRITION_BY_ID[id]);}
 function calculateNutrition(entries){
  if(!Array.isArray(entries)||!entries.length||entries.length>45)throw Error('Introduce al menos un ingrediente, hasta un máximo de 45.');
  for(const entry of entries){resolveNutritionFood(entry);if(typeof entry.grams!=='number'||!Number.isFinite(entry.grams)||entry.grams<=0||entry.grams>100000)throw Error('Introduce un peso en gramos positivo y razonable para cada ingrediente.');}
