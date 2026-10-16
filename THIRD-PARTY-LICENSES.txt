@@ -159,3 +159,9 @@ English descriptions and dates retained; Spanish display translations added.
 https://www.ars.usda.gov/ARSUserFiles/80400535/Data/retn/retn06.pdf
 https://www.ars.usda.gov/ARSUserFiles/80400535/Data/retn/retn06.txt
 Salt-equivalent derivation is an app calculation, not an original USDA factor.
+
+V0.12.0: 43 selected numeric facts from Bognar, Antal (2002), BFE-R-02-03.
+DOI 10.5445/IR/9642002. Tables 2, 20 and 22; source pages and columns retained.
+https://publikationen.bibliothek.kit.edu/9642002
+No full book, page images or source PDF redistributed. Display text and
+translations are app-authored. No endorsement or clinical validation claimed.
