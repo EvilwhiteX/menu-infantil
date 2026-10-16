@@ -4,19 +4,20 @@ function plannedSource(r){return r?.planningBasis?recipeById(r.planningBasis.sou
 function ingredientBounds(i,t){
  const n=normalizedFood(i.name),scale=Math.min(2.4,Math.max(.8,(t.kcal/1000)**.7)),band=t.age<7?0:t.age<13?1:2;
  let lo=2,hi=200*scale;
- if(/aceite/.test(n)){lo=2;hi=12*scale;}
+ if(/almendra|nuez/.test(n)){lo=2;hi=12*scale;}
+ else if(/aceite/.test(n)){lo=2;hi=12*scale;}
  else if(/leche/.test(n)){lo=75;hi=t.age<4?250:300;}
  else if(/yogur/.test(n)){lo=60;hi=125;}
  else if(/queso/.test(n)){lo=10;hi=t.age<4?35:60;}
  else if(/huevo/.test(n)){lo=20;hi=[50,100,100][band];}
- else if(/merluza|salmon|bacalao/.test(n)){lo=25;hi=[60,90,130][band];}
- else if(/pollo|ternera|lomo/.test(n)){lo=20;hi=[50,80,110][band];}
+ else if(/merluza|salmon|bacalao|sardina|trucha/.test(n)){lo=25;hi=[60,90,130][band];}
+ else if(/pollo|pavo|ternera|lomo/.test(n)){lo=20;hi=[50,80,110][band];}
  else if(/lentejas cocidas|judias blancas cocidas|garbanzos cocidos/.test(n)){lo=40*scale;hi=130*scale;}
- else if(/arroz|pasta|macarrones|avena|harina/.test(n)){lo=12*scale;hi=55*scale;}
+ else if(/arroz|pasta|macarrones|avena|harina|cuscus/.test(n)){lo=12*scale;hi=55*scale;}
  else if(/pan integral/.test(n)){lo=15*scale;hi=60*scale;}
  else if(i.group==='fruta'){lo=45*scale;hi=140*scale;}
  else if(/aguacate/.test(n)){lo=15*scale;hi=65*scale;}
- else if(/patata/.test(n)){lo=50*scale;hi=200*scale;}
+ else if(/patata|boniato/.test(n)){lo=50*scale;hi=200*scale;}
  else {lo=25*scale;hi=150*scale;}
  return [Math.round(lo*10)/10,Math.round(hi*10)/10];
 }
@@ -29,7 +30,7 @@ function quantifiedProposal(source,slot,t,budget,fruitName='Pera madura'){
  if(main&&!ingredients.some(i=>i.group==='fruta')){add(fruitName,'fruta',80);additions.push('fruta');}
  if(slot==='breakfast'&&!ingredients.some(i=>/leche|yogur/.test(normalizedFood(i.name)))){add(t.age<3?'Leche entera pasteurizada':'Leche pasteurizada sin azúcar','lacteos',150);additions.push('leche');}
  if(slot==='snack'&&!ingredients.some(i=>i.group==='lacteos')){add('Yogur natural sin azúcar','lacteos',125);additions.push('yogur');}
- if(main&&!ingredients.some(i=>/arroz|pasta|macarrones|patata|pan integral/.test(normalizedFood(i.name)))){add('Pan integral bajo en sal','cereales',25);additions.push('pan');}
+ if(main&&!ingredients.some(i=>/arroz|pasta|macarrones|patata|pan integral|quinoa|cuscus|boniato/.test(normalizedFood(i.name)))){add('Pan integral bajo en sal','cereales',25);additions.push('pan');}
  const kcal=ingredients.reduce((sum,i)=>sum+NUTRITION_BY_ID[i.foodId].nutrients.kcal.value*i.qty/100,0),factor=t.kcal*budget/kcal;
  for(const i of ingredients){const [lo,hi]=ingredientBounds(i,t);i.qty=Math.round(Math.max(lo,Math.min(hi,i.qty*factor))*10)/10;}
  const allergens=new Set(source.allergens);for(const i of ingredients){if(/leche|yogur|queso/.test(normalizedFood(i.name)))allergens.add('leche');if(/pan integral/.test(normalizedFood(i.name)))allergens.add('gluten');}
@@ -50,11 +51,11 @@ function nutritionVector(r){
  return {values:out,complete};
 }
 function addVectors(items){const out=Object.fromEntries(NUTRITION_DATA.fields.map(f=>[f.key,0]));for(const item of items)for(const key of Object.keys(out))out[key]+=item[key];return out;}
-function infantAnimalUnits(recipes){let units=0;for(const r of recipes)for(const i of r.ingredients||[]){const n=normalizedFood(i.name);if(/pollo|ternera|lomo|merluza|salmon|bacalao/.test(n))units+=(i.qty||0)/35;else if(/huevo/.test(n))units+=(i.qty||0)/50;}return units;}
+function infantAnimalUnits(recipes){let units=0;for(const r of recipes)for(const i of r.ingredients||[]){const n=normalizedFood(i.name);if(/pollo|pavo|ternera|lomo|merluza|salmon|bacalao|sardina|trucha/.test(n))units+=(i.qty||0)/35;else if(/huevo/.test(n))units+=(i.qty||0)/50;}return units;}
 function limitInfantAnimal(recipes,editable,t){
  if(t.age>=3)return;const fixed=recipes.filter(r=>!editable.includes(r)),fixedUnits=infantAnimalUnits(fixed),units=infantAnimalUnits(editable);
  if(!units)return;const factor=Math.min(1,Math.max(.01,1-fixedUnits)/units);
- for(const r of editable)for(const i of r.ingredients)if(/pollo|ternera|lomo|merluza|salmon|bacalao|huevo/.test(normalizedFood(i.name)))i.qty=Math.max(.1,Math.floor(i.qty*factor*10)/10);
+ for(const r of editable)for(const i of r.ingredients)if(/pollo|pavo|ternera|lomo|merluza|salmon|bacalao|sardina|trucha|huevo/.test(normalizedFood(i.name)))i.qty=Math.max(.1,Math.floor(i.qty*factor*10)/10);
 }
 function planningLoss(recipes,t,fraction=1){
  const v=addVectors(recipes.map(r=>nutritionVector(r).values)),energy=v.kcal||1,kcal=t.kcal*fraction;

@@ -1,3 +1,5 @@
+> Actualización V0.14.0: consulta composición de 70 componentes y 80 platos; el generador mantiene evaluación orientativa de 12 componentes. Detalle vigente al final de este documento.
+
 > Estado actual V0.13.0: generación cuantificada y revisión diaria/semanal parcial; ver [MODELO_NUTRICIONAL.md](MODELO_NUTRICIONAL.md). Las secciones anteriores conservadas describen versiones históricas y se subordinan al modelo vigente.
 
 # Recetario y planificación familiar · V0.8.0
@@ -164,3 +166,24 @@ Fuente original: Antal Bognár, BFE-R-02-03, 2002, DOI 10.5445/IR/9642002, https
 ## V0.13.0 · Propuestas cuantificadas
 
 Ver [modelo, referencias, supuestos y límites](MODELO_NUTRICIONAL.md). Cantidades iniciales por ingrediente, edición en cada toma y revisión de 12 componentes por día y promedio semanal. Perfil con sexo de referencia y PAL; energía aproximada con peso cuando está indicado. Menús anteriores conservados. Colegio manual, con composición opcional para evaluar el total sin incluirlo en la compra. No garantiza todos los objetivos ni rellena desconocidos privados con números ficticios.
+
+
+## V0.14.0 · Uso diario, compra y catálogo ampliado
+
+- Botón Hoy junto a la semana: vuelve a la semana y día actuales.
+- Aviso general al pie, antes de la autoría: «Cantidades y valores orientativos. Consulta siempre con su pediatra.» Los avisos de alergias y controles concretos se mantienen.
+- Compra con gramos/unidades, usos reales por toma y detalle de platos/días. Una repetición del ingrediente dentro de una toma no duplica su contador. Cantidades desconocidas no se inventan.
+- Agrupación por secciones de supermercado, manteniendo separados los estados crudos/cocidos y los productos identificados. «Ya tengo» descuenta existencias por ingrediente, perfil y semana, sin modificar el menú ni sus nutrientes. Las marcas anteriores de comprado siguen disponibles y se pueden desmarcar.
+- Piezas aproximadas con peso comestible por pieza editable; valores iniciales editoriales (patata 150 g, zanahoria 80 g, cebolla 150 g, plátano 120 g, manzana 150 g, pera 160 g, mandarina 80 g, naranja 150 g, kiwi 80 g, huevo 50 g). No se presentan como unidades oficiales ni pesos brutos exactos. No se inventan mermas de pelado. Yogur: propuesta de formato 125 g; leche: propuesta de envase 1 L. Los formatos pueden variar y deben comprobarse.
+- Leche g↔ml solo como conversión aproximada con densidad 1,03 g/ml, FAO/INFOODS Density Database v2 (leche líquida, UK 6th): https://www.fao.org/fileadmin/templates/food_composition/documents/density_DB_v2_0_01.pdf . Otras masas/volúmenes no se convierten sin referencia; crudo y cocido no se suman como si fueran el mismo estado.
+- Gráfico nutricional con Día/Semana, selector de día y actualización al editar. Semana = suma de siete días; promedio diario separado. Cada componente tiene su unidad y, solo cuando existe, referencia apropiada. Proteína PRI no es un máximo; sal y azúcares no tienen mínimo artificial. Datos ausentes/intervalos/trazas no pasan a cero; los ceros publicados se conservan.
+- Se sustituye el círculo de categorías por barras de aporte; la revisión de variedad sigue disponible. La revisión extensa y las fuentes quedan plegadas. Los límites diarios de vitamina D/hierro siguen generando avisos visibles en el gráfico.
+- Colegio: el plato anotado se ve en una celda del mismo estilo que las demás y continúa en impresión/PDF. Sigue sin entrar en compra ni compensación automática. Sin cantidades y referencias, el total nutricional queda parcial.
+- 80 preparaciones diferentes (40 nuevas), con 480 presentaciones en seis etapas; no son 480 recetas distintas. Cada nueva preparación incluye ingredientes, lote de pesos, pasos, alérgenos identificados y precauciones. Nuevos frutos secos solo en preparaciones de elección manual, molidos finos y sin trozos.
+- 78 referencias de alimentos (20 nuevas) y 70 componentes consultables: 12 del cálculo previo + 58 campos adicionales de CIQUAL. Incluye minerales, vitaminas y fracciones de ácidos grasos/azúcares. Son componentes parcialmente solapados y no deben sumarse entre sí. Las nuevas 240 celdas principales tienen valores publicados o estimados, identificados por campo. Los 4524 datos adicionales conservan calificadores originales; los productos sin correspondencia directa usan comparables explícitos. Etiquetas privadas sin estos nuevos campos siguen incompletas, sin rellenarlas artificialmente.
+- Los 58 campos adicionales son consulta de composición; no amplían automáticamente los objetivos clínicos del generador, que sigue evaluando los 12 componentes anteriores. No se aplican factores de cocción nuevos a dichos campos. Agua representa humedad de los ingredientes, sin bebida ni absorción/evaporación estimadas.
+- Fuente: Anses. 2025. Ciqual French food composition table, versión 2025-11-03, https://doi.org/10.57745/RDMHWY . Original preservado; licencia/atribución https://ciqual.anses.fr/cms/en/node/22 . No hay aval institucional de recetas ni software. Nuevos alimentos genéricos, sin atribución falsa a Mercadona, Ametller o Condis.
+- Recetario con búsqueda y carga de fichas al abrirlas; textos principales simplificados. Los lotes tienen cuatro partes editoriales iniciales editables, no raciones pediátricas prescritas.
+- Conserva menús históricos, fuentes originales, etiquetas, preparaciones y apariencia. Copias incluyen existencias y tamaños elegidos, validados estrictamente. Solo código y documentación se publican; no perfiles, fotos ni copias privadas.
+
+Pruebas: 192 edades mensuales y tres escenarios de sexo; 38 generaciones en límites de edad con/sin colegio; 480 lotes y correspondencias; 240 valores principales nuevos y 4524 celdas adicionales cotejados con el original; suma diaria/semanal y parcialidad; compra, existencias, marcas antiguas, copias y fallos atómicos; conservación de platos y límites; fuentes/retención, etiquetas y PDF. Navegador local con datos ficticios: Hoy, generar, Día/Semana, compra de patatas, descontar 100 g, búsqueda de pavo y celda escolar visible. PDF real de menú/compra generado, extraído y renderizado. Sin validación clínica ni garantía de dieta completa.

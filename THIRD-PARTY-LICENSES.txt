@@ -170,3 +170,12 @@ V0.13.0: selected reference facts from EFSA DRV summary 2017, sodium 2019,
 iron 2024, vitamin D UL 2023; Henry weight equations in MJ from SACN 2011
 table 19 p.106. Source links and app-derived assumptions in MODELO_NUTRICIONAL.md.
 No source PDF or page images redistributed. No institutional endorsement.
+
+V0.14.0: additional selected CIQUAL facts (20 foods and 58 additional fields).
+Anses. 2025. Ciqual French food composition table. Version 2025-11-03.
+https://doi.org/10.57745/RDMHWY ; https://ciqual.anses.fr/cms/en/node/22
+Original qualifiers retained; estimates and comparable-food mappings identified.
+No ANSES logo or endorsement. Source workbooks/page images not redistributed.
+Milk density approximation 1.03 g/ml: FAO/INFOODS Density Database v2 (2012),
+liquid milk, UK 6th. https://www.fao.org/fileadmin/templates/food_composition/documents/density_DB_v2_0_01.pdf
+Piece weights and packaging suggestions are app-authored editable assumptions.
