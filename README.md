@@ -1,4 +1,4 @@
-# Menú Infantil V0.15.0
+# Menú Infantil V0.15.1
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -239,3 +239,12 @@ Se conserva el almacenamiento local y el diseño. Las cantidades de menús anter
 - Compatibilidad: los perfiles y copias anteriores conservan únicamente la Comida como toma escolar. Sus registros mantienen la misma clave y no se trasladan a desayuno o media mañana. Las nuevas copias incluyen la selección y los tres registros independientes.
 
 Comprobado con las siete combinaciones posibles de tomas escolares, separación por perfil/semana, generación y compra, conservación de registros antiguos, copia/restauración, fallo de almacenamiento, impresión/PDF y navegador móvil. No se modifican las tablas científicas ni se atribuye validación clínica al prototipo.
+
+
+## V0.15.1 · Bienvenida en tres pasos
+
+Guía opcional «Tu primera semana en 3 pasos»: Crear perfil, Personalizar e Ir a Generar. Los botones abren las pantallas reales; nunca crean perfiles ni generan menús automáticamente. Crear perfil lleva al formulario de un perfil nuevo. Los textos usan los nombres actuales de navegación y acciones.
+
+En una instalación nueva se presenta la guía al abrir la app por primera vez. «Ahora no», el cierre, Escape o el fondo la descartan y recuerdan la elección en este navegador. Las instalaciones anteriores reciben solo una invitación discreta en Mi semana, sin ventana automática. El acceso «Primeros pasos» permanece en Mi semana y en Ajustes → Ayuda. Ocultar la invitación no elimina ese acceso.
+
+Usa la mandarina existente, los colores y el tamaño de texto elegidos, presentación móvil/escritorio y navegación por teclado dentro de la ventana. La preferencia de bienvenida es local al navegador; no se exporta con las copias y se conserva al restaurar una. Si no se puede guardar, la guía permite continuar e informa de que podría volver a aparecer. No se modifican perfiles, menús, cantidades ni cálculos nutricionales.

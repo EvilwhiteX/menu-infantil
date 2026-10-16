@@ -1,0 +1,44 @@
+/* Three optional steps. This guide never creates profiles or generates menus. */
+function welcomeGuideMarkup(){
+ const steps=[
+  {number:1,icon:'users',title:'Crea su perfil',text:'En Perfiles → Añadir, indica su nombre y edad. Marca las tomas que hace en el colegio.',action:'profile',button:'Crear perfil'},
+  {number:2,icon:'settings',title:'Hazla tuya',text:'En Ajustes, elige colores, tamaño de letra, modo noche y las comidas que quieres mostrar. Puedes cambiarlo cuando quieras.',action:'settings',button:'Personalizar'},
+  {number:3,icon:'wand',title:'Prepara la semana',text:'En Generar, pulsa Generar Menú. Después puedes cambiar los platos y ajustar sus cantidades.',action:'generate',button:'Ir a Generar'}
+ ];
+ return `<div class="modal-scrim welcome-scrim" data-action="scrim"><section class="modal welcome-guide" role="dialog" aria-modal="true" aria-labelledby="welcome-title" aria-describedby="welcome-description"><header class="modal-head welcome-head"><div class="welcome-intro"><span class="welcome-mandarin" aria-hidden="true">${mandarinLogo()}</span><div><p class="welcome-kicker">¡Bienvenido a Menú Infantil!</p><h2 id="welcome-title">Tu primera semana en 3 pasos</h2><p id="welcome-description">Empieza por aquí. Es más fácil de lo que parece.</p></div></div><button type="button" class="icon-btn" data-action="close-modal" aria-label="Cerrar primeros pasos">${icon('close')}</button></header><div class="modal-body welcome-body"><ol class="welcome-steps">${steps.map(step=>`<li class="welcome-step"><div class="welcome-step-top"><span class="welcome-number" aria-label="Paso ${step.number}">${step.number}</span><span class="welcome-step-icon" aria-hidden="true">${icon(step.icon)}</span></div><h3>${step.title}</h3><p>${step.text}</p><button type="button" class="btn outline" data-action="welcome-go" data-step="${step.action}">${step.button}${icon('chevronright')}</button></li>`).join('')}</ol><p class="welcome-reminder">Puedes volver a esta guía desde <strong>Mi semana</strong> o <strong>Ajustes → Ayuda</strong>.</p></div><footer class="modal-foot welcome-foot"><button type="button" class="btn outline" data-action="close-modal">Ahora no</button><button type="button" class="btn primary welcome-start" data-action="welcome-go" data-step="profile">Empezar: crear perfil ${icon('chevronright')}</button></footer></section></div>`;
+}
+function welcomeShortcut(){
+ const unseen=!onboardingPreferences(state.onboarding).seen;
+ return `<aside class="welcome-shortcut ${unseen?'welcome-discover':''}" aria-label="Primeros pasos">${unseen?'<div><strong>¿Quieres conocer la app?</strong><p>Tu primera semana, en tres pasos.</p></div>':''}<button type="button" class="btn outline" data-action="welcome-open"><span aria-hidden="true">🍊</span>Primeros pasos</button>${unseen?`<button type="button" class="icon-btn" data-action="welcome-hide" aria-label="Ocultar presentación de la guía">${icon('close')}</button>`:''}</aside>`;
+}
+function rememberWelcome(){
+ state.onboarding={seen:true,autoOpen:false};
+ try{const {modal,...stored}=state;localStorage.setItem(STORAGE_KEY,JSON.stringify(stored));return true;}
+ catch{notify('No se pudo recordar tu elección. La guía puede aparecer de nuevo al abrir la app.');return false;}
+}
+function focusWelcome(){document.querySelector('.welcome-start')?.focus({preventScroll:true});}
+function installWelcomeGuide(){
+ const oldModal=renderModal;renderModal=function(){return state.modal?.type==='welcome'?welcomeGuideMarkup():oldModal();};
+ const oldWeek=renderWeek;renderWeek=function(){return welcomeShortcut()+oldWeek();};
+ const oldSettings=renderSettings;renderSettings=function(){return oldSettings().replace('<h2>Tus datos</h2>',`<h2>Ayuda</h2></div><p>¿Quieres saber por dónde empezar?</p><button type="button" class="btn outline" data-action="welcome-open"><span aria-hidden="true">🍊</span>Primeros pasos</button><div class="divider"></div><div class="subheading"><h2>Tus datos</h2>`);};
+ const oldClose=closeModal;closeModal=function(){if(state.modal?.type!=='welcome')return oldClose();state.modal=null;rememberWelcome();render();document.querySelector('[data-action="welcome-open"]')?.focus({preventScroll:true});};
+ document.addEventListener('click',event=>{
+  const el=event.target.closest?.('[data-action]');if(!el)return;
+  if(el.dataset.action==='welcome-open'){openModal('welcome');focusWelcome();return;}
+  if(el.dataset.action==='welcome-hide'){rememberWelcome();render();return;}
+  if(el.dataset.action!=='welcome-go'||state.modal?.type!=='welcome')return;
+  const step=el.dataset.step;if(!['profile','settings','generate'].includes(step))return;
+  state.modal=null;state.view=step==='profile'?'profiles':step;if(step==='profile')editingProfileId='new';rememberWelcome();render();
+  if(step==='profile')document.getElementById('profile-form')?.closest('section')?.scrollIntoView({behavior:'smooth',block:'start'});
+  else if(typeof window!=='undefined')window.scrollTo({top:0,behavior:'instant'});
+ });
+ // Keep keyboard navigation inside the guide while it is open.
+ document.addEventListener('keydown',event=>{
+  if(state.modal?.type!=='welcome'||event.key!=='Tab')return;
+  const buttons=[...(document.querySelector('.welcome-guide')?.querySelectorAll('button:not([disabled])')||[])],first=buttons[0],last=buttons.at(-1);if(!first)return;
+  if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+  else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+ });
+ const preferences=onboardingPreferences(state.onboarding);
+ if(!preferences.seen&&preferences.autoOpen){state.modal={type:'welcome'};setTimeout(focusWelcome,0);}
+}
