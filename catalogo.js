@@ -7,7 +7,7 @@ nutritionCandidates=function(name){const key=normalizedFood(name).trim();return 
 function extraIngredientComposition(i){
  const result={};const ref=i.foodId&&!i.labelData?EXTRA_COMPOSITION.foods[i.foodId]||EXTRA_COMPOSITION.foods['ref-'+i.foodId]:null;
  const validWeight=Number.isFinite(i.qty)&&i.qty>0&&i.qty<=100000&&i.unit==='g';
- for(const field of EXTRA_COMPOSITION.fields){const n=ref?.values[field.key];result[field.key]={value:n?.status==='value'&&validWeight?n.value*i.qty/100:null,upper:n?.status==='lt'&&validWeight?n.limit*i.qty/100:null,status:validWeight?n?.status||'missing':'missing',estimated:!!ref?.estimated};}
+ for(const field of EXTRA_COMPOSITION.fields){const n=ref?.values[field.key];result[field.key]={value:n?.status==='value'&&validWeight?n.value*i.qty/100:null,upper:n?.status==='lt'&&validWeight?n.limit*i.qty/100:null,status:validWeight?n?.status||'missing':'missing',estimated:n?.estimated??!!ref?.estimated};}
  return result;
 }
 function extraCompositionForIngredients(ingredients){

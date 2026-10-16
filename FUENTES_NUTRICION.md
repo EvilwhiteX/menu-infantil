@@ -204,3 +204,19 @@ Ver [modelo, referencias, supuestos y límites](MODELO_NUTRICIONAL.md). Cantidad
 - Conserva menús históricos, fuentes originales, etiquetas, preparaciones y apariencia. Copias incluyen existencias y tamaños elegidos, validados estrictamente. Solo código y documentación se publican; no perfiles, fotos ni copias privadas.
 
 Pruebas: 192 edades mensuales y tres escenarios de sexo; 38 generaciones en límites de edad con/sin colegio; 480 lotes y correspondencias; 240 valores principales nuevos y 4524 celdas adicionales cotejados con el original; suma diaria/semanal y parcialidad; compra, existencias, marcas antiguas, copias y fallos atómicos; conservación de platos y límites; fuentes/retención, etiquetas y PDF. Navegador local con datos ficticios: Hoy, generar, Día/Semana, compra de patatas, descontar 100 g, búsqueda de pavo y celda escolar visible. PDF real de menú/compra generado, extraído y renderizado. Sin validación clínica ni garantía de dieta completa.
+
+
+## Referencias añadidas V0.16.0 · Consulta 16/10/2026
+
+CIQUAL 2025 (ANSES): https://doi.org/10.57745/RDMHWY . Se mantiene la licencia y atribución existentes. Nuevos códigos genéricos: 20066, 20279, 20232, 20069, 20058, 34001, 6116, 19590, 11046, 11045 y 26181. Los valores son del estado de pesaje indicado. Las aproximaciones por dato faltante identifican el alimento comparable, sin convertir ausencias en ceros.
+
+Etiquetas de productos españoles (no se presupone disponibilidad en todos los supermercados):
+
+- Pavo NaturArte 99%, Alcampo: https://www.compraonline.alcampo.es/products/campofr%C3%ADo-natuarte-pechuguitas-de-pavo-asadas-al-horno-cortada-en-lonchas-90-g/499073 . Por 100 g: 114 kcal, proteínas 25 g, grasa 1,5 g, hidratos 0 g, azúcares 0 g, sal 1,8 g. Micronutrientes y fibra no declarados: comparable CIQUAL pavo asado 36302, estimado.
+- Pollo La Carloteña 99%: https://lacarlotena.com/producto/pechuguita-de-pollo-asada-al-horno/ . Por 100 g: 160 kcal, proteínas 26,8 g, grasa 5,8 g, hidratos y azúcares 0,1 g, sal 1,6 g. Comparable para campos no publicados: pollo cocinado 36018. Se incluyen preventivamente sus trazas declaradas de soja, leche, frutos de cáscara y huevo.
+- Picos con fibra Velarte: https://velarte.com/tienda-online/velarte/bastoncitos/palitos-fibra/ . Por 100 g: 452 kcal, proteínas 12 g, grasa 19 g, hidratos 57 g, azúcares 1,8 g, fibra 6,1 g, sal 0,89 g. Comparable estimado para micronutrientes: biscote integral CIQUAL 7340. Gluten y trazas declaradas de soja, leche, sésamo, cacahuete y mostaza se señalan preventivamente.
+- Queso Siempre Tierno pasteurizado García Baquero: https://www.garciabaquero.com/nuestros-quesos/siempre-tierno . Por 100 g: 384 kcal, proteínas 22,5 g, grasa 32 g, hidratos y azúcares 1,6 g, sal 1,5 g. Comparable estimado para micronutrientes: gouda CIQUAL 12736; no son datos analizados del queso tierno.
+
+Sodio de etiquetas: cálculo sal × 400 mg/g, marcado como estimación. Otros componentes de los cuatro productos: comparables CIQUAL expresamente estimados; no se les atribuye análisis de marca. No se transcribe una ficha antigua de queso oreado como si fuera el queso tierno actual. Revisa el envase por posibles cambios.
+
+Seguridad y variedad: AESAN, recomendaciones de pescado por mercurio, https://www.aesan.gob.es/actualidad/publicaciones-seguridad-alimentaria/recomendaciones-de-consumo-de-pescado-por-presencia-de-mercurio ; guías de primera infancia y etapa escolar ya registradas. Los ingredientes y recetas nuevos no reciben aval ni validación clínica por usar estas fuentes. No se añaden atún rojo, pescado de especie desconocida, caza silvestre ni frutos secos enteros.

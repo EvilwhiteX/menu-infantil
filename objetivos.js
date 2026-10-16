@@ -1,5 +1,5 @@
 /* References for healthy population groups. App tolerances are not clinical cut-offs. */
-const BALANCE_VERSION='0.15.0';
+const BALANCE_VERSION='0.16.0';
 const BALANCE_SOURCES=[
  ['EFSA · DRV summary 2017 · tables 1–3, 5, 7, 9, 11, 17','https://www.efsa.europa.eu/sites/default/files/2017_09_DRVs_summary_report.pdf'],
  ['EFSA · Energy 2013 · growth and PAL','https://doi.org/10.2903/j.efsa.2013.3005'],

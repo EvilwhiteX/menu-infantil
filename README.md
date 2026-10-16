@@ -1,4 +1,4 @@
-# Menú Infantil V0.15.2
+# Menú Infantil V0.16.0
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -253,3 +253,14 @@ Usa la mandarina existente, los colores y el tamaño de texto elegidos, presenta
 ## V0.15.2 · Ocultar Primeros pasos
 
 Ajustes → Ayuda incluye el interruptor «😎 Ya domino la app». Activado oculta tanto la invitación como el botón Primeros pasos de Mi semana; desactivado los vuelve a mostrar. La guía permanece accesible desde Ayuda. La elección se recuerda en este navegador, se conserva al cerrar la guía y restaurar copias, y no modifica perfiles ni menús. Si falla el guardado, el interruptor conserva la selección anterior.
+
+
+## V0.16.0 · Catálogo ampliado
+
+120 preparaciones diferentes, con 720 presentaciones en seis franjas de edad y 93 referencias de alimentos. Se añaden 40 platos y 15 referencias, conservando los identificadores y los menús guardados.
+
+Incluye verduras y legumbres con alcachofas, espárragos, coles, champiñones y maíz; conejo de granja, pavo fresco, pollo y vacuno; espirales, tortillas, pizza, galletas blandas, bizcochitos, compotas y otros desayunos/meriendas. Las fichas muestran pesos comestibles del lote, preparación, alérgenos, precauciones, composición y piezas aproximadas cuando procede. Los rendimientos son editoriales, sin ensayo de cocina; no se inventa un peso final cocinado.
+
+Diez preparaciones son de elección manual: atún, pizza con masa, loncheados, piquitos y repostería casera. Es una decisión editorial del generador, no una prohibición sanitaria por edad. Los loncheados usan productos concretos con 99% de carne; eso no elimina su sal ni los equipara a carne fresca. Piquitos: revisar dureza y habilidades de masticación; para los pequeños, pan blando y actualización de la referencia. Atún: referencia específica Thunnus albacares; comprobar la especie, alternar pescados y conservar las recomendaciones AESAN sobre mercurio.
+
+Los 180 campos principales nuevos (149 publicados y 31 estimados) tienen valor publicado o estimado, con procedencia por campo. Los 870 campos adicionales preservan los calificadores CIQUAL: datos desconocidos no equivalen a cero. Las etiquetas comerciales solo aportan lo que publican; sus micronutrientes no declarados se aproximan con alimentos comparables, identificados con ≈. No se certifica cobertura de todas las necesidades ni se sustituye la revisión profesional.
