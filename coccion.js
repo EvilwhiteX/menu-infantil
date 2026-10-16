@@ -1,12 +1,12 @@
 /* Measured finished weight. This is a weight conversion, not nutrient retention. */
-function checkedCookedWeight(value){if(typeof value!=='number'||!Number.isFinite(value)||value<1||value>100000)throw Error('El peso final neto debe estar entre 1 y 100.000 g. Pesa la preparación sin el recipiente.');return value;}
+function checkedCookedWeight(value,allowFraction=false){if(typeof value!=='number'||!Number.isFinite(value)||value<=0||(!allowFraction&&value<1)||value>100000)throw Error('El peso final neto debe estar entre 1 y 100.000 g. Pesa la preparación sin el recipiente.');return value;}
 function scaleNutritionResult(result,factor){
  if(typeof factor!=='number'||!Number.isFinite(factor)||factor<=0)throw Error('Factor de reparto inválido.');
  return {...result,grams:result.grams*factor,totals:Object.fromEntries(Object.entries(result.totals).map(([key,t])=>[key,{...t,value:t.value===null?null:t.value*factor,lower:t.lower===null?null:t.lower*factor,upper:t.upper===null?null:t.upper*factor,missing:[...t.missing]}]))};
 }
 function cookedNutritionTable(result){const display={...result,totals:Object.fromEntries(Object.entries(result.totals).map(([key,t])=>[key,{...t,value:t.value===null?null:Math.abs(t.value)>0&&Math.abs(t.value)<.01?t.value:Number(t.value.toFixed(2))}]))};return nutritionTable(display);}
 function cookedWeightReport(result,finalWeight,parts=null){
- checkedCookedWeight(finalWeight);
+ checkedCookedWeight(finalWeight,true);
  return `<section class="family-recipe nutrition-output"><h3>Peso final medido</h3><p><b>${fmtNum(finalWeight)} g netos</b> de preparación terminada${parts?' · '+fmtNum(finalWeight/parts)+' g por cada una de las '+fmtNum(parts)+' partes elegidas':''}.</p><p>Solo cambia la base de peso. La estimación conserva los nutrientes sumados de los ingredientes y no corrige pérdidas de cocción. Úsala si has conservado toda la preparación, sin desechar caldo, grasa o partes de los ingredientes. Incluye en los ingredientes todos los alimentos añadidos.</p><h3>Estimación por 100 g de preparación · sin corregir pérdidas</h3>${cookedNutritionTable(scaleNutritionResult(result,100/finalWeight))}<small>El peso final es medido por ti; la composición sigue siendo estimada. El reparto supone una mezcla homogénea y no indica cuánto debe comer un niño. Si separas componentes del plato, este reparto no describe cada componente servido.</small></section>`;
 }
 const BATCH_FORM_BEFORE_COOKING=batchForm;
