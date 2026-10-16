@@ -1,4 +1,4 @@
-# Recetario y planificación familiar · V0.7.0
+# Recetario y planificación familiar · V0.7.1
 
 Edades de planificación: 12–203 meses (1–16 años inclusive). Consultado el 15 de octubre de 2026.
 
@@ -70,3 +70,14 @@ Detalles y fuentes: [FUENTES_NUTRICION.md](FUENTES_NUTRICION.md). El colegio con
 ## V0.7.0 · cantidades de cocina y reparto confirmado
 
 40 lotes culinarios editoriales editables, separados de las referencias por edad. El usuario confirma pesos, estado, correspondencia de alimentos y reparto; puede guardar una parte en una toma. Compra, PDF y copias conservan cantidades y estados. El resumen de nutrientes de casa marca los días incompletos cuando falta algún peso o referencia. Sin cálculo de necesidades individuales, raciones automáticas por edad ni validación clínica. Detalles y límites en `FUENTES_NUTRICION.md`.
+
+
+## V0.7.1 · preparaciones reutilizables y referencias ampliadas
+
+- «Guardar en mis preparaciones» conserva una parte del lote elegida y revisada por el usuario, sin alterar la semana. Se consulta en Recetario → Mis preparaciones guardadas.
+- Desde una toma del menú se puede usar una preparación guardada con sus gramos, estados y correspondencias CIQUAL. Se exige una nueva revisión explícita; se comprueban la etapa original, las tomas admitidas, el perfil y la semana actuales. Colegio, comidas externas y perfiles con restricciones no admiten esta reutilización.
+- Reutilizar no modifica la receta guardada ni los otros menús. Conserva el bloqueo de la toma. Los registros viajan en la copia local, sin sincronización externa.
+- La biblioteca crece de 49 a 53 referencias (636 celdas de componentes): tortilla de trigo para rellenar, leche semidesnatada pasteurizada, agua del grifo y pasta a base de lenteja roja cocida sin sal. Son alimentos de referencia genéricos; la pasta cocida no se vincula automáticamente a «pasta 100 % lenteja» seca. Queso fresco, crema 100 % cacahuete y otros productos siguen requiriendo una correspondencia fiable.
+- Las nuevas filas proceden del mismo archivo original CIQUAL 2025, con integridad verificada. Conservan códigos 7815, 19042, 18066 y 9876, nombres originales, estados y calificadores. No se sustituyen ausencias por ceros ni se atribuye aval institucional.
+- Se contrastaron las [condiciones de CIQUAL](https://ciqual.anses.fr/cms/en/node/22). Como referencia para una futura transcripción de productos, la [Comisión Europea explica](https://food.ec.europa.eu/food-safety/labelling-and-nutrition/food-information-consumers-legislation/nutrition-labelling_en) que la información puede expresarse por 100 g o 100 ml; esta versión no importa etiquetas ni convierte ml en g.
+- Continúan pendientes los productos no representados, el ensayo real de las recetas, rendimientos/retención y la revisión profesional antes de afirmar adecuación pediátrica automática. Guardar un reparto no lo valida por edad.

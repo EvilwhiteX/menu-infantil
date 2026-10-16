@@ -141,3 +141,5 @@ ANSES has not endorsed this application. No institutional logo is used.
 ASPCAT quantity references: May 2020 school table and 2022 early-childhood guide.
 Attribution, original document links, page locations, context and limitations:
 FUENTES_NUTRICION.md and gramajes.js. Source PDFs are linked, not bundled.
+
+V0.7.1: subset expanded to 53 foods / 12 components (636 original cells). Added CIQUAL codes 9876, 7815, 19042, 18066 from the same verified 2025 source. Spanish labels are translations for reference; original names and qualifiers retained. No institutional endorsement.

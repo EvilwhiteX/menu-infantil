@@ -1,6 +1,7 @@
 /* Cálculo local sobre pesos introducidos. No evalúa necesidades ni prescribe raciones. */
 const NUTRITION_BY_ID=Object.fromEntries(NUTRITION_DATA.foods.map(f=>[f.id,f]));
 const NUTRITION_SUGGESTIONS={
+ 'tortilla de trigo':['7815'],'leche pasteurizada sin azucar':['19024','19042'],'agua':['18066'],
  'lentejas cocidas':['20360'],'judias blancas cocidas':['20502'],'garbanzos cocidos':['20507'],
  'arroz blanco':['9100','9104'],'arroz integral':['9102','9103'],'zanahoria':['20009'],'calabacin':['20020'],
  'tomate':['20385'],'cebolla':['20034'],'calabaza':['20044'],'guisantes':['20072','20037'],'judias verdes':['20061'],'patata':['4008'],
