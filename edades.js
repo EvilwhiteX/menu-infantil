@@ -43,7 +43,7 @@ const AGE_RECIPES=AGE_BANDS.flatMap(band=>FAMILY_RECIPES.map(base=>({
  ingredients:base.ingredients.map(i=>ageIngredient(i,band)),allergens:[...base.allergens],slots:[...base.slots],photo:[...base.photo],
  steps:[...ageSteps(base,band),band.texture],
  safety:band.min<84?base.safety:base.safety.replace('Servir sentado y bajo supervisión. Adaptar textura y cortes a sus habilidades; no ofrecer piezas duras o redondas enteras.','Revisar higiene, cocción y conservación; retirar huesos y espinas. Adaptar la textura si existen dificultades para masticar.'),
- adaptation:'Composición culinaria propuesta para '+band.label+'. Ajustar a habilidades y apetito. No se asignan gramos ni nutrientes.',
+ adaptation:'Composición culinaria propuesta para '+band.label+'. Ajustar a habilidades y apetito. Las cantidades de cocina y el reparto se revisan por separado. No se asignan raciones por edad.',
  sourceRefs:[...new Set([...band.sources,...(band.min<36?['sanidad']:['escolar']),...(base.protein==='pescado'?['mercurio']:[])])],
  ruleIds:AGE_RULES.filter(r=>r.min<=band.max&&r.max>=band.min).map(r=>r.id),compositionStatus:'propuesta culinaria; no receta institucional',nutrition:null,clinicallyValidated:false
 })));

@@ -1,4 +1,4 @@
-# Recetario y planificación familiar · V0.6.0
+# Recetario y planificación familiar · V0.7.0
 
 Edades de planificación: 12–203 meses (1–16 años inclusive). Consultado el 15 de octubre de 2026.
 
@@ -65,3 +65,8 @@ Se añade consulta de 49 alimentos y 12 componentes de ANSES-CIQUAL 2025, junto 
 También se añaden referencias institucionales de cantidades, con contexto, unidades, población y notas; no se aplican automáticamente a las recetas. Las tablas se han contrastado visualmente. La revisión profesional de las recetas y sus cantidades sigue pendiente.
 
 Detalles y fuentes: [FUENTES_NUTRICION.md](FUENTES_NUTRICION.md). El colegio continúa fuera de la compra, cálculo y organización del menú de casa.
+
+
+## V0.7.0 · cantidades de cocina y reparto confirmado
+
+40 lotes culinarios editoriales editables, separados de las referencias por edad. El usuario confirma pesos, estado, correspondencia de alimentos y reparto; puede guardar una parte en una toma. Compra, PDF y copias conservan cantidades y estados. El resumen de nutrientes de casa marca los días incompletos cuando falta algún peso o referencia. Sin cálculo de necesidades individuales, raciones automáticas por edad ni validación clínica. Detalles y límites en `FUENTES_NUTRICION.md`.

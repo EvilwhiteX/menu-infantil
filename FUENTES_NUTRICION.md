@@ -57,3 +57,33 @@ Por ello, la generación conserva las cantidades sin asignar. El colegio sigue s
 - Revisar la distribución completa del día y de la semana, con datos de consumo suficientes, antes de afirmar cobertura de necesidades.
 
 Una búsqueda bibliográfica no sustituye esa revisión. No se han asignado revisores profesionales ficticios ni marcado las recetas como clínicamente aprobadas.
+
+
+## Ampliación de la investigación · V0.7.0 · 15/10/2026
+
+Se han vuelto a contrastar fuentes primarias españolas, europeas e internacionales. Esta búsqueda no se declara exhaustiva de todo Internet y no equivale a una revisión clínica de un menor.
+
+| Fuente contrastada | Aplicación y límite |
+|---|---|
+| [FAO/INFOODS, Food composition data, capítulo 10](https://www.fao.org/4/y4705e/y4705e15.htm), apartado «Calculation of composition of composite prepared dishes» | Suma por ingrediente, identificación y trazabilidad. Para describir el plato cocinado se requieren peso final y tratamiento del rendimiento/retención. La app no inventa esos factores ni llama «análisis del plato terminado» a la suma inicial. |
+| [EFSA, Dietary reference values](https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values), apartados introductorios y preguntas frecuentes | Las referencias poblacionales no son objetivos nutricionales individuales. No se fijan calorías por edad ni se prescribe suplementación. |
+| [Canal Salut, primera infancia](https://canalsalut.gencat.cat/ca/vida-saludable/alimentacio/saludable/primera-infancia/) y tabla ASPCAT 2022 ya conservada | Contexto de leche y orientación diaria, alternativas animales y apetito. No multiplicar la cantidad diaria de carne/pescado por cada comida. |
+| [Canal Salut, alimentación infantil y juvenil](https://canalsalut.gencat.cat/ca/vida-saludable/alimentacio/saludable/infants-joves/) | Apetito y participación en las cantidades; sin extrapolar un mismo reparto de un lote a todas las edades. |
+| [AESAN, oferta en centros educativos](https://aesan.gob.es/nutricion/mejora-oferta-alimentaria) y [RD 315/2025, texto consolidado BOE](https://boe.es/buscar/act.php?id=BOE-A-2025-7659) | Ámbito escolar, supervisión y frecuencias de lunes a viernes. No se importa su frecuencia como requisito de toda la semana doméstica. No se afirma que esta app cumpla la normativa de un servicio de comedor. |
+| [NHS, Autumn lentil soup](https://www.nhs.uk/best-start-in-life/baby/recipes-and-meal-ideas/autumn-lentil-soup/) | La receta especifica porciones y una edad de 7–9 meses. Se contrastó como ejemplo de receta cuantificada; NO se importan sus porciones a niños de 1–16 años. |
+| [NHS, Fabulous fish pie](https://www.nhs.uk/healthier-families/recipes/fabulous-fish-pie/) | Ejemplo de cantidades para una receta familiar. No acredita que una cuarta parte sea la dosis adecuada para un niño de cualquier edad. No se atribuyen a esta fuente los pesos de nuestras recetas. |
+| [NHS, conservación y recalentado](https://www.nhs.uk/best-start-in-life/baby/weaning/safe-weaning/storing-and-reheating-food/) | Referencia de conservación para preparar por lotes. Enlazada para consulta; la app no controla temperaturas ni fechas de conservación. |
+
+### Qué se ha cuantificado
+
+Las 40 preparaciones tienen un **lote culinario propuesto por la app**, con gramos editables y estado de pesaje. No son recetas oficiales, cantidades confirmadas por la familia, raciones por edad ni lotes ensayados en cocina. `fichas-datos.js` conserva origen, versión, ausencia de dosis por edad y revisión pendiente. Los mismos pesos iniciales de cocina se mantienen entre etapas; cambian los ingredientes/presentación que ya correspondían a la edad (por ejemplo el arroz). No hay escalado médico oculto.
+
+El usuario decide el reparto, revisa y confirma los pesos. Solo entonces puede guardar una parte en una toma concreta del menú. Se conservan gramos, estado y los códigos CIQUAL que haya elegido. La compra, los PDF y las copias locales conservan esa información. No se asigna automáticamente el lote completo a un menor ni se genera la comida escolar.
+
+El alimento de referencia empieza sin seleccionar. Es necesario comprobar corte, especie, producto y estado. Si el queso fresco español, la pasta 100 % de lenteja, una fruta indefinida, la crema de cacahuete o cualquier otro ingrediente no están representados con fidelidad, se pueden guardar sus gramos, pero **la estimación nutricional permanece incompleta**. No se usa un queso francés distinto o una pasta de trigo para cerrar artificialmente el cálculo.
+
+El resumen de composición de la semana solo calcula las cantidades y referencias guardadas por el usuario. Una toma o ingrediente sin datos deja incompleto el día; no se presenta como consumo real, diagnóstico de carencia ni cobertura de necesidades. Las comidas del colegio y externas quedan fuera de ese ámbito.
+
+### Qué la búsqueda no puede confirmar
+
+No se ha obtenido mediante Internet la receta exacta cocinada por la familia, el peso final de cada lote ni cuánto se sirve y consume realmente. Tampoco se ha realizado una revisión profesional individual. Esos puntos siguen pendientes para afirmar adecuación pediátrica o análisis del plato cocinado. La app permite registrar cantidades verificables sin atribuirles una validación inexistente.

@@ -1,4 +1,4 @@
-# Menú Infantil V0.6.0
+# Menú Infantil V0.7.0
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -90,3 +90,8 @@ En **Recetario → Composición de alimentos · por 100 g** se consultan 49 alim
 Dentro de **Preparación para… → Consultar cantidades de referencia por edad** se muestran referencias de ASPCAT: escolares de 3 años en adelante e infantiles diarias con sus condiciones para menores de 3. Se enlazan las tablas y sus notas, sin convertirlas en gramajes automáticos de las recetas.
 
 La calculadora conserva límites «menor que», trazas y datos ausentes; no convierte lo desconocido en cero. Los productos sin equivalencia identificada requieren comprobar el alimento real. No se han validado clínicamente las recetas ni se certifica cobertura de necesidades. Investigación, licencias, metodología y pendientes en [FUENTES_NUTRICION.md](FUENTES_NUTRICION.md).
+
+
+## V0.7.0 · cantidades de cocina y reparto confirmado
+
+40 lotes culinarios editoriales editables, separados de las referencias por edad. El usuario confirma pesos, estado, correspondencia de alimentos y reparto; puede guardar una parte en una toma. Compra, PDF y copias conservan cantidades y estados. El resumen de nutrientes de casa marca los días incompletos cuando falta algún peso o referencia. Sin cálculo de necesidades individuales, raciones automáticas por edad ni validación clínica. Detalles y límites en `FUENTES_NUTRICION.md`.
