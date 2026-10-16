@@ -1,4 +1,4 @@
-# Menú Infantil V0.14.1
+# Menú Infantil V0.14.2
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -221,3 +221,8 @@ Pruebas: 192 edades mensuales y tres escenarios de sexo; 38 generaciones en lím
 - El PDF de compra conserva las marcas antiguas de comprado. La impresión muestra la versión actual.
 
 Se conserva el almacenamiento local y el diseño. Las cantidades de menús anteriores no se recalculan al abrir la app. Ver [AUDITORIA_V0.14.1.md](AUDITORIA_V0.14.1.md) para alcance, pruebas y límites de esta revisión.
+
+
+## V0.14.2 · Ajustes visuales
+
+«Hoy» se agrupa con la selección de semana. Autoría centrada. Se retira el texto secundario del aviso de variedad positivo, conservando los avisos de información incompleta. En Generar las tres acciones se muestran antes de la explicación y las guías. Las tres herramientas del recetario se agrupan bajo «Guías y herramientas», con cabeceras de color principal y contraste adaptado, separadas de los platos. Se mantiene el modelo de cálculo 0.14.1 y los datos guardados.
