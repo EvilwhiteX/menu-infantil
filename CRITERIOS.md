@@ -1,3 +1,5 @@
+> Estado actual V0.13.0: generación cuantificada y revisión diaria/semanal parcial; ver [MODELO_NUTRICIONAL.md](MODELO_NUTRICIONAL.md). Las secciones anteriores conservadas describen versiones históricas y se subordinan al modelo vigente.
+
 # Recetario y planificación familiar · V0.8.0
 
 Edades de planificación: 12–203 meses (1–16 años inclusive). Consultado el 15 de octubre de 2026.
@@ -157,3 +159,8 @@ Si cambia un macronutriente, la energía se estima por el cambio respecto a la e
 Las fuentes y coberturas se muestran dinámicamente: método, factores, valores estimados en origen y estado A/B. Se conserva la selección en preparaciones, tomas, copias y resumen semanal mediante el campo retentionCode existente. Cambiar alimento sigue restableciendo el método y exige revisión. No se modifican menús ni perfiles existentes.
 
 Fuente original: Antal Bognár, BFE-R-02-03, 2002, DOI 10.5445/IR/9642002, https://publikationen.bibliothek.kit.edu/9642002 y texto https://publikationen.bibliothek.kit.edu/9642002/1928. Fuente de energía: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX%3A32011R1169, anexo XIV. Consulta 16/10/2026. FOODfiles NZ fue consultado como candidato; no incorporado ni instalado. Se publican solo hechos numéricos seleccionados, traducciones y código propios con atribución; no el libro/PDF ni sus imágenes. Reproducción preparar-bognar-v0120.py; PDF SHA256 0d7b7fbc2326b74ac67122f00abc949a1a594a17dbd7e0ec588f45f5f709e491.
+
+
+## V0.13.0 · Propuestas cuantificadas
+
+Ver [modelo, referencias, supuestos y límites](MODELO_NUTRICIONAL.md). Cantidades iniciales por ingrediente, edición en cada toma y revisión de 12 componentes por día y promedio semanal. Perfil con sexo de referencia y PAL; energía aproximada con peso cuando está indicado. Menús anteriores conservados. Colegio manual, con composición opcional para evaluar el total sin incluirlo en la compra. No garantiza todos los objetivos ni rellena desconocidos privados con números ficticios.

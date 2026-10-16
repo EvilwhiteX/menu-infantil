@@ -165,3 +165,8 @@ DOI 10.5445/IR/9642002. Tables 2, 20 and 22; source pages and columns retained.
 https://publikationen.bibliothek.kit.edu/9642002
 No full book, page images or source PDF redistributed. Display text and
 translations are app-authored. No endorsement or clinical validation claimed.
+
+V0.13.0: selected reference facts from EFSA DRV summary 2017, sodium 2019,
+iron 2024, vitamin D UL 2023; Henry weight equations in MJ from SACN 2011
+table 19 p.106. Source links and app-derived assumptions in MODELO_NUTRICIONAL.md.
+No source PDF or page images redistributed. No institutional endorsement.

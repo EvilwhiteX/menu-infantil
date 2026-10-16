@@ -1,8 +1,8 @@
-# Menú Infantil V0.12.0
+# Menú Infantil V0.13.0
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
-Incluye platos ilustrativos, edición manual de tomas, bloqueo de platos, comidas externas, lista de compra y gráfico descriptivo de grupos. Las cantidades solo se suman cuando el usuario las introduce; no se calculan raciones por edad o peso. La generación de ejemplos se bloquea si el perfil declara restricciones.
+Incluye platos ilustrativos, edición manual de tomas, bloqueo de platos, comidas externas, lista de compra y gráfico descriptivo de grupos. La generación propone gramos editables y revisa 12 componentes con referencias por edad y escenarios de peso, sexo y actividad. Puede dejar objetivos pendientes; no garantiza suficiencia individual. La generación de ejemplos se bloquea si el perfil declara restricciones.
 
 Los perfiles y los menús se guardan en el navegador (localStorage), sin sincronización ni envío a un servidor. El repositorio solo contiene código y un perfil ficticio. Evita introducir datos clínicos sensibles. El gráfico no evalúa el equilibrio nutricional.
 
@@ -182,3 +182,8 @@ Si cambia un macronutriente, la energía se estima por el cambio respecto a la e
 Las fuentes y coberturas se muestran dinámicamente: método, factores, valores estimados en origen y estado A/B. Se conserva la selección en preparaciones, tomas, copias y resumen semanal mediante el campo retentionCode existente. Cambiar alimento sigue restableciendo el método y exige revisión. No se modifican menús ni perfiles existentes.
 
 Fuente original: Antal Bognár, BFE-R-02-03, 2002, DOI 10.5445/IR/9642002, https://publikationen.bibliothek.kit.edu/9642002 y texto https://publikationen.bibliothek.kit.edu/9642002/1928. Fuente de energía: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX%3A32011R1169, anexo XIV. Consulta 16/10/2026. FOODfiles NZ fue consultado como candidato; no incorporado ni instalado. Se publican solo hechos numéricos seleccionados, traducciones y código propios con atribución; no el libro/PDF ni sus imágenes. Reproducción preparar-bognar-v0120.py; PDF SHA256 0d7b7fbc2326b74ac67122f00abc949a1a594a17dbd7e0ec588f45f5f709e491.
+
+
+## V0.13.0 · Propuestas cuantificadas
+
+Ver [modelo, referencias, supuestos y límites](MODELO_NUTRICIONAL.md). Cantidades iniciales por ingrediente, edición en cada toma y revisión de 12 componentes por día y promedio semanal. Perfil con sexo de referencia y PAL; energía aproximada con peso cuando está indicado. Menús anteriores conservados. Colegio manual, con composición opcional para evaluar el total sin incluirlo en la compra. No garantiza todos los objetivos ni rellena desconocidos privados con números ficticios.
