@@ -1,4 +1,4 @@
-# Menú Infantil V0.8.0
+# Menú Infantil V0.9.0
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -121,3 +121,27 @@ La comprobación rechaza valores negativos/no numéricos, unidades incompatibles
 Se pueden sumar referencias CIQUAL y etiquetas dentro de la misma receta, mostrando por separado sus fuentes. Al guardar una preparación o una parte para una toma, se conserva una copia de la etiqueta y sus valores originales; reutilizar no cambia otros menús. La compra y los PDF identifican el producto/marca; las copias JSON mantienen además los datos de composición. No se transmite la etiqueta a un servidor ni se publica en GitHub. Si solo se calcula sin guardar, sus datos son temporales.
 
 Al editar únicamente los gramos de un ingrediente con nombre y unidad sin cambios, se conserva su correspondencia. Cambiar el ingrediente o la unidad deja pendiente la correspondencia anterior, sin convertir ml a g. El recetario y las referencias por edad siguen sin constituir validación pediátrica ni raciones automáticas.
+
+
+## V0.9.0 — referencias completas (16/10/2026)
+
+58 referencias completas, 12 componentes cada una: 696 celdas numéricas, 103 estimadas. Se conservan intactos los 53 registros y 636 datos/qualificadores originales de CIQUAL. Las nuevas referencias tienen identificadores `ref-` para no alterar cálculos históricos confirmados. No se modifica el almacenamiento privado ni se inventa lo comido en el colegio.
+
+Se consultaron Mercadona, Ametller Origen y Condis. Las dos primeras no entregaron fichas numéricas comprobables en las páginas consultadas; no se atribuyen a esas marcas datos genéricos. Condis permitió comprobar crema We Natural, hélices Gallo, queso fresco Condis y Burgo de Arias sin sal añadida. En este último se prioriza el fabricante por discrepancia: Condis sal 0 g/hidratos 4 g, Arias sal 0,12 g/hidratos 3,5 g. Las unidades «ME» de algunos micronutrientes en Condis no se reinterpretan sin confirmación. Para Burgo de Arias, Arias confirma calcio 340 mg y B12 0,64 µg.
+
+Cada celda conserva fuente, método y marca estimado/publicado. Límites CIQUAL: comparable USDA si cae dentro del límite original; en otro caso punto medio convencional del intervalo, explícitamente estimado, original conservado. No implica que ese punto sea el más probable. Trazas y ausencias: comparables USDA SR Legacy 2018; hidratos disponibles estimados como hidratos USDA menos fibra. Vitamina D de salmón cocinado y bacalao crudo con especies/estados comparables. Pasta seca de lenteja: micronutrientes/fibra de lenteja roja seca CIQUAL 20535; crema de cacahuete: 15053 tostado sin sal. Hierro/fibra/D del queso sin sal: yogur natural USDA, menor confianza por matriz distinta; se muestra la aproximación. Sodio de ese queso = sal × 400, derivado, no medición. Los ceros de las fuentes son valores publicados/redondeados o estimaciones del comparable, nunca ausencia convertida silenciosamente en cero.
+
+Los 40 platos y 6 franjas tienen un lote calculable completo, pesos editoriales y referencia precargada editable de cada ingrediente. Fruta genérica = pera; leche genérica de mayores = entera como ejemplo, ambas decisiones visibles. No se fijan porciones pediátricas: dividir un lote es una elección explícita. No se completan con suposiciones perfiles, etiquetas privadas nuevas ni comidas desconocidas. Los datos privados incompletos siguen incompletos; el catálogo de referencia sí queda completo. No se han incorporado ingredientes de las anotaciones diagonales de las fotos.
+
+Los valores completados son estimaciones de ingredientes, sin retención ni rendimiento de cocción y sin evaluación de suficiencia. No son composición medida del plato cocinado ni validación pediátrica. Revisar el envase real y alergias (la pasta Gallo puede contener soja; la crema debe ser fina sin trozos).
+
+Fuentes verificadas:
+- https://compraonline.condis.es/crema-we-natural-cacahuete-475-g/p/110438/es_ES
+- https://compraonline.condis.es/helices-gallo-nature-lenteja-250-g/p/121986/es_ES
+- https://compraonline.condis.es/queso-condis-fresco-pack-4-unidades-250-g/p/315106/es_ES
+- https://compraonline.condis.es/queso-burgo-de-arias-sin-sal-3x72-g-216-g/p/315025/es_ES
+- https://arias.es/productos/queso-fresco/burgo-de-arias-sin-sal-anadida-3x72-gramos/
+- https://doi.org/10.57745/RDMHWY
+- https://fdc.nal.usda.gov/download-datasets/ (SR Legacy abril 2018, dominio público/CC0)
+
+Reproducción local: completar-catalogo-v090.py, archivo USDA SHA256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0. Auditoría completa investigacion-nutricion/auditoria-referencias-v090.json. Solo JS y documentación propios se publican, no fotos, archivos de usuario ni descargas de investigación.
