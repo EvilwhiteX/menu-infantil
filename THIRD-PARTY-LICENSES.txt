@@ -143,3 +143,12 @@ Attribution, original document links, page locations, context and limitations:
 FUENTES_NUTRICION.md and gramajes.js. Source PDFs are linked, not bundled.
 
 V0.7.1: subset expanded to 53 foods / 12 components (636 original cells). Added CIQUAL codes 9876, 7815, 19042, 18066 from the same verified 2025 source. Spanish labels are translations for reference; original names and qualifiers retained. No institutional endorsement.
+
+V0.9.0: completed reference layer, separate from original CIQUAL cells.
+Original values and qualifiers retained; explicit estimates and comparable-food
+identifiers/methods in referencias-datos.js and FUENTES_NUTRICION.md.
+USDA FoodData Central SR Legacy April 2018: public domain / CC0.
+https://fdc.nal.usda.gov/download-datasets/
+https://fdc.nal.usda.gov/api-guide/
+Retail product numeric facts: Condis and Mantequerias Arias, accessed 2026-10-16.
+No commercial photographs, logos, full descriptions or private records bundled.

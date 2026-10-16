@@ -28,7 +28,7 @@ calculateNutrition=function(entries){
  return result;
 };
 const ORIGINAL_NUTRITION_TABLE=nutritionTable;
-nutritionTable=function(result){return ORIGINAL_NUTRITION_TABLE(result).replace(/<dt>(.*?)<\/dt>/g,(match,label)=>{const field=NUTRITION_DATA.fields.find(f=>h(f.label)===label);return '<dt>'+label+(field&&result.totals[field.key].estimated?'<small>Incluye estimación</small>':'')+'</dt>';});};
+nutritionTable=function(result){return ORIGINAL_NUTRITION_TABLE(result).replace(/<dt>(.*?)<\/dt>/g,(match,label)=>{const field=NUTRITION_DATA.fields.find(f=>h(f.label)===label);return '<dt>'+label+(field&&result.totals[field.key].estimated?'<br/><small>Incluye estimación</small>':'')+'</dt>';});};
 const ORIGINAL_SOURCE_MARKUP=nutritionSourcesMarkup;
 nutritionSourcesMarkup=function(entries){
  const refs=[...new Set(entries.map(e=>e.foodId).filter(id=>COMPLETED_BY_ID[id]))].map(id=>COMPLETED_BY_ID[id]);
