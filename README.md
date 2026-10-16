@@ -1,4 +1,4 @@
-# Menú Infantil V0.15.1
+# Menú Infantil V0.15.2
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -248,3 +248,8 @@ Guía opcional «Tu primera semana en 3 pasos»: Crear perfil, Personalizar e Ir
 En una instalación nueva se presenta la guía al abrir la app por primera vez. «Ahora no», el cierre, Escape o el fondo la descartan y recuerdan la elección en este navegador. Las instalaciones anteriores reciben solo una invitación discreta en Mi semana, sin ventana automática. El acceso «Primeros pasos» permanece en Mi semana y en Ajustes → Ayuda. Ocultar la invitación no elimina ese acceso.
 
 Usa la mandarina existente, los colores y el tamaño de texto elegidos, presentación móvil/escritorio y navegación por teclado dentro de la ventana. La preferencia de bienvenida es local al navegador; no se exporta con las copias y se conserva al restaurar una. Si no se puede guardar, la guía permite continuar e informa de que podría volver a aparecer. No se modifican perfiles, menús, cantidades ni cálculos nutricionales.
+
+
+## V0.15.2 · Ocultar Primeros pasos
+
+Ajustes → Ayuda incluye el interruptor «😎 Ya domino la app». Activado oculta tanto la invitación como el botón Primeros pasos de Mi semana; desactivado los vuelve a mostrar. La guía permanece accesible desde Ayuda. La elección se recuerda en este navegador, se conserva al cerrar la guía y restaurar copias, y no modifica perfiles ni menús. Si falla el guardado, el interruptor conserva la selección anterior.
