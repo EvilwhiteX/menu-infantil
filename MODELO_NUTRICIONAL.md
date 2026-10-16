@@ -92,3 +92,10 @@ Calendario privado por perfil y fecha, importación revisada JSON/CSV/Excel pega
 Generación semanal, completar huecos y preparación del mes con guardado único: conserva comidas fijadas/externas y fechas fuera del mes. Menú previsto y registro de lo servido separados; cada toma se suma una sola vez y nunca entra en la compra. Copias anteriores compatibles y nueva biblioteca incluida en copias/exportaciones. Las fotos se convierten en archivo desde el chat; no hay OCR directo ni publicación mensual de datos.
 
 Instrucciones, formato de archivos, supuestos y límites en [MENU_COLEGIO.md](MENU_COLEGIO.md).
+
+
+## V0.18.0 · Platos del colegio en el catálogo general
+
+51 fichas nuevas y 66 nombres cubiertos con equivalencias: 171 preparaciones, 1026 adaptaciones y 99 referencias. Las preparaciones sencillas conservan sus ingredientes propios, sin añadir guarniciones de otra receta. Cada ficha incluye lote editable, pasos, alérgenos, precauciones, adaptación por edad y cálculo de composición. Se distingue la propuesta casera de la receta real, que un nombre no permite conocer. Las guarniciones y platos sueltos están disponibles por elección manual y no se generan solos como comidas completas. Recetas anteriores, perfiles y calendarios guardados se conservan.
+
+Regla del proyecto: incorporar las preparaciones nuevas descubiertas al catálogo común, en español y con la ficha completa, tras comprobar equivalencias. No implica publicar automáticamente entradas privadas de usuarios. Detalles, mapa de nombres, fuentes y límites en [CATALOGO_COLEGIO.md](CATALOGO_COLEGIO.md).

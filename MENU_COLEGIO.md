@@ -1,4 +1,4 @@
-# Menú del colegio · V0.17.1
+# Menú del colegio · V0.18.0
 
 ## Corrección de importación V0.17.1
 
@@ -96,3 +96,10 @@ La estimación de cada componente reparte el 30% editorial de energía asignado 
 Un registro cuantificado tiene prioridad sobre la estimación de esa toma. Un texto registrado distinto del menú anunciado invalida su estimación para esa fecha. Nunca se suman el registro y el menú previsto como dos comidas. La compra excluye siempre las tomas escolares.
 
 Al cambiar los datos del perfil, las estimaciones anteriores quedan señaladas hasta revisarlas. Si cambia el menú escolar después de preparar comidas de casa, se avisa: las comidas guardadas no se reescriben. No se mide lo consumido ni se garantiza una dieta completa. Se mantienen los bloqueos de generación con alergias o exclusiones y los controles por edad.
+
+
+## V0.18.0 · Platos del colegio en el catálogo general
+
+51 fichas nuevas y 66 nombres cubiertos con equivalencias: 171 preparaciones, 1026 adaptaciones y 99 referencias. Las preparaciones sencillas conservan sus ingredientes propios, sin añadir guarniciones de otra receta. Cada ficha incluye lote editable, pasos, alérgenos, precauciones, adaptación por edad y cálculo de composición. Se distingue la propuesta casera de la receta real, que un nombre no permite conocer. Las guarniciones y platos sueltos están disponibles por elección manual y no se generan solos como comidas completas. Recetas anteriores, perfiles y calendarios guardados se conservan.
+
+Regla del proyecto: incorporar las preparaciones nuevas descubiertas al catálogo común, en español y con la ficha completa, tras comprobar equivalencias. No implica publicar automáticamente entradas privadas de usuarios. Detalles, mapa de nombres, fuentes y límites en [CATALOGO_COLEGIO.md](CATALOGO_COLEGIO.md).

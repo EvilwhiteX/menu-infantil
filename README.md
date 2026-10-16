@@ -1,4 +1,4 @@
-# Menú Infantil V0.17.1
+# Menú Infantil V0.18.0
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -277,3 +277,10 @@ Instrucciones, formato de archivos, supuestos y límites en [MENU_COLEGIO.md](ME
 ## V0.17.1 · Correspondencias escolares revisables
 
 La importación deja de relacionar platos con recetas por coincidencias parciales que pueden añadir ingredientes o guarniciones. Conserva los comparables exactos y la selección manual. En JSON, `templateId: ""` mantiene «Solo texto / sin referencia», también frente a la biblioteca y al exportar e importar de nuevo. Se reconocen abadejo y ave como grupos sin inventar una especie concreta. Los archivos preparados desde fotografías para este proyecto utilizan nombres en español; no hay traducción automática dentro de la app. No cambia los menús ni las composiciones que ya estaban guardados.
+
+
+## V0.18.0 · Platos del colegio en el catálogo general
+
+51 fichas nuevas y 66 nombres cubiertos con equivalencias: 171 preparaciones, 1026 adaptaciones y 99 referencias. Las preparaciones sencillas conservan sus ingredientes propios, sin añadir guarniciones de otra receta. Cada ficha incluye lote editable, pasos, alérgenos, precauciones, adaptación por edad y cálculo de composición. Se distingue la propuesta casera de la receta real, que un nombre no permite conocer. Las guarniciones y platos sueltos están disponibles por elección manual y no se generan solos como comidas completas. Recetas anteriores, perfiles y calendarios guardados se conservan.
+
+Regla del proyecto: incorporar las preparaciones nuevas descubiertas al catálogo común, en español y con la ficha completa, tras comprobar equivalencias. No implica publicar automáticamente entradas privadas de usuarios. Detalles, mapa de nombres, fuentes y límites en [CATALOGO_COLEGIO.md](CATALOGO_COLEGIO.md).

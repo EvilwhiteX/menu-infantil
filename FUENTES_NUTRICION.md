@@ -220,3 +220,10 @@ Etiquetas de productos españoles (no se presupone disponibilidad en todos los s
 Sodio de etiquetas: cálculo sal × 400 mg/g, marcado como estimación. Otros componentes de los cuatro productos: comparables CIQUAL expresamente estimados; no se les atribuye análisis de marca. No se transcribe una ficha antigua de queso oreado como si fuera el queso tierno actual. Revisa el envase por posibles cambios.
 
 Seguridad y variedad: AESAN, recomendaciones de pescado por mercurio, https://www.aesan.gob.es/actualidad/publicaciones-seguridad-alimentaria/recomendaciones-de-consumo-de-pescado-por-presencia-de-mercurio ; guías de primera infancia y etapa escolar ya registradas. Los ingredientes y recetas nuevos no reciben aval ni validación clínica por usar estas fuentes. No se añaden atún rojo, pescado de especie desconocida, caza silvestre ni frutos secos enteros.
+
+
+## V0.18.0 · Platos del colegio en el catálogo general
+
+51 fichas nuevas y 66 nombres cubiertos con equivalencias: 171 preparaciones, 1026 adaptaciones y 99 referencias. Las preparaciones sencillas conservan sus ingredientes propios, sin añadir guarniciones de otra receta. Cada ficha incluye lote editable, pasos, alérgenos, precauciones, adaptación por edad y cálculo de composición. Se distingue la propuesta casera de la receta real, que un nombre no permite conocer. Las guarniciones y platos sueltos están disponibles por elección manual y no se generan solos como comidas completas. Recetas anteriores, perfiles y calendarios guardados se conservan.
+
+Regla del proyecto: incorporar las preparaciones nuevas descubiertas al catálogo común, en español y con la ficha completa, tras comprobar equivalencias. No implica publicar automáticamente entradas privadas de usuarios. Detalles, mapa de nombres, fuentes y límites en [CATALOGO_COLEGIO.md](CATALOGO_COLEGIO.md).
