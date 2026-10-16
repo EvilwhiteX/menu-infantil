@@ -1,4 +1,12 @@
-# Menú del colegio · V0.17.0
+# Menú del colegio · V0.17.1
+
+## Corrección de importación V0.17.1
+
+Los comparables automáticos se limitan a los nombres y alias exactos reconocidos. Una coincidencia parcial no permite deducir ingredientes ni añadir guarniciones. Las referencias elegidas manualmente siguen disponibles y requieren revisión.
+
+En JSON, `templateId: ""` significa «Solo texto / sin referencia»: no se sustituye por sugerencias ni por correspondencias guardadas de la biblioteca. Se conserva al exportar y volver a importar. Omitir ese campo permite buscar una correspondencia o comparable exacto. Todas las correspondencias importadas se muestran sin revisar hasta aceptarlas.
+
+Los platos preparados desde fotografías para este proyecto se traducen al español antes de importar. Los nombres destinados a la app y a sus exportaciones deben estar en español. La aplicación no incorpora un traductor automático de archivos externos.
 
 ## Uso
 
@@ -17,7 +25,7 @@ Los datos se guardan en este navegador y en sus exportaciones. No se publican en
 
 La V0.17.0 no incluye OCR directo. Fotografía el documento completo y legible, con mes, año y fechas, y pide en tu chat que lo convierta al formato de este documento. Revisa cualquier celda ambigua. No hace falta publicar otra versión de la app cada mes.
 
-Una petición útil es: «Transcribe este menú al archivo menu-infantil-colegio, formatVersion 1, según MENU_COLEGIO.md. Conserva los nombres originales y las fechas. No inventes celdas, ingredientes reales ni cantidades medidas. Separa primero, segundo, guarnición, postre y otros. Usa solo templateId existentes o foodId conocidos; las aproximaciones deben quedar visibles para revisar. Ante dudas conserva el texto sin cuantificar. No incluyas datos personales del menor».
+Una petición útil es: «Transcribe este menú al archivo menu-infantil-colegio, formatVersion 1, según MENU_COLEGIO.md. Traduce los nombres al español y conserva las fechas y el significado del original. No inventes celdas, ingredientes reales ni cantidades medidas. Separa primero, segundo, guarnición, postre y otros. Usa solo templateId existentes o foodId conocidos; las aproximaciones deben quedar visibles para revisar. Ante dudas conserva el texto sin cuantificar. No incluyas datos personales del menor».
 
 ## CSV / tabla de Excel
 

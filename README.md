@@ -1,4 +1,4 @@
-# Menú Infantil V0.16.0
+# Menú Infantil V0.17.1
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -273,3 +273,7 @@ Calendario privado por perfil y fecha, importación revisada JSON/CSV/Excel pega
 Generación semanal, completar huecos y preparación del mes con guardado único: conserva comidas fijadas/externas y fechas fuera del mes. Menú previsto y registro de lo servido separados; cada toma se suma una sola vez y nunca entra en la compra. Copias anteriores compatibles y nueva biblioteca incluida en copias/exportaciones. Las fotos se convierten en archivo desde el chat; no hay OCR directo ni publicación mensual de datos.
 
 Instrucciones, formato de archivos, supuestos y límites en [MENU_COLEGIO.md](MENU_COLEGIO.md).
+
+## V0.17.1 · Correspondencias escolares revisables
+
+La importación deja de relacionar platos con recetas por coincidencias parciales que pueden añadir ingredientes o guarniciones. Conserva los comparables exactos y la selección manual. En JSON, `templateId: ""` mantiene «Solo texto / sin referencia», también frente a la biblioteca y al exportar e importar de nuevo. Se reconocen abadejo y ave como grupos sin inventar una especie concreta. Los archivos preparados desde fotografías para este proyecto utilizan nombres en español; no hay traducción automática dentro de la app. No cambia los menús ni las composiciones que ya estaban guardados.

@@ -31,14 +31,13 @@ function schoolSuggestTemplate(name){
  const options=schoolRecipeOptions(),exact=options.find(r=>normal(r.name)===n);if(exact)return exact.baseRecipeId;
  // Proposals always show the full comparable and its ingredients before acceptance.
  if(/\b(pescado|peix)\b/.test(n)&&!schoolGroups(n.replace(/pescado|peix/g,'')).includes('pescado'))return '';
- const words=value=>normal(value).split(/\W+/).filter(w=>w.length>2&&!['con','del','las','los','para','sin','una','unos','casera','casero'].includes(w)),wanted=words(n),groups=schoolGroups(n);let best=null,score=-Infinity;
- for(const r of options){const have=words(r.name),common=wanted.filter(w=>have.includes(w)).length;if(common<2||common/wanted.length<.66||groups.length&&r.protein&&!groups.includes(r.protein)||!groups.length&&r.protein!=='vegetal')continue;const s=common*4-(have.length-common)*1.3-(wanted.length-common)*3;if(s>score){best=r;score=s;}}
- return score>=3?best.baseRecipeId:'';
+ // A similar title cannot establish the ingredients or sides served at school.
+ return '';
 }
 function schoolNames(record){return (record?.components||[]).map(c=>c.name).filter(Boolean).join(' · ');}
 function schoolGroups(text){
  const n=normalizedFood(text),out=[];
- for(const [key,re] of [['legumbres',/\b(lentej\w*|llenti\w*|garbanz\w*|cigr\w*|alub\w*|mongetes|judias blancas|fesols|guisantes|pesols)\b/],['pescado',/\b(pescad\w*|peix|merlu\w*|lluc|salmon|bacal\w*|sardin\w*|trucha|atun|tonyina|rap|rape|dorada|orada)\b/],['huevo',/\b(huevo\w*|ous?|tortilla|truita)\b/],['ave',/\b(pollo|pollastre|pavo|gall dindi)\b/],['carne_roja',/\b(ternera|vedella|vacuno|cerdo|porc|lomo|llom|cordero|xai|conejo|conill)\b/],['carne_procesada',/\b(chorizo|xoric|salchich\w*|salsitx\w*|jamon|pernil|embutid\w*|fiambre|lonchead\w*)\b/]])if(re.test(key==='legumbres'?n.replace(/mongetes verdes|judias verdes/g,'verdura'):n))out.push(key);
+ for(const [key,re] of [['legumbres',/\b(lentej\w*|llenti\w*|garbanz\w*|cigr\w*|alub\w*|mongetes|judias blancas|fesols|guisantes|pesols)\b/],['pescado',/\b(pescad\w*|peix|merlu\w*|lluc|abadejo|salmon|bacal\w*|sardin\w*|trucha|atun|tonyina|rap|rape|dorada|orada)\b/],['huevo',/\b(huevo\w*|ous?|tortilla|truita)\b/],['ave',/\b(pollo|pollastre|pavo|aves?|gall dindi)\b/],['carne_roja',/\b(ternera|vedella|vacuno|cerdo|porc|lomo|llom|cordero|xai|conejo|conill)\b/],['carne_procesada',/\b(chorizo|xoric|salchich\w*|salsitx\w*|jamon|pernil|embutid\w*|fiambre|lonchead\w*)\b/]])if(re.test(key==='legumbres'?n.replace(/mongetes verdes|judias verdes/g,'verdura'):n))out.push(key);
  if(!out.length&&/\b(verdura\w*|vegetal|calabac\w*|carbasso|calabaza|carbassa|brocoli|pastanaga|zanahoria|mongetes verdes|judias verdes)\b/.test(n))out.push('vegetal');
  return out;
 }
@@ -126,7 +125,7 @@ function schoolParseImport(text,month){
  if(text.startsWith('{')){let parsed;try{parsed=JSON.parse(text);}catch{throw Error('No se puede leer el archivo de menú escolar.');}if(parsed.app!=='menu-infantil-colegio'||parsed.formatVersion!==1||parsed.month!==month||!Array.isArray(parsed.days))throw Error('Selecciona un archivo de Menú escolar del mismo mes. No uses una copia completa de la app.');rows=parsed.days;}else rows=schoolParseCSV(text);
  if(!rows.length||rows.length>31)throw Error('Un archivo debe contener entre 1 y 31 fechas del mismo mes.');const seen=new Set();
  const days=rows.map(row=>{if(!schoolDate(row.date)||row.date.slice(0,7)!==month||seen.has(row.date))throw Error('Hay una fecha repetida, inexistente o fuera del mes elegido.');seen.add(row.date);let record=schoolValidateRecord(row);
-  record.components=record.components.map(c=>{const known=state.schoolDishes?.[schoolDishKey(c.name)];if(known&&!c.templateId&&!c.entries.length)c={...known,name:c.name,role:c.role};else c={...c,templateId:c.templateId||(!c.entries.length?schoolSuggestTemplate(c.name):''),reviewed:false};const oldBasis=c.basis;c=schoolResolveComponent(c,record);if(oldBasis&&oldBasis!==nutritionTargets().signature)c.reviewed=false;return c;});
+  record.components=record.components.map((c,index)=>{const source=row.components[index],textOnly=Object.hasOwn(source,'templateId')&&!source.templateId,known=!textOnly&&state.schoolDishes?.[schoolDishKey(c.name)];if(known&&!c.templateId&&!c.entries.length)c={...known,name:c.name,role:c.role,reviewed:false};else c={...c,templateId:c.templateId||(!textOnly&&!c.entries.length?schoolSuggestTemplate(c.name):''),reviewed:false};const oldBasis=c.basis;c=schoolResolveComponent(c,record);if(oldBasis&&oldBasis!==nutritionTargets().signature)c.reviewed=false;return c;});
   return {date:row.date,...record,take:!schoolPlanAt(row.date)};
  });return {profileId:state.activeProfile,month,days:days.sort((a,b)=>a.date.localeCompare(b.date))};
 }
