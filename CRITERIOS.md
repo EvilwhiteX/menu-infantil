@@ -192,3 +192,8 @@ Pruebas: 192 edades mensuales y tres escenarios de sexo; 38 generaciones en lím
 ## V0.14.1 · Correcciones de revisión
 
 Se mantienen las orientaciones y el diseño aprobados. Se corrigen la identidad de compra, los tamaños y piezas estimadas, la persistencia atómica, los límites de formularios y los ajustes locales. La generación no utiliza como cero una comida externa ni una toma fijada sin composición completa. Detalles y pruebas en [AUDITORIA_V0.14.1.md](AUDITORIA_V0.14.1.md).
+
+
+## V0.15.0 · Colegio por toma
+
+La misma regla escolar se aplica a Desayuno, Media mañana y Comida según la selección del perfil y sus días comunes. Se excluyen de la planificación de casa, las sustituciones y la compra, conservando un registro independiente y visible. No se inventa el contenido del colegio ni se compensan las demás comidas. Los perfiles previos solo tienen Comida seleccionada hasta que el usuario lo amplíe.

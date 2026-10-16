@@ -1,4 +1,4 @@
-# Menú Infantil V0.14.2
+# Menú Infantil V0.15.0
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -226,3 +226,16 @@ Se conserva el almacenamiento local y el diseño. Las cantidades de menús anter
 ## V0.14.2 · Ajustes visuales
 
 «Hoy» se agrupa con la selección de semana. Autoría centrada. Se retira el texto secundario del aviso de variedad positivo, conservando los avisos de información incompleta. En Generar las tres acciones se muestran antes de la explicación y las guías. Las tres herramientas del recetario se agrupan bajo «Guías y herramientas», con cabeceras de color principal y contraste adaptado, separadas de los platos. Se mantiene el modelo de cálculo 0.14.1 y los datos guardados.
+
+
+## V0.15.0 · Perfil visible y tomas escolares
+
+- Recetario: «Platos disponibles» y número de platos con el nombre y la edad del perfil activo. Las guías y la pantalla Generar también identifican el perfil.
+- Añadir perfil desplaza la pantalla hasta el formulario, sin abrir automáticamente el teclado del móvil.
+- «Tomas en el colegio» permite elegir Desayuno, Media mañana y Comida. Las tomas elegidas comparten los días seleccionados, de lunes a domingo; no se activan otras tomas por defecto.
+- Cada combinación de perfil, semana, día y toma tiene su propio texto y, opcionalmente, cantidades y referencias para la composición. Los textos se muestran directamente en las celdas y en impresión/PDF.
+- Las tomas escolares sustituyen cualquier plato previsto o fijado en esas celdas. No se generan, no se reutilizan preparaciones allí ni se incluyen en la compra o el resumen de casa. La generación no intenta compensarlas con las demás tomas.
+- La revisión diaria/semanal y el gráfico solo completan cada toma escolar cuando tiene ingredientes y cantidades declarados. Un texto libre mantiene el aporte total pendiente. Los registros escolares nunca entran en la compra.
+- Compatibilidad: los perfiles y copias anteriores conservan únicamente la Comida como toma escolar. Sus registros mantienen la misma clave y no se trasladan a desayuno o media mañana. Las nuevas copias incluyen la selección y los tres registros independientes.
+
+Comprobado con las siete combinaciones posibles de tomas escolares, separación por perfil/semana, generación y compra, conservación de registros antiguos, copia/restauración, fallo de almacenamiento, impresión/PDF y navegador móvil. No se modifican las tablas científicas ni se atribuye validación clínica al prototipo.

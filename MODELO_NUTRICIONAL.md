@@ -65,3 +65,10 @@ Pruebas: 192 edades mensuales y tres escenarios de sexo; 38 generaciones en lím
 La optimización diaria y la puntuación semanal utilizan la misma suma de fracciones de tomas conocidas en casa. Las comidas externas y los platos fijados sin composición completa se conservan, pero no se incluyen como cero ni se intenta compensar su presupuesto con las demás tomas. Su información sigue pendiente en la revisión y el gráfico. La comida escolar continúa como registro manual, independiente de la compra y de la optimización.
 
 Los campos adicionales rechazan cantidades no positivas o fuera de rango. Los ceros publicados, las trazas, los límites y los datos ausentes siguen diferenciados. No se cambian tablas científicas, objetivos institucionales ni factores de cocción en esta revisión. Los menús antiguos mantienen sus cantidades y procedencia; solo las nuevas propuestas usan el modelo 0.14.1.
+
+
+## V0.15.0 · Tres tomas escolares independientes
+
+El modelo admite desayuno, media mañana y comida escolares. Usa la selección de tomas y días del perfil en todos los puntos: generación, sustitución, preparaciones, compra, composición diaria/semanal y salidas de impresión/PDF. La optimización omite el presupuesto de cada toma escolar; no utiliza el texto ni sus cantidades para compensar automáticamente el resto de comidas.
+
+Los registros cuantificados de cada toma se suman una sola vez en el gráfico y la revisión total. Si falta cualquiera, la cobertura sigue pendiente. El desayuno y la media mañana usan claves adicionales, manteniendo las claves históricas de comida. Las copias anteriores se interpretan como solo comida escolar; se validan los nuevos campos y las claves de toma al restaurar. No cambian las referencias institucionales ni los valores de alimentos.
