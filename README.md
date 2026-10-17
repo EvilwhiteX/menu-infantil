@@ -1,4 +1,4 @@
-# Menú Infantil V0.21.1
+# Menú Infantil V0.21.2
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -334,3 +334,8 @@ Marca centrada con mandarina, Menú en negro e Infantil en azul. Mi semana muest
 ## V0.21.1 · Colores de la cabecera
 
 EN FAMILIA utiliza el rosa #E63B7A. El bloque superior, las letras destacadas del título, el nombre del perfil, Infantil en el logo y los iconos de cabecera siguen el color elegido en Ajustes, con los tonos suaves y el ajuste de contraste existentes en cada tema. La firma rosa se conserva al cambiar el color principal. No cambia los perfiles ni los menús.
+
+
+## V0.21.2 · Firma rosa pastel
+
+EN FAMILIA utiliza el rosa pastel #D8A6B8 elegido y la misma familia tipográfica y grosor que Menú Infantil, a menor tamaño y con espaciado compacto. El bloque y sus destacados siguen el color elegido en Ajustes. No cambia los datos guardados.
