@@ -99,3 +99,10 @@ Instrucciones, formato de archivos, supuestos y límites en [MENU_COLEGIO.md](ME
 51 fichas nuevas y 66 nombres cubiertos con equivalencias: 171 preparaciones, 1026 adaptaciones y 99 referencias. Las preparaciones sencillas conservan sus ingredientes propios, sin añadir guarniciones de otra receta. Cada ficha incluye lote editable, pasos, alérgenos, precauciones, adaptación por edad y cálculo de composición. Se distingue la propuesta casera de la receta real, que un nombre no permite conocer. Las guarniciones y platos sueltos están disponibles por elección manual y no se generan solos como comidas completas. Recetas anteriores, perfiles y calendarios guardados se conservan.
 
 Regla del proyecto: incorporar las preparaciones nuevas descubiertas al catálogo común, en español y con la ficha completa, tras comprobar equivalencias. No implica publicar automáticamente entradas privadas de usuarios. Detalles, mapa de nombres, fuentes y límites en [CATALOGO_COLEGIO.md](CATALOGO_COLEGIO.md).
+
+
+## Perfil y calendario · V0.19.0
+
+Los perfiles nuevos o editados requieren fecha de nacimiento completa, sexo M/F de referencia y selección explícita de actividad (incluida «Según edad»). La opción histórica de referencia media se conserva solo al leer perfiles/copias antiguas, sin ofrecerla al guardar. Antes de generar deben completar el perfil. Las fórmulas y límites del motor siguen iguales.
+
+La edad efectiva utiliza meses completos de calendario y se recalcula con la fecha local actual. El día de aniversario se limita al último día del mes si procede (29 de febrero y meses cortos). La actualización de edad no regenera menús ni modifica gramos históricos. El rango sigue siendo 12–203 meses y el PAL antes de 4 años sigue limitado a 1,4. No se deduce una fecha real a partir de la edad previa.

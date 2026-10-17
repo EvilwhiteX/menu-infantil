@@ -1,7 +1,7 @@
 /* Three optional steps. This guide never creates profiles or generates menus. */
 function welcomeGuideMarkup(){
  const steps=[
-  {number:1,icon:'users',title:'Crea su perfil',text:'En Perfiles → Añadir, indica su nombre y edad. Marca las tomas que hace en el colegio.',action:'profile',button:'Crear perfil'},
+  {number:1,icon:'users',title:'Crea su perfil',text:'En Perfiles → Añadir, indica su nombre, fecha de nacimiento, sexo y actividad. Marca las tomas que hace en el colegio.',action:'profile',button:'Crear perfil'},
   {number:2,icon:'settings',title:'Hazla tuya',text:'En Ajustes, elige colores, tamaño de letra, modo noche y las comidas que quieres mostrar. Puedes cambiarlo cuando quieras.',action:'settings',button:'Personalizar'},
   {number:3,icon:'wand',title:'Prepara la semana',text:'En Generar, pulsa Generar Menú. Después puedes cambiar los platos y ajustar sus cantidades.',action:'generate',button:'Ir a Generar'}
  ];
@@ -29,7 +29,7 @@ function installWelcomeGuide(){
   if(el.dataset.action==='welcome-hide'){rememberWelcome();render();return;}
   if(el.dataset.action!=='welcome-go'||state.modal?.type!=='welcome')return;
   const step=el.dataset.step;if(!['profile','settings','generate'].includes(step))return;
-  state.modal=null;state.view=step==='profile'?'profiles':step;if(step==='profile')editingProfileId='new';rememberWelcome();render();
+  beginGuidedSetup(step);return;
   if(step==='profile')document.getElementById('profile-form')?.closest('section')?.scrollIntoView({behavior:'smooth',block:'start'});
   else if(typeof window!=='undefined')window.scrollTo({top:0,behavior:'instant'});
  });

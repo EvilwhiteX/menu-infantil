@@ -179,3 +179,11 @@ No ANSES logo or endorsement. Source workbooks/page images not redistributed.
 Milk density approximation 1.03 g/ml: FAO/INFOODS Density Database v2 (2012),
 liquid milk, UK 6th. https://www.fao.org/fileadmin/templates/food_composition/documents/density_DB_v2_0_01.pdf
 Piece weights and packaging suggestions are app-authored editable assumptions.
+
+
+V0.19.0: SheetJS Community Edition 0.20.3, xlsx.mini.min.js.
+Copyright (C) 2012-present SheetJS LLC. Licensed under Apache License 2.0.
+Full upstream license and copyright: LICENSE-SHEETJS.txt (bundled verbatim).
+Official distribution: https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.mini.min.js
+Documentation: https://docs.sheetjs.com/docs/getting-started/installation/standalone/
+Included locally without modifications. No remote runtime dependency.

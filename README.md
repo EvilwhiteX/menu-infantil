@@ -1,4 +1,4 @@
-# Menú Infantil V0.18.0
+# Menú Infantil V0.19.0
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -284,3 +284,16 @@ La importación deja de relacionar platos con recetas por coincidencias parciale
 51 fichas nuevas y 66 nombres cubiertos con equivalencias: 171 preparaciones, 1026 adaptaciones y 99 referencias. Las preparaciones sencillas conservan sus ingredientes propios, sin añadir guarniciones de otra receta. Cada ficha incluye lote editable, pasos, alérgenos, precauciones, adaptación por edad y cálculo de composición. Se distingue la propuesta casera de la receta real, que un nombre no permite conocer. Las guarniciones y platos sueltos están disponibles por elección manual y no se generan solos como comidas completas. Recetas anteriores, perfiles y calendarios guardados se conservan.
 
 Regla del proyecto: incorporar las preparaciones nuevas descubiertas al catálogo común, en español y con la ficha completa, tras comprobar equivalencias. No implica publicar automáticamente entradas privadas de usuarios. Detalles, mapa de nombres, fuentes y límites en [CATALOGO_COLEGIO.md](CATALOGO_COLEGIO.md).
+
+
+## V0.19.0 · Inicio guiado, perfiles y Excel
+
+Primera visita sin perfiles de demostración: la guía conserva los tres pasos al navegar, avanza después de guardar el perfil y de generar correctamente, y se puede pausar. «Ya domino la app» desactiva tanto los primeros pasos como el acompañamiento.
+
+Fecha de nacimiento completa, sexo para referencias y actividad obligatorios al guardar. La edad se calcula por calendario y se actualiza al volver a la app o cambiar de día; no modifica las cantidades históricas. Los perfiles anteriores conservan sus datos, pero requieren completar estos campos antes de generar. El rango del planificador sigue siendo de 12 a 203 meses; fuera del rango se conserva el historial. Perfil activo con confirmación del color elegido y edición con icono y desplazamiento al formulario.
+
+En Perfiles → Tomas en el colegio se elige «Registro manual plato por plato» o «Automático con Tabla Excel/CSV». Guarda el perfil completo para activar el bloque mensual con descarga Excel/CSV, carga revisada y vista del mes. La tabla .xlsx se lee localmente en un trabajador con límite de tiempo; no se sube a ningún servidor. Los botones del colegio y completar huecos están en la barra superior de Generar. No se modifica el motor de complementación ni se inventan datos reales a partir del nombre de un plato.
+
+«Reiniciar App y borrar datos», en rojo, abre una confirmación con opción de exportar copia y cancelar. Solo la confirmación final sustituye los datos de esta app en el navegador y vuelve a la bienvenida vacía.
+
+Consulta [GUIA_INICIO.md](GUIA_INICIO.md) y [MENU_COLEGIO.md](MENU_COLEGIO.md). SheetJS CE 0.20.3 está incluido localmente con licencia Apache 2.0; no requiere CDN en uso.

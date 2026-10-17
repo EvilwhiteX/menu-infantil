@@ -1,4 +1,4 @@
-# Menú del colegio · V0.18.0
+# Menú del colegio · V0.19.0
 
 ## Corrección de importación V0.17.1
 
@@ -11,15 +11,15 @@ Los platos preparados desde fotografías para este proyecto se traducen al espa�
 ## Uso
 
 1. En Perfiles, activa Tomas en el colegio y selecciona Comida y sus días habituales.
-2. En Cómo usar el menú del colegio elige Solo registrar (comportamiento anterior) o Complementar en casa. La opción Usar cantidades orientativas permite incorporar las composiciones revisadas; desactivada, se utilizan los grupos reconocidos.
-3. En Mi semana → Menú del colegio → Cargar menú, selecciona mes y año y carga un archivo escolar JSON, un CSV UTF-8 o pega una tabla de Excel.
+2. En Cómo usar el menú del colegio elige Registro manual plato por plato o Automático con Tabla Excel/CSV. Guarda el perfil completo para aplicar los cambios y activar los botones de archivo. La opción Usar cantidades orientativas permite incorporar las composiciones revisadas; desactivada, se utilizan los grupos reconocidos.
+3. En Mi semana → Menú del colegio → Cargar menú, selecciona mes y año y carga un archivo escolar JSON, un Excel .xlsx, un CSV UTF-8 o pega una tabla. También puedes cargarlo desde el bloque mensual del perfil guardado.
 4. Revisa las fechas. Las fechas existentes están desmarcadas para evitar sustituciones accidentales. Revisa los comparables y abre sus cantidades; puedes cambiar la referencia, el factor de cantidad, los gramos y retirar ingredientes. Los nombres ambiguos pueden quedar sin cuantificar.
 5. Marca como completas únicamente las fechas que incluyen toda la comida anunciada. Acepta la revisión y guarda. Importar no regenera comidas familiares ni sustituye registros de lo servido.
 6. Generar Menú prepara la semana con el colegio como parte fija. Completar huecos conserva comidas existentes. Desde Ver mes puedes completar huecos del mes o revisar la opción de regenerar sus tomas no fijadas. Las comidas externas, las fijadas y las fechas de otros meses se conservan.
 
 Ver mes permite editar fechas, indicar Come en casa o Sin información, exportar el mes, repetir una semana concreta en un intervalo y consultar la biblioteca privada. Un espacio vacío nunca significa festivo. Repetir una semana abre una revisión: no sobrescribe fechas existentes directamente.
 
-Los datos se guardan en este navegador y en sus exportaciones. No se publican en GitHub. El archivo mensual es distinto de la copia completa de seguridad: solo contiene el calendario escolar y se asigna al perfil activo al importarlo. Las copias completas incluyen calendarios y biblioteca; las copias anteriores siguen admitidas y mantienen Solo registrar por defecto.
+Los datos se guardan en este navegador y en sus exportaciones. No se publican en GitHub. El archivo mensual es distinto de la copia completa de seguridad: solo contiene el calendario escolar y se asigna al perfil activo al importarlo. Las copias completas incluyen calendarios y biblioteca; las copias anteriores siguen admitidas y mantienen Registro manual plato por plato por defecto.
 
 ## Fotografía mensual
 
@@ -103,3 +103,12 @@ Al cambiar los datos del perfil, las estimaciones anteriores quedan señaladas h
 51 fichas nuevas y 66 nombres cubiertos con equivalencias: 171 preparaciones, 1026 adaptaciones y 99 referencias. Las preparaciones sencillas conservan sus ingredientes propios, sin añadir guarniciones de otra receta. Cada ficha incluye lote editable, pasos, alérgenos, precauciones, adaptación por edad y cálculo de composición. Se distingue la propuesta casera de la receta real, que un nombre no permite conocer. Las guarniciones y platos sueltos están disponibles por elección manual y no se generan solos como comidas completas. Recetas anteriores, perfiles y calendarios guardados se conservan.
 
 Regla del proyecto: incorporar las preparaciones nuevas descubiertas al catálogo común, en español y con la ficha completa, tras comprobar equivalencias. No implica publicar automáticamente entradas privadas de usuarios. Detalles, mapa de nombres, fuentes y límites en [CATALOGO_COLEGIO.md](CATALOGO_COLEGIO.md).
+
+
+## Plantilla Excel real · V0.19.0
+
+En el perfil guardado con modo automático, elige mes y año y pulsa Descargar plantilla Excel. Incluye «Menú del colegio» con las fechas de lunes a viernes y «Instrucciones». Rellena los nombres en español, marca tipo_dia como colegio/casa/desconocido y conserva las columnas. Cargar archivo → Revisar importación → aceptar revisión → Guardar fechas seleccionadas. El archivo también puede descargarse desde la ventana de importación. No hace falta otra versión de la app cada mes.
+
+Se admite .xlsx de hasta 5 MB y una sola tabla de hasta 31 fechas; CSV/JSON mantiene el límite de 1 MB. Se rechazan fórmulas, enlaces de celda, celdas combinadas y varias hojas de datos. La hoja «Instrucciones» se ignora. Se admiten fechas ISO y fechas nativas de Excel. El procesamiento Excel se realiza en un trabajador local con límite de 12 segundos. Si el documento no cumple el formato, utiliza la plantilla o CSV.
+
+Los controles del colegio se aplican al pulsar Guardar perfil; cambiar un selector no guarda un perfil incompleto. Cambiar de manual a automático no borra calendarios ni genera comidas. «Usar cantidades orientativas» sigue siendo una opción separada. Los archivos importados requieren revisión; nombres, ingredientes reales, alérgenos y cantidades del comedor no se deducen con certeza de un nombre.
