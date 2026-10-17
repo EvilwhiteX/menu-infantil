@@ -1,4 +1,4 @@
-# Menú Infantil V0.20.2
+# Menú Infantil V0.21.0
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -324,3 +324,8 @@ El aviso del colegio no depende de que la semana ya esté inicializada. Un bloqu
 El bloque ilustrado aparece antes del gráfico nutricional con el título «Qué comerá [nombre del perfil] con este menú». Mostrar día permite elegir uno de los siete días; Semana recupera el recuento completo. Cada comida cuenta una vez por grupo. El modo de este bloque es independiente del modo del gráfico nutricional; ambos comparten el día seleccionado en el menú. Sin cambios en cantidades, datos guardados ni fórmulas nutricionales.
 
 La barra inferior de móvil y tableta utiliza seis ilustraciones SVG locales con colores suaves: calendario, varita, cesta, recetario, perfiles y ajustes. Conserva sus nombres, acciones, indicador de página activa y navegación por teclado. No necesita imágenes remotas. Verificación: 19 suites, sintaxis de 39 módulos y 144 vistas en Chromium; Safari/iOS físico no probado.
+
+
+## V0.21.0 · Nueva cabecera
+
+Marca centrada con mandarina, Menú en negro e Infantil en azul. Mi semana muestra «La semana de [perfil]» en un bloque azul suave. El selector Perfil activo aparece después de la presentación y antes del calendario; conserva los perfiles y menús guardados. El cambio de tema sigue en la cabecera y la versión puede consultarse en Ajustes. El resto de secciones comparte la nueva presentación, con su título propio.

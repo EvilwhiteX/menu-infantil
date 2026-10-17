@@ -34,3 +34,8 @@ Antes de Aporte del menú encontrarás «Qué comerá [nombre del perfil] con es
 Si tienes el colegio en automático y faltan platos de esta semana, verás un aviso sobre el calendario y otro en cada toma pendiente. El aviso semanal se mantiene visible aunque el día seleccionado no sea de colegio. Cargar menú del colegio abre el mes correspondiente. Revisa y guarda el archivo para actualizar sus fechas.
 
 Los seis iconos de la barra inferior ahora son ilustraciones de colores. Sus botones y funciones conservan los nombres habituales.
+
+
+## V0.21.0 · Nueva cabecera
+
+Marca centrada con mandarina, Menú en negro e Infantil en azul. Mi semana muestra «La semana de [perfil]» en un bloque azul suave. El selector Perfil activo aparece después de la presentación y antes del calendario; conserva los perfiles y menús guardados. El cambio de tema sigue en la cabecera y la versión puede consultarse en Ajustes. El resto de secciones comparte la nueva presentación, con su título propio.
