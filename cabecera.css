@@ -1,6 +1,5 @@
-/* V0.21.0 · Cabecera aprobada: marca centrada, semana y perfil. */
-:root{--brand-blue:#3467a8;--brand-ink:#242c39;--brand-panel:#edf2fe;--brand-muted:#596b83}
-[data-theme=dark]{--brand-blue:#a9cbff;--brand-ink:#f1f5fb;--brand-panel:#2b3d59;--brand-muted:#c1cee0}
+/* V0.21.1 · Cabecera aprobada: marca centrada, semana y perfil. */
+:root{--brand-blue:var(--green);--brand-ink:var(--ink);--brand-panel:var(--green2);--brand-muted:var(--readable);--brand-family:#e63b7a}
 .sidebar>.brand{display:none}
 .topbar.app-topbar{height:auto;min-height:98px;background:var(--paper);display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;gap:12px;padding:19px clamp(18px,3.1vw,53px);border-color:var(--line)}
 .app-brand{display:flex;justify-content:center;align-items:center;gap:10px;min-width:0;color:var(--brand-ink)}
@@ -9,7 +8,7 @@
 .app-brand-copy{min-width:0}
 .app-brand-title{font-family:ui-rounded,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:1.35rem;line-height:1.15;letter-spacing:-.65px;font-weight:800;overflow-wrap:anywhere}
 .app-brand-title span{color:var(--brand-blue)}
-.app-brand-sub{font-size:.68rem;font-weight:600;letter-spacing:.17em;line-height:1.4;margin-top:5px;color:var(--brand-ink)}
+.app-brand-sub{font-size:.68rem;font-weight:600;letter-spacing:.17em;line-height:1.4;margin-top:5px;color:var(--brand-family)}
 .app-topbar .icon-btn{min-width:44px;width:44px;height:44px;border-radius:15px}
 .content{padding-top:22px}
 .hero.app-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:20px;margin:0 0 17px;padding:25px 28px;background:var(--brand-panel);border-radius:25px;color:var(--brand-ink)}

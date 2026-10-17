@@ -39,3 +39,8 @@ Los seis iconos de la barra inferior ahora son ilustraciones de colores. Sus bot
 ## V0.21.0 · Nueva cabecera
 
 Marca centrada con mandarina, Menú en negro e Infantil en azul. Mi semana muestra «La semana de [perfil]» en un bloque azul suave. El selector Perfil activo aparece después de la presentación y antes del calendario; conserva los perfiles y menús guardados. El cambio de tema sigue en la cabecera y la versión puede consultarse en Ajustes. El resto de secciones comparte la nueva presentación, con su título propio.
+
+
+## V0.21.1 · Colores de la cabecera
+
+EN FAMILIA utiliza el rosa #E63B7A. El bloque superior, las letras destacadas del título, el nombre del perfil, Infantil en el logo y los iconos de cabecera siguen el color elegido en Ajustes, con los tonos suaves y el ajuste de contraste existentes en cada tema. La firma rosa se conserva al cambiar el color principal. No cambia los perfiles ni los menús.
