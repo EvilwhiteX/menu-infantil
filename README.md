@@ -1,4 +1,4 @@
-# Menú Infantil V0.19.0
+# Menú Infantil V0.20.0
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -297,3 +297,14 @@ En Perfiles → Tomas en el colegio se elige «Registro manual plato por plato»
 «Reiniciar App y borrar datos», en rojo, abre una confirmación con opción de exportar copia y cancelar. Solo la confirmación final sustituye los datos de esta app en el navegador y vuelve a la bienvenida vacía.
 
 Consulta [GUIA_INICIO.md](GUIA_INICIO.md) y [MENU_COLEGIO.md](MENU_COLEGIO.md). SheetJS CE 0.20.3 está incluido localmente con licencia Apache 2.0; no requiere CDN en uso.
+
+
+## V0.20.0 · Ayuda escolar y semana visual
+
+Perfiles explica manual y automático con un bloque informativo que cambia al seleccionar el modo. El registro manual permite añadir nombres del catálogo y adaptarlos, sin asumir que la receta del colegio coincide. Activar Tomas en el colegio marca las cantidades orientativas en el formulario; se guarda al guardar el perfil. La desactivación posterior se respeta, con explicación de que no se utilizarán las estimaciones escolares (los datos registrados con cantidades propias permanecen).
+
+Las tomas escolares sin información en modo automático muestran un aviso y acceso a cargar el archivo. Se sustituye por el menú anunciado al guardar esa fecha; las tomas de casa y el modo manual mantienen su comportamiento. Una fecha incompleta o desconocida del archivo sigue pendiente. Un registro real ya conocido tiene prioridad y no recibe un aviso de menú incorrecto.
+
+Los selectores mensuales del bloque del perfil y de las ventanas se ajustan al ancho disponible, incluidos los controles nativos de WebKit. Revisados a 320 y 390 píxeles y en escritorio.
+
+Después de los gráficos, «¿Qué hay en nuestros platos?» presenta once grupos con ilustraciones SVG locales, colores y cifras: carne/aves, pescado/marisco, huevo, verduras, legumbres, cereales, tubérculos, fruta, lácteos, frutos secos/semillas y aceites/aguacate. Cada toma visible se cuenta una vez por grupo, aunque repita ingredientes, y puede pertenecer a varios. Se distingue casa/colegio, se señalan datos pendientes y se excluyen de la clasificación los alimentos desconocidos. Son apariciones en comidas, no unidades de huevo, raciones, consumos ni objetivos nutricionales. Las composiciones escolares revisadas pueden ser orientativas. No altera gramos, compras, menús ni cálculos nutricionales.

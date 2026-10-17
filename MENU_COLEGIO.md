@@ -1,4 +1,4 @@
-# Menú del colegio · V0.19.0
+# Menú del colegio · V0.20.0
 
 ## Corrección de importación V0.17.1
 
@@ -112,3 +112,14 @@ En el perfil guardado con modo automático, elige mes y año y pulsa Descargar p
 Se admite .xlsx de hasta 5 MB y una sola tabla de hasta 31 fechas; CSV/JSON mantiene el límite de 1 MB. Se rechazan fórmulas, enlaces de celda, celdas combinadas y varias hojas de datos. La hoja «Instrucciones» se ignora. Se admiten fechas ISO y fechas nativas de Excel. El procesamiento Excel se realiza en un trabajador local con límite de 12 segundos. Si el documento no cumple el formato, utiliza la plantilla o CSV.
 
 Los controles del colegio se aplican al pulsar Guardar perfil; cambiar un selector no guarda un perfil incompleto. Cambiar de manual a automático no borra calendarios ni genera comidas. «Usar cantidades orientativas» sigue siendo una opción separada. Los archivos importados requieren revisión; nombres, ingredientes reales, alérgenos y cantidades del comedor no se deducen con certeza de un nombre.
+
+
+## Ayuda de uso y avisos · V0.20.0
+
+El bloque de información del perfil explica el modo seleccionado antes del texto de complementación. En un registro diario puedes elegir un nombre del catálogo, añadirlo al texto y corregirlo. No se copian ingredientes o cantidades de una receta parecida sin revisión.
+
+Al activar Tomas en el colegio, Usar cantidades orientativas se activa en el formulario. Puedes desactivarlo y guardar. En automático, desactivarlo excluye las cantidades estimadas del menú previsto; no elimina cantidades que hayas registrado expresamente como servidas. Los cambios del formulario se aplican al guardar el perfil completo, conservando los datos anteriores si falla la escritura.
+
+Un espacio escolar pendiente en una semana preparada muestra «Esta toma aún no muestra los platos del colegio. Carga el Excel o CSV para actualizarla» y abre la carga del mes correspondiente. Solo afecta a las tomas configuradas como colegio en modo automático. Al revisar y guardar los platos de esa fecha desaparece el aviso. La carga parcial no da por resueltas otras fechas, ni deduce festivos o datos ausentes. Un registro real conocido prevalece. Cargar el archivo sigue sin regenerar las comidas de casa.
+
+El nuevo recuento semanal incluye los grupos reconocidos por los nombres escolares y las composiciones revisadas disponibles; estas últimas pueden ser estimaciones. No sustituye el gráfico nutricional ni equivale a raciones. Las tomas sin información se indican como pendientes. Las fechas y los nombres se muestran con las reglas existentes, en español.

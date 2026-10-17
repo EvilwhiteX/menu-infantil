@@ -11,3 +11,10 @@ Los perfiles anteriores mantienen sus menús y fecha desconocida: completa los c
 Para el colegio, guarda el perfil en modo Automático con Tabla Excel/CSV y usa su bloque Configurar menú del colegio. Descarga la plantilla del mes, cumpliméntala en español, cárgala y revisa antes de confirmar. Puedes repetirlo cada mes sin actualizar la app.
 
 Reiniciar App y borrar datos abre un diálogo rojo: exporta una copia si la necesitas, cancela para conservar todo o confirma el borrado. Afecta únicamente a los datos de Menú Infantil en este navegador. Tras confirmar, aparece la bienvenida sin perfiles de ejemplo.
+
+
+## Ayuda visual · V0.20.0
+
+En el perfil, cada modo escolar explica su uso. Al activar las tomas del colegio se marca Usar cantidades orientativas; puedes desmarcarlo si prefieres no incluir estimaciones y guardar tu elección. En la semana, un aviso sobre una toma escolar pendiente permite abrir directamente Cargar menú. Revisa y guarda el archivo para que se vean sus platos.
+
+Al final de Mi semana, los iconos de «¿Qué hay en nuestros platos?» cuentan en cuántas comidas visibles aparece cada grupo. Un plato con arroz, verdura y huevo suma una aparición en cada uno de esos grupos. No representa número de huevos, gramos o raciones. Las fuentes escolares pueden ser estimadas; los datos que faltan quedan pendientes.
