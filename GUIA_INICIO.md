@@ -46,7 +46,7 @@ Marca centrada con mandarina, Menú en negro e Infantil en azul. Mi semana muest
 EN FAMILIA utiliza el rosa #E63B7A. El bloque superior, las letras destacadas del título, el nombre del perfil, Infantil en el logo y los iconos de cabecera siguen el color elegido en Ajustes, con los tonos suaves y el ajuste de contraste existentes en cada tema. La firma rosa se conserva al cambiar el color principal. No cambia los perfiles ni los menús.
 
 
-## V0.22.1 · Firma rosa pastel
+## V0.22.2 · Firma rosa pastel
 
 EN FAMILIA utiliza el rosa pastel #D8A6B8 elegido y la misma familia tipográfica y grosor que Menú Infantil, a menor tamaño y con espaciado compacto. El bloque y sus destacados siguen el color elegido en Ajustes. No cambia los datos guardados.
 
@@ -61,3 +61,8 @@ En el registro manual del colegio, al seleccionar un plato de la lista, pulsa «
 ## V0.22.1 · Manzana cocinera y acceso a la guía
 
 Mi semana muestra una manzana verde sonriente con gorro blanco, brazos, manos y cubiertos de mesa, dibujada como SVG local con el estilo infantil de la app. La marca superior mantiene su mandarina. Primeros pasos aparece dentro del bloque de la semana, debajo de la mascota y alineado con «Pequeños platos, grandes momentos.». Se conserva el acceso en Ajustes → Ayuda y la opción «Ya domino la app»; no se duplica el botón bajo el selector de perfil. No cambia los datos guardados.
+
+
+## V0.22.2 · Cabecera y Ajustes
+
+La marca de cabecera está centrada y permite volver a Mi semana al pulsar el logo o cualquiera de sus textos, también con teclado. El cambio de tema queda en Ajustes → Apariencia. Se conserva el selector de color personalizado y se retiran los cuatro colores sugeridos. La versión aparece centrada. El bloque rojo de reinicio tiene el mismo espacio superior e inferior; mantiene su confirmación y exportación de copia. El gorro de la manzana semanal es un 16 % más estrecho y un 18 % más bajo. Sin cambios en los datos guardados.

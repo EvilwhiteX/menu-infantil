@@ -45,3 +45,12 @@
 .hero-welcome .btn svg{width:15px;height:15px;flex:none;color:var(--brand-blue)}
 @media(max-width:420px){.hero.app-week-hero{grid-template-columns:minmax(0,1fr) 108px;column-gap:12px;row-gap:14px}.app-week-hero .app-hero-mascot{width:108px;height:115px}.hero-welcome .btn{padding:9px 5px;font-size:.78rem;gap:4px}}
 @media(max-width:350px){.hero.app-week-hero{grid-template-columns:minmax(0,1fr) 96px;gap:12px 8px}.app-week-hero .app-hero-mascot{width:96px;height:102px}.hero-welcome .btn{font-size:.74rem;padding:8px 4px}.hero-welcome .btn svg{display:none}}
+
+/* V0.22.2 · Marca navegable centrada y ajustes compactos. */
+.topbar.app-topbar{grid-template-columns:minmax(0,1fr)}
+.app-brand{justify-self:center;max-width:100%;font:inherit;text-align:left;border:0;background:transparent;padding:0;cursor:pointer;border-radius:12px}
+.app-brand-copy,.app-brand-title,.app-brand-sub{display:block}
+.app-brand:focus-visible{outline:3px solid var(--brand-blue);outline-offset:6px}
+.app-version{text-align:center}
+.reset-area>h3{margin:0 0 12px}
+.reset-area>p{margin:0 0 16px}

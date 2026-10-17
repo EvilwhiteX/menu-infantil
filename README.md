@@ -1,4 +1,4 @@
-# Menú Infantil V0.22.1
+# Menú Infantil V0.22.2
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -351,3 +351,8 @@ En el registro manual del colegio, al seleccionar un plato de la lista, pulsa «
 ## V0.22.1 · Manzana cocinera y acceso a la guía
 
 Mi semana muestra una manzana verde sonriente con gorro blanco, brazos, manos y cubiertos de mesa, dibujada como SVG local con el estilo infantil de la app. La marca superior mantiene su mandarina. Primeros pasos aparece dentro del bloque de la semana, debajo de la mascota y alineado con «Pequeños platos, grandes momentos.». Se conserva el acceso en Ajustes → Ayuda y la opción «Ya domino la app»; no se duplica el botón bajo el selector de perfil. No cambia los datos guardados.
+
+
+## V0.22.2 · Cabecera y Ajustes
+
+La marca de cabecera está centrada y permite volver a Mi semana al pulsar el logo o cualquiera de sus textos, también con teclado. El cambio de tema queda en Ajustes → Apariencia. Se conserva el selector de color personalizado y se retiran los cuatro colores sugeridos. La versión aparece centrada. El bloque rojo de reinicio tiene el mismo espacio superior e inferior; mantiene su confirmación y exportación de copia. El gorro de la manzana semanal es un 16 % más estrecho y un 18 % más bajo. Sin cambios en los datos guardados.
