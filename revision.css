@@ -8,3 +8,19 @@ html.modal-open{overflow:hidden}.modal{min-width:0}.modal:focus{outline:none}.mo
 @media(max-width:700px){.page-grid,.summary-grid,.generation-grid{grid-template-columns:minmax(0,1fr)}.form-row{grid-template-columns:minmax(0,1fr)}.mobile-nav .nav-item{flex:1 1 0;min-width:0;font-size:clamp(10px,2.9vw,12px);padding-left:1px;padding-right:1px}.mobile-nav .nav-item span{white-space:normal;overflow-wrap:anywhere}.modal-foot .btn{flex:1 1 150px}.profile-card>div{max-width:100%}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{html.modal-open{overflow:visible}}
+
+/* V0.22.3 · Espacio útil para perfiles y compra sin desbordamientos. */
+.page-grid.profiles-layout{grid-template-columns:minmax(0,1fr);align-items:start}
+.profiles-layout .profile-card{flex-wrap:wrap;gap:12px}
+.profiles-layout .profile-info{min-width:0;flex:1 1 150px}
+.profiles-layout .profile-info small{overflow-wrap:anywhere}
+.page-grid.shopping-layout{align-items:start}
+.shopping-layout .summary-mini{grid-template-columns:minmax(0,1fr)}
+.shopping-layout .mini-box{min-width:0;overflow-wrap:anywhere}
+.shopping-layout .mini-box>b{display:block;font-size:1.5rem;line-height:1.2}
+.shopping-layout .mini-box>small{display:block;margin-top:7px;line-height:1.5}
+.shopping-layout .shopping-name{min-width:0;overflow-wrap:anywhere}
+.shopping-layout .shopping-row>input[type="checkbox"]{flex:0 0 17px}
+.shopping-layout .shopping-details,.shopping-layout .pantry-form{min-width:0;overflow-wrap:anywhere}
+.shopping-layout .pantry-form input{box-sizing:border-box;width:100%;min-width:0;max-width:240px}
+@media(min-width:1280px){.page-grid.profiles-layout{grid-template-columns:minmax(280px,320px) minmax(0,1fr)}}

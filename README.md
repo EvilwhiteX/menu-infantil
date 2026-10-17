@@ -1,4 +1,4 @@
-# Menú Infantil V0.22.2
+# Menú Infantil V0.22.3
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -356,3 +356,8 @@ Mi semana muestra una manzana verde sonriente con gorro blanco, brazos, manos y 
 ## V0.22.2 · Cabecera y Ajustes
 
 La marca de cabecera está centrada y permite volver a Mi semana al pulsar el logo o cualquiera de sus textos, también con teclado. El cambio de tema queda en Ajustes → Apariencia. Se conserva el selector de color personalizado y se retiran los cuatro colores sugeridos. La versión aparece centrada. El bloque rojo de reinicio tiene el mismo espacio superior e inferior; mantiene su confirmación y exportación de copia. El gorro de la manzana semanal es un 16 % más estrecho y un 18 % más bajo. Sin cambios en los datos guardados.
+
+
+## V0.22.3 · Perfiles y Compra en escritorio
+
+Perfiles dedica una columna compacta al listado y el espacio principal al formulario. Los bloques tienen alturas independientes. En pantallas por debajo de 1280 píxeles se apilan para mantener el formulario legible. Datos personales mantienen sus filas de dos campos cuando hay espacio; alergias y colegio aprovechan todo el ancho. Compra inteligente muestra sus dos tarjetas en vertical; los textos largos y el detalle de ingredientes se adaptan al ancho disponible. Sin cambios en cálculos, perfiles o datos guardados.
