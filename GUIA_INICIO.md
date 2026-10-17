@@ -25,3 +25,12 @@ Al final de Mi semana, los iconos de «¿Qué hay en nuestros platos?» cuentan 
 Volver a pulsar Empezar, Crear perfil o Personalizar en Primeros pasos reactiva el acompañamiento, incluso si antes elegiste Ya domino la app. Continuar más tarde deja un acceso compacto para reanudarlo en las secciones, también antes de tener perfiles. Ya domino la app vuelve a ocultarlo cuando se selecciona.
 
 Las ventanas mantienen el teclado dentro del diálogo, bloquean la interacción con el fondo y devuelven el foco al control de origen al cerrarse cuando sigue disponible. Al actualizar una ventana se conserva el campo enfocado y su desplazamiento si corresponde al mismo contenido. La acción inicial de las confirmaciones es el cierre seguro.
+
+
+## Novedades V0.20.2
+
+Antes de Aporte del menú encontrarás «Qué comerá [nombre del perfil] con este menú». Pulsa Mostrar día y elige un día para ver sus grupos de alimentos; pulsa Semana para volver a los siete días. El día elegido también se refleja en el menú y en el gráfico nutricional si este está en modo Día. El cambio Día/Semana de cada bloque se controla por separado.
+
+Si tienes el colegio en automático y faltan platos de esta semana, verás un aviso sobre el calendario y otro en cada toma pendiente. El aviso semanal se mantiene visible aunque el día seleccionado no sea de colegio. Cargar menú del colegio abre el mes correspondiente. Revisa y guarda el archivo para actualizar sus fechas.
+
+Los seis iconos de la barra inferior ahora son ilustraciones de colores. Sus botones y funciones conservan los nombres habituales.

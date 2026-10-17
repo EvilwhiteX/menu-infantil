@@ -1,4 +1,4 @@
-# Menú Infantil V0.20.1
+# Menú Infantil V0.20.2
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -315,3 +315,12 @@ Después de los gráficos, «¿Qué hay en nuestros platos?» presenta once grup
 Corregidos desbordamientos con texto muy grande, navegación móvil estrecha, foco y teclado en ventanas, reactivación y pausa de la guía, exclusión expresa de cantidades escolares, cancelación de lecturas e importaciones mal formadas. Las sustituciones automáticas requieren los mismos campos obligatorios que la generación. La compra clasifica correctamente agua, sal y hierbas, y el resumen de grupos respeta expresiones como «sin huevo». No cambian las referencias ni las fórmulas nutricionales.
 
 Se revisaron las seis secciones en 144 combinaciones de ancho, tema y tamaño de texto, además de formularios, ventanas y flujos con datos sintéticos. Dieciocho suites funcionales y sintaxis de 39 módulos. Alcance, correcciones y límites en AUDITORIA_V0.20.1.md.
+
+
+## V0.20.2 · Avisos escolares y resumen diario
+
+El aviso del colegio no depende de que la semana ya esté inicializada. Un bloque visible sobre el calendario informa de las tomas pendientes de toda la semana, incluso cuando el móvil muestra sábado o domingo. Cada toma escolar pendiente conserva su propio aviso y acceso a cargar el mes. Los textos de estado como Sin información no equivalen a un menú cargado. Los registros reales y las fechas conocidas no se marcan como pendientes; las fechas explícitamente de casa se respetan. Al revisar y guardar platos para las fechas pendientes, desaparecen sus avisos.
+
+El bloque ilustrado aparece antes del gráfico nutricional con el título «Qué comerá [nombre del perfil] con este menú». Mostrar día permite elegir uno de los siete días; Semana recupera el recuento completo. Cada comida cuenta una vez por grupo. El modo de este bloque es independiente del modo del gráfico nutricional; ambos comparten el día seleccionado en el menú. Sin cambios en cantidades, datos guardados ni fórmulas nutricionales.
+
+La barra inferior de móvil y tableta utiliza seis ilustraciones SVG locales con colores suaves: calendario, varita, cesta, recetario, perfiles y ajustes. Conserva sus nombres, acciones, indicador de página activa y navegación por teclado. No necesita imágenes remotas. Verificación: 19 suites, sintaxis de 39 módulos y 144 vistas en Chromium; Safari/iOS físico no probado.

@@ -35,12 +35,18 @@ function weeklyFoodKeys(item){
  for(const phrase of absences)for(const [key,re] of [['huevo',/\bhuevos?\b/],['lacteos',/\b(leche|lacteos?)\b/],['carne',/\bcarne\b/],['pescado',/\bpescado\b/],['frutossecos',/\bfrutos secos\b/]])if(re.test(phrase))groups.delete(key);
  return [...groups];
 }
-function weeklyFoodSummary(){
+function schoolRecordHasMenu(record){
+ if(record.entries?.length)return true;
+ const text=normalizedFood(record.text||'').trim();
+ return !!text&&!['sin informacion','pendiente','pendiente de anotar','menu pendiente','menu del colegio pendiente','sin definir','desconocido'].includes(text);
+}
+let weeklyFoodMode='week';
+function weeklyFoodSummary(selectedDay=null){
  const counts=Object.fromEntries(WEEK_FOOD_GROUPS.map(([k])=>[k,{home:0,school:0}]));let home=0,school=0,pending=0,unclassified=0;
- for(let day=0;day<7;day++)for(const [slot] of activeMeals()){
+ for(let day=0;day<7;day++)if(selectedDay===null||selectedDay===day)for(const [slot] of activeMeals()){
   const keys=new Set();let origin='home';
   if(schoolMeal(day,slot)){
-   origin='school';const r=schoolRecord(day,slot);if(!r.text?.trim()&&!r.entries.length){pending++;continue;}
+   origin='school';const r=schoolRecord(day,slot);if(!schoolRecordHasMenu(r)){pending++;continue;}
    school++;for(const entry of r.entries)for(const k of weeklyFoodKeys(entry))keys.add(k);
    // Only the announced names, not a guessed recipe, supply unquantified groups.
    for(const name of (r.text||'').split(/[·;,\n]+/))for(const k of weeklyFoodKeys({name}))keys.add(k);
@@ -53,19 +59,38 @@ function weeklyFoodSummary(){
  return {counts,home,school,pending,unclassified};
 }
 function renderWeeklyFoodSummary(){
- const d=weeklyFoodSummary();return `<section class="surface panel-pad weekly-food-summary" aria-labelledby="weekly-food-title"><div class="subheading"><div><span class="food-eyebrow">COLORES EN TU SEMANA</span><h2 id="weekly-food-title">¿Qué hay en nuestros platos?</h2><p>${h(weekLabel())} · ${d.home} comidas en casa${profile().school?' · '+d.school+' del colegio con datos conocidos':''}</p></div>${icon('smile')}</div><div class="weekly-food-grid">${WEEK_FOOD_GROUPS.map(([k,label,color,bg])=>{const n=d.counts[k];return `<div class="weekly-food-tile" style="--food-ink:${color};--food-bg:${bg}"><span class="weekly-food-picture">${weeklyFoodIcon(k)}</span><strong class="weekly-food-number">${n.home+n.school}</strong><span class="weekly-food-label">${label}</span><small>platos con este grupo</small>${profile().school?`<small class="weekly-food-sources">Casa ${n.home} · Colegio ${n.school}</small>`:''}</div>`;}).join('')}</div><p class="weekly-food-note">${icon('info')}Cada comida cuenta una vez por grupo, aunque repita ingredientes. Un mismo plato puede aparecer en varios grupos. Son apariciones en el menú, no unidades de alimentos, raciones ni cantidades consumidas.</p>${d.pending||d.unclassified?`<p class="weekly-food-pending">${d.pending?'Hay '+d.pending+(d.pending===1?' toma sin información suficiente. ':' tomas sin información suficiente. '):''}${d.unclassified?d.unclassified+(d.unclassified===1?' comida tiene ingredientes o nombres sin clasificar. ':' comidas tienen ingredientes o nombres sin clasificar. '):''}El recuento de los datos conocidos es parcial.</p>`:''}</section>`;
+ const isDay=weeklyFoodMode==='day',day=Math.max(0,Math.min(6,state.selectedDay)),d=weeklyFoodSummary(isDay?day:null),period=isDay?DAYS[day]+' · '+parseDate(addDays(state.week,day)).getDate()+' de '+MONTHS[parseDate(addDays(state.week,day)).getMonth()]:weekLabel();
+ return `<section class="surface panel-pad weekly-food-summary" aria-labelledby="weekly-food-title"><div class="subheading"><div><h2 id="weekly-food-title">Qué comerá ${h(profile().name)} con este menú</h2><p>${h(period)} · ${d.home} ${d.home===1?'comida en casa':'comidas en casa'}${profile().school?' · '+d.school+' del colegio con datos conocidos':''}</p></div><div class="chart-toggle" role="group" aria-label="Periodo del resumen de alimentos"><button class="btn ${isDay?'primary':'outline'}" data-action="food-chart-mode" data-mode="day" aria-pressed="${isDay}">Mostrar día</button><button class="btn ${isDay?'outline':'primary'}" data-action="food-chart-mode" data-mode="week" aria-pressed="${!isDay}">Semana</button></div></div>${isDay?`<div class="chart-days" role="group" aria-label="Día del resumen de alimentos">${DAYS.map((name,n)=>`<button data-action="food-chart-day" data-day="${n}" class="pill ${day===n?'selected':''}" aria-label="Ver alimentos del ${name}" aria-pressed="${day===n}">${name.slice(0,3)}</button>`).join('')}</div>`:''}<div class="weekly-food-grid">${WEEK_FOOD_GROUPS.map(([k,label,color,bg])=>{const n=d.counts[k];return `<div class="weekly-food-tile" style="--food-ink:${color};--food-bg:${bg}"><span class="weekly-food-picture">${weeklyFoodIcon(k)}</span><strong class="weekly-food-number">${n.home+n.school}</strong><span class="weekly-food-label">${label}</span><small>comidas con este grupo</small>${profile().school?`<small class="weekly-food-sources">Casa ${n.home} · Colegio ${n.school}</small>`:''}</div>`;}).join('')}</div><p class="weekly-food-note">${icon('info')}Cada comida cuenta una vez por grupo, aunque repita ingredientes. Un mismo plato puede aparecer en varios grupos. Son apariciones en el menú, no unidades de alimentos, raciones ni cantidades consumidas.${profile().school?' Los grupos del colegio proceden de los nombres y de las composiciones revisadas, que pueden ser orientativas.':''}</p>${d.pending||d.unclassified?`<p class="weekly-food-pending">${d.pending?'Hay '+d.pending+(d.pending===1?' toma sin información suficiente. ':' tomas sin información suficiente. '):''}${d.unclassified?d.unclassified+(d.unclassified===1?' comida tiene ingredientes o nombres sin clasificar. ':' comidas tienen ingredientes o nombres sin clasificar. '):''}El recuento de los datos conocidos es parcial.</p>`:''}</section>`;
 }
 function schoolMissingMenu(day,slot){
  if(!schoolComplement()||!schoolMeal(day,slot))return false;
- const current=state.menus[mealKey()];if(!current||current.kind==='manual'&&!current.days.some(d=>Object.values(d).some(m=>m.recipeId)))return false;
- const r=schoolRecord(day,slot);return !r.text?.trim()&&!r.entries.length;
+ return !schoolRecordHasMenu(schoolRecord(day,slot));
+}
+function schoolPendingWeekMarkup(){
+ const pending=DAYS.flatMap((_,day)=>activeMeals().filter(([slot])=>schoolMissingMenu(day,slot)).map(([slot])=>({day,slot,month:addDays(state.week,day).slice(0,7)})));
+ if(!pending.length)return '';
+ const months=[...new Set(pending.map(p=>p.month))];
+ return `<aside class="school-week-pending" aria-label="Menú del colegio pendiente"><div>${icon('info')}<div><strong>Falta el menú del colegio</strong><p>${pending.length===1?'Hay una toma escolar pendiente en esta semana.':'Hay '+pending.length+' tomas escolares pendientes en esta semana.'} Carga el Excel o CSV para mostrar los platos del colegio en esas fechas. Las comidas de casa se conservan.</p></div></div><div class="toolbar">${months.map(month=>`<button type="button" class="btn outline" data-action="school-import" data-month="${month}">${icon('upload')}Cargar menú${months.length>1?' de '+h(MONTHS[+month.slice(5)-1]):' del colegio'}</button>`).join('')}</div></aside>`;
+}
+function colorfulNavigationIcon(key){
+ const drawings={
+ week:['#e8f3fc','<rect x="9" y="13" width="46" height="43" rx="10" fill="#fffdf6" stroke="#70a6c8" stroke-width="2"/><path fill="#70a6c8" d="M9 26V23q0-10 10-10h26q10 0 10 10v3z"/><path d="M21 8v13m22-13v13" stroke="#426e9a" stroke-width="4" stroke-linecap="round"/><rect x="17" y="33" width="11" height="11" rx="3" fill="#f4cb65"/><path d="m35 40 5 5 9-10" fill="none" stroke="#72a36a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>'],
+ generate:['#f3e9fc','<path d="m17 51 26-26" stroke="#9b78bc" stroke-width="10" stroke-linecap="round"/><path d="m38 30 7-7" stroke="#eadcf4" stroke-width="7"/><path fill="#e9b94f" d="m23 8 3 8 8 3-8 3-3 8-3-8-8-3 8-3zm26 26 2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/><circle fill="#75af9b" cx="49" cy="12" r="4"/>'],
+ shopping:['#faeee4','<path fill="#dca469" d="m8 27 7 27h34l7-27z"/><path d="m19 28 8-17m18 17-8-17" stroke="#91633c" stroke-width="4" stroke-linecap="round"/><path fill="#de7880" d="M23 27c-10-9-15 5-7 13 4 4 6 0 7 1 6 4 12-10 5-15-2-1-4 0-5 1"/><path fill="#74a36a" d="m22 26 1-9q9 0 8 6z"/><path d="m34 33 11 0m-8 8h7" stroke="#fff0cf" stroke-width="4" stroke-linecap="round"/>'],
+ recipes:['#e5f5e8','<rect x="12" y="9" width="41" height="47" rx="8" fill="#7aaf88"/><path d="M20 9v47" stroke="#548c66" stroke-width="3"/><rect x="26" y="17" width="20" height="27" rx="5" fill="#fffdf3"/><path d="M33 23v15m-4-15v6q4 5 8 0v-6m4 0v15" stroke="#daaa60" stroke-width="2.5" stroke-linecap="round"/><path d="m32 51 6-2 6 2V44H32z" fill="#edbca4"/>'],
+ profiles:['#ffe9ed','<path fill="#8cb7d3" d="M5 54V44q0-12 14-12 14 0 14 12v10z"/><circle fill="#edbd95" cx="19" cy="23" r="11"/><path fill="#946643" d="M8 21q1-17 15-10 8 3 7 12l-8-7-4 6-10 2z"/><path fill="#c49acb" d="M31 54V43q0-12 14-12 14 0 14 12v11z"/><circle fill="#f1ccab" cx="45" cy="22" r="11"/><path fill="#76563e" d="M34 21q-1-15 12-13 13 2 10 18l-7-11-7 5z"/><g fill="#524839"><circle cx="16" cy="24" r="1"/><circle cx="23" cy="24" r="1"/><circle cx="42" cy="24" r="1"/><circle cx="49" cy="24" r="1"/></g>'],
+ settings:['#f0f4d9','<path d="m27 7 10 0 2 8 7 4 8-2 5 9-6 6 0 8 6 6-5 9-9-2-6 4-2 7H27l-2-7-7-4-8 2-5-9 6-6v-8l-6-6 5-9 8 2 7-4z" transform="translate(0 -3) scale(1 .93)" fill="#a899c4"/><circle cx="32" cy="30" r="15" fill="#fffdf4"/><circle cx="32" cy="30" r="9" fill="#81b3a5"/>']
+ };
+ const [bg,shape]=drawings[key]||drawings.week;
+ return `<span class="colorful-nav-picture" style="--nav-picture-bg:${bg}" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false">${shape}</svg></span>`;
 }
 function installWeeklyVisuals(){
  const previousCard=mealCard;mealCard=function(day,slot,mobile=false){
   if(!schoolMissingMenu(day,slot))return previousCard(day,slot,mobile);
   return `<button type="button" class="${mobile?'mobile-meal':'meal-cell'} meal-${slot} school-pending-card" data-action="school-import" data-month="${addDays(state.week,day).slice(0,7)}" aria-label="Cargar menú del colegio para ${h(slotLabel(slot))} del ${DAYS[day]}">${mobile?`<span class="meal-icon">${icon('upload')}</span><span class="mobile-meal-main">`:''}<span class="meal-heading">${h(slotLabel(slot))} · Colegio</span><span class="meal-name">Menú del colegio pendiente</span><span class="school-pending-message">${icon('info')}Esta toma aún no muestra los platos del colegio. Carga el Excel o CSV para actualizarla.</span>${mobile?'</span>':''}</button>`;
  };
- const previousWeek=renderWeek;renderWeek=function(){const original=previousWeek();let summary=renderWeeklyFoodSummary();if(profile().school)summary=summary.replace('Son apariciones en el menú, no unidades de alimentos, raciones ni cantidades consumidas.','Son apariciones en el menú, no unidades de alimentos, raciones ni cantidades consumidas. Los grupos del colegio proceden de los nombres y de las composiciones revisadas, que pueden ser orientativas.');return original+summary;};
+ const previousNutritionChart=renderNutritionChart;renderNutritionChart=function(){return renderWeeklyFoodSummary()+previousNutritionChart();};
+ const previousWeek=renderWeek;renderWeek=function(){const original=previousWeek();return original.replace('<div class="week-grid-wrap">',schoolPendingWeekMarkup()+'<div class="week-grid-wrap">');};
  const previousSchoolModal=schoolModal;schoolModal=function(day,slot='lunch'){
   const html=previousSchoolModal(day,slot),picker=`<div class="school-manual-picker"><div class="field"><label for="school-manual-dish">Elegir un plato disponible · opcional</label><select id="school-manual-dish"><option value="">Busca un plato igual o similar</option>${familyCatalog().slice().sort((a,b)=>a.name.localeCompare(b.name,'es')).map(r=>`<option value="${h(r.name)}">${h(r.name)}</option>`).join('')}</select></div><button class="btn outline" type="button" data-action="school-add-name">${icon('plus')}Añadir al registro</button><small>Se añade el nombre para que lo adaptes. Elegir un plato similar no confirma sus ingredientes ni cantidades reales.</small><small id="school-name-status" role="status"></small></div>`;
   return html.replace('<div class="field"><label for="school-food">',picker+'<div class="field"><label for="school-food">');
@@ -80,4 +105,10 @@ document.addEventListener('click',event=>{
  if(input.value.split('\n').some(line=>normalizedFood(line.trim())===normalizedFood(name))){status.textContent='Este plato ya está en el registro.';return;}
  const text=(input.value.trim()?input.value.trim()+'\n':'')+name;if(text.length>1500){status.textContent='El registro es demasiado largo. Revisa el texto antes de añadir otro plato.';return;}
  input.value=text;status.textContent='Nombre añadido. Adáptalo al plato del colegio y guarda el registro.';
+});
+
+document.addEventListener('click',event=>{
+ const el=event.target.closest?.('[data-action]');if(!el)return;
+ if(el.dataset.action==='food-chart-mode'){weeklyFoodMode=el.dataset.mode==='day'?'day':'week';render();document.querySelector('.weekly-food-summary')?.scrollIntoView({block:'start'});}
+ if(el.dataset.action==='food-chart-day'){const day=Number(el.dataset.day);if(Number.isInteger(day)&&day>=0&&day<7){state.selectedDay=day;save();render();document.querySelector('.weekly-food-summary')?.scrollIntoView({block:'start'});}}
 });

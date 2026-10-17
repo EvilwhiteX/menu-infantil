@@ -130,3 +130,12 @@ El nuevo recuento semanal incluye los grupos reconocidos por los nombres escolar
 En la revisión de una fila, elegir expresamente Sin cantidades / solo texto elimina la referencia de esa fila aunque exista una correspondencia guardada con el mismo nombre. No se recuperan sus gramos por detrás de la elección. La biblioteca sigue disponible para otras asignaciones.
 
 Cerrar la carga o cambiar de lectura invalida las operaciones pendientes. Ni un resultado ni un error antiguo deben sustituir la revisión actual. Se rechazan filas JSON nulas y contenido no válido después de cerrar una celda CSV entre comillas, con mensajes comprensibles. Los datos guardados se conservan hasta confirmar una importación válida.
+
+
+## Avisos reforzados V0.20.2
+
+El aviso escolar pendiente se evalúa incluso antes de inicializar una semana. En automático, la semana muestra un aviso general con el número de tomas escolares sin información y un botón de carga; cada toma pendiente muestra también su aviso. Así no desaparece de la vista general al seleccionar un día sin colegio. Una semana que cruce dos meses ofrece la carga de cada mes pendiente.
+
+Un texto de estado como Pendiente de anotar, Sin información o Menú del colegio pendiente no se considera un plato real. La presencia de nombres reales o cantidades válidas en un registro sí resuelve el aviso de esa toma, aunque no proceda de un Excel. Una fecha marcada como casa queda fuera del aviso. Los platos conocidos se conservan y la carga parcial solo resuelve las fechas que realmente se guardan.
+
+El resumen ilustrado se sitúa antes del nutricional y permite recuentos de Día/Semana; distingue casa/colegio y sigue señalando información pendiente. No cambia el cálculo nutricional ni añade comidas escolares a la lista de compra.
