@@ -9,8 +9,7 @@ function welcomeGuideMarkup(){
 }
 function welcomeShortcut(){
  const preferences=onboardingPreferences(state.onboarding);if(preferences.hideWeek)return '';
- const unseen=!preferences.seen;
- return `<aside class="welcome-shortcut ${unseen?'welcome-discover':''}" aria-label="Primeros pasos">${unseen?'<div><strong>¿Quieres conocer la app?</strong><p>Tu primera semana, en tres pasos.</p></div>':''}<button type="button" class="btn outline" data-action="welcome-open"><span aria-hidden="true">🍊</span>Primeros pasos</button>${unseen?`<button type="button" class="icon-btn" data-action="welcome-hide" aria-label="Ocultar presentación de la guía">${icon('close')}</button>`:''}</aside>`;
+ return `<aside class="welcome-shortcut hero-welcome" aria-label="Primeros pasos"><button type="button" class="btn outline" data-action="welcome-open"><span>Primeros pasos</span></button></aside>`;
 }
 function rememberWelcome(){
  state.onboarding={...onboardingPreferences(state.onboarding),seen:true,autoOpen:false};
@@ -20,7 +19,7 @@ function rememberWelcome(){
 function focusWelcome(){document.querySelector('.welcome-start')?.focus({preventScroll:true});}
 function installWelcomeGuide(){
  const oldModal=renderModal;renderModal=function(){return state.modal?.type==='welcome'?welcomeGuideMarkup():oldModal();};
- const oldWeek=renderWeek;renderWeek=function(){return welcomeShortcut()+oldWeek();};
+
  const oldSettings=renderSettings;renderSettings=function(){return oldSettings().replace('<h2>Tus datos</h2>',`<h2>Ayuda</h2></div><p>¿Quieres saber por dónde empezar?</p><button type="button" class="btn outline" data-action="welcome-open"><span aria-hidden="true">🍊</span>Primeros pasos</button><label class="feature-row" style="margin-top:18px"><span><b>😎 Ya domino la app</b><small>Ocultar «Primeros pasos» de Mi semana. Puedes volver a mostrarlo cuando quieras.</small></span><input type="checkbox" class="switch" data-action="welcome-toggle" aria-label="Ocultar Primeros pasos de Mi semana" ${onboardingPreferences(state.onboarding).hideWeek?'checked':''}/></label><div class="divider"></div><div class="subheading"><h2>Tus datos</h2>`);};
  const oldClose=closeModal;closeModal=function(){if(state.modal?.type!=='welcome')return oldClose();state.modal=null;rememberWelcome();render();document.querySelector('[data-action="welcome-open"]')?.focus({preventScroll:true});};
  document.addEventListener('click',event=>{
