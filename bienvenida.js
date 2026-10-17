@@ -30,8 +30,6 @@ function installWelcomeGuide(){
   if(el.dataset.action!=='welcome-go'||state.modal?.type!=='welcome')return;
   const step=el.dataset.step;if(!['profile','settings','generate'].includes(step))return;
   beginGuidedSetup(step);return;
-  if(step==='profile')document.getElementById('profile-form')?.closest('section')?.scrollIntoView({behavior:'smooth',block:'start'});
-  else if(typeof window!=='undefined')window.scrollTo({top:0,behavior:'instant'});
  });
  document.addEventListener('change',event=>{
   const el=event.target;if(el.dataset?.action!=='welcome-toggle')return;

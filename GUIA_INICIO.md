@@ -18,3 +18,10 @@ Reiniciar App y borrar datos abre un diálogo rojo: exporta una copia si la nece
 En el perfil, cada modo escolar explica su uso. Al activar las tomas del colegio se marca Usar cantidades orientativas; puedes desmarcarlo si prefieres no incluir estimaciones y guardar tu elección. En la semana, un aviso sobre una toma escolar pendiente permite abrir directamente Cargar menú. Revisa y guarda el archivo para que se vean sus platos.
 
 Al final de Mi semana, los iconos de «¿Qué hay en nuestros platos?» cuentan en cuántas comidas visibles aparece cada grupo. Un plato con arroz, verdura y huevo suma una aparición en cada uno de esos grupos. No representa número de huevos, gramos o raciones. Las fuentes escolares pueden ser estimadas; los datos que faltan quedan pendientes.
+
+
+## Revisión V0.20.1
+
+Volver a pulsar Empezar, Crear perfil o Personalizar en Primeros pasos reactiva el acompañamiento, incluso si antes elegiste Ya domino la app. Continuar más tarde deja un acceso compacto para reanudarlo en las secciones, también antes de tener perfiles. Ya domino la app vuelve a ocultarlo cuando se selecciona.
+
+Las ventanas mantienen el teclado dentro del diálogo, bloquean la interacción con el fondo y devuelven el foco al control de origen al cerrarse cuando sigue disponible. Al actualizar una ventana se conserva el campo enfocado y su desplazamiento si corresponde al mismo contenido. La acción inicial de las confirmaciones es el cierre seguro.

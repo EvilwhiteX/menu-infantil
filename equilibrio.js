@@ -148,7 +148,7 @@ function savePlannedAmounts(form){
  }catch(e){form.querySelector('.planning-error').textContent=e.message;}
 }
 function replaceQuantifiedMeal(source,day,slot){
- try{if(schoolMeal(day,slot))throw Error('El colegio se registra manualmente.');const t=nutritionTargets();if(t.guard)throw Error('Revisa los datos del perfil antes de asignar cantidades.');
+ try{const blocked=familyBlock();if(blocked)throw Error(blocked);if(schoolMeal(day,slot))throw Error('El colegio se registra manualmente.');const t=nutritionTargets();if(t.guard)throw Error('Revisa los datos del perfil antes de asignar cantidades.');
   const budget=activeMeals().reduce((sum,[s])=>sum+SLOT_BUDGET[s],0),r=quantifiedProposal(source,slot,t,SLOT_BUDGET[slot]/budget),rid=id(),days=menu().days.map((d,n)=>n===day?{...d,[slot]:{...d[slot],recipeId:rid,external:false}}:d);
   const next={...state,customRecipes:{...state.customRecipes,[rid]:{...r,id:rid}},menus:{...state.menus,[mealKey()]:{...menu(),days}},modal:null};const {modal,...stored}=next;localStorage.setItem(STORAGE_KEY,JSON.stringify(stored));state=next;render();notify('Plato sustituido con cantidades iniciales. Revisa el total del día.');return true;
  }catch(e){notify(e.message);return false;}

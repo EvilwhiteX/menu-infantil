@@ -30,6 +30,9 @@ function weeklyFoodKeys(item){
  if(['fruta','verduras','legumbres','lacteos'].includes(item.group))groups.add(item.group);
  if(item.group==='cereales'&&!groups.has('tuberculos'))groups.add('cereales');
  if(/\b(leche de|bebida (de |a base de |vegetal))\b/.test(n)&&/\b(soja|avena|almendra\w*|arroz|coco|vegetal)\b/.test(n))groups.delete('lacteos');
+ // Explicit absences do not establish the presence of an ingredient.
+ const absences=n.match(/\bsin\s+(?:huevos?|leche|lacteos?|carne|pescado|frutos secos)(?:\s+(?:ni|y)\s+(?:huevos?|leche|lacteos?|carne|pescado|frutos secos))*/g)||[];
+ for(const phrase of absences)for(const [key,re] of [['huevo',/\bhuevos?\b/],['lacteos',/\b(leche|lacteos?)\b/],['carne',/\bcarne\b/],['pescado',/\bpescado\b/],['frutossecos',/\bfrutos secos\b/]])if(re.test(phrase))groups.delete(key);
  return [...groups];
 }
 function weeklyFoodSummary(){
@@ -40,7 +43,7 @@ function weeklyFoodSummary(){
    origin='school';const r=schoolRecord(day,slot);if(!r.text?.trim()&&!r.entries.length){pending++;continue;}
    school++;for(const entry of r.entries)for(const k of weeklyFoodKeys(entry))keys.add(k);
    // Only the announced names, not a guessed recipe, supply unquantified groups.
-   for(const k of weeklyFoodKeys({name:r.text||''}))keys.add(k);
+   for(const name of (r.text||'').split(/[·;,\n]+/))for(const k of weeklyFoodKeys({name}))keys.add(k);
   }else{
    const {m,recipe:r}=mealData(day,slot);if(m.external){pending++;continue;}if(!r){pending++;continue;}
    home++;for(const item of r.ingredients||[])for(const k of weeklyFoodKeys(item))keys.add(k);

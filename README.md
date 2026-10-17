@@ -1,4 +1,4 @@
-# Menú Infantil V0.20.0
+# Menú Infantil V0.20.1
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -308,3 +308,10 @@ Las tomas escolares sin información en modo automático muestran un aviso y acc
 Los selectores mensuales del bloque del perfil y de las ventanas se ajustan al ancho disponible, incluidos los controles nativos de WebKit. Revisados a 320 y 390 píxeles y en escritorio.
 
 Después de los gráficos, «¿Qué hay en nuestros platos?» presenta once grupos con ilustraciones SVG locales, colores y cifras: carne/aves, pescado/marisco, huevo, verduras, legumbres, cereales, tubérculos, fruta, lácteos, frutos secos/semillas y aceites/aguacate. Cada toma visible se cuenta una vez por grupo, aunque repita ingredientes, y puede pertenecer a varios. Se distingue casa/colegio, se señalan datos pendientes y se excluyen de la clasificación los alimentos desconocidos. Son apariciones en comidas, no unidades de huevo, raciones, consumos ni objetivos nutricionales. Las composiciones escolares revisadas pueden ser orientativas. No altera gramos, compras, menús ni cálculos nutricionales.
+
+
+## V0.20.1 · Auditoría de código, interfaz y accesibilidad
+
+Corregidos desbordamientos con texto muy grande, navegación móvil estrecha, foco y teclado en ventanas, reactivación y pausa de la guía, exclusión expresa de cantidades escolares, cancelación de lecturas e importaciones mal formadas. Las sustituciones automáticas requieren los mismos campos obligatorios que la generación. La compra clasifica correctamente agua, sal y hierbas, y el resumen de grupos respeta expresiones como «sin huevo». No cambian las referencias ni las fórmulas nutricionales.
+
+Se revisaron las seis secciones en 144 combinaciones de ancho, tema y tamaño de texto, además de formularios, ventanas y flujos con datos sintéticos. Dieciocho suites funcionales y sintaxis de 39 módulos. Alcance, correcciones y límites en AUDITORIA_V0.20.1.md.

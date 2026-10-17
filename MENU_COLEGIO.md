@@ -123,3 +123,10 @@ Al activar Tomas en el colegio, Usar cantidades orientativas se activa en el for
 Un espacio escolar pendiente en una semana preparada muestra «Esta toma aún no muestra los platos del colegio. Carga el Excel o CSV para actualizarla» y abre la carga del mes correspondiente. Solo afecta a las tomas configuradas como colegio en modo automático. Al revisar y guardar los platos de esa fecha desaparece el aviso. La carga parcial no da por resueltas otras fechas, ni deduce festivos o datos ausentes. Un registro real conocido prevalece. Cargar el archivo sigue sin regenerar las comidas de casa.
 
 El nuevo recuento semanal incluye los grupos reconocidos por los nombres escolares y las composiciones revisadas disponibles; estas últimas pueden ser estimaciones. No sustituye el gráfico nutricional ni equivale a raciones. Las tomas sin información se indican como pendientes. Las fechas y los nombres se muestran con las reglas existentes, en español.
+
+
+## Revisión V0.20.1
+
+En la revisión de una fila, elegir expresamente Sin cantidades / solo texto elimina la referencia de esa fila aunque exista una correspondencia guardada con el mismo nombre. No se recuperan sus gramos por detrás de la elección. La biblioteca sigue disponible para otras asignaciones.
+
+Cerrar la carga o cambiar de lectura invalida las operaciones pendientes. Ni un resultado ni un error antiguo deben sustituir la revisión actual. Se rechazan filas JSON nulas y contenido no válido después de cerrar una celda CSV entre comillas, con mensajes comprensibles. Los datos guardados se conservan hasta confirmar una importación válida.
