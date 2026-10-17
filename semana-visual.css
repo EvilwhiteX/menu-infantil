@@ -20,3 +20,18 @@ fieldset.school-days,.school-config,.school-setup,.school-setup .field,.school-w
 @media(max-width:980px){.mobile-nav .nav-item{gap:3px;padding-top:5px;padding-bottom:5px}.mobile-nav .colorful-nav-picture{display:grid;place-items:center;width:34px;height:34px;border-radius:12px;background:var(--nav-picture-bg);flex:0 0 34px;transition:transform .15s ease}.mobile-nav .colorful-nav-picture svg{width:29px;height:29px}.mobile-nav .nav-item.active .colorful-nav-picture{box-shadow:0 0 0 2px var(--green);transform:translateY(-1px)}.mobile-nav .nav-item>span:last-child{line-height:1.15}}
 @media(max-width:700px){.school-week-pending{margin:0 13px 16px;padding:13px}.weekly-food-summary .chart-toggle{flex:1 1 100%}.weekly-food-summary .chart-toggle .btn{flex:1 1 100px}}
 @media(prefers-reduced-motion:reduce){.mobile-nav .colorful-nav-picture{transition:none}}
+
+/* V0.22.0 · Native dates, empty alerts and the explicit add-then-save step. */
+.field input[type="date"]{display:block;box-sizing:border-box;width:100%;inline-size:100%;min-width:0;min-inline-size:0;max-width:100%;max-inline-size:100%;-webkit-appearance:none;appearance:none}
+.field input[type="date"]::-webkit-datetime-edit,.field input[type="date"]::-webkit-datetime-edit-fields-wrapper{min-width:0;min-inline-size:0;padding:0}
+.field input[type="date"]::-webkit-date-and-time-value{min-width:0;text-align:left}
+[hidden]{display:none!important}
+.form-error:empty,.pantry-error:empty,.planning-error:empty{display:none}
+.school-name-status{line-height:1.5;color:var(--readable)}
+.school-name-status[data-step="pending"]{color:#a32939;font-weight:650}
+.school-name-status[data-step="done"]{color:#24653f;font-weight:650}
+[data-theme="dark"] .school-name-status[data-step="pending"]{color:#ffb3bf}
+[data-theme="dark"] .school-name-status[data-step="done"]{color:#a7dfba}
+.school-add-reminder{animation:school-add-reminder .8s ease-in-out 5}
+@keyframes school-add-reminder{0%,100%{opacity:1;box-shadow:0 0 0 0 var(--accent-edge)}50%{opacity:.65;box-shadow:0 0 0 4px var(--accent-edge)}}
+@media(prefers-reduced-motion:reduce){.school-add-reminder{animation:none;outline:2px solid var(--green);outline-offset:2px}}

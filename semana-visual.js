@@ -92,19 +92,33 @@ function installWeeklyVisuals(){
  const previousNutritionChart=renderNutritionChart;renderNutritionChart=function(){return renderWeeklyFoodSummary()+previousNutritionChart();};
  const previousWeek=renderWeek;renderWeek=function(){const original=previousWeek();return original.replace('<div class="week-grid-wrap">',schoolPendingWeekMarkup()+'<div class="week-grid-wrap">');};
  const previousSchoolModal=schoolModal;schoolModal=function(day,slot='lunch'){
-  const html=previousSchoolModal(day,slot),picker=`<div class="school-manual-picker"><div class="field"><label for="school-manual-dish">Elegir un plato disponible · opcional</label><select id="school-manual-dish"><option value="">Busca un plato igual o similar</option>${familyCatalog().slice().sort((a,b)=>a.name.localeCompare(b.name,'es')).map(r=>`<option value="${h(r.name)}">${h(r.name)}</option>`).join('')}</select></div><button class="btn outline" type="button" data-action="school-add-name">${icon('plus')}Añadir al registro</button><small>Se añade el nombre para que lo adaptes. Elegir un plato similar no confirma sus ingredientes ni cantidades reales.</small><small id="school-name-status" role="status"></small></div>`;
+  const html=previousSchoolModal(day,slot),picker=`<div class="school-manual-picker"><div class="field"><label for="school-manual-dish">Elegir un plato disponible · opcional</label><select id="school-manual-dish" aria-describedby="school-name-status"><option value="">Busca un plato igual o similar</option>${familyCatalog().slice().sort((a,b)=>a.name.localeCompare(b.name,'es')).map(r=>`<option value="${h(r.name)}">${h(r.name)}</option>`).join('')}</select></div><button class="btn outline" type="button" data-action="school-add-name">${icon('plus')}Añadir al registro</button><small>Se añade el nombre para que lo adaptes. Elegir un plato similar no confirma sus ingredientes ni cantidades reales.</small><small id="school-name-status" class="school-name-status" data-step="idle" role="status">Si eliges un plato de la lista, pulsa «Añadir al registro» y después guarda los cambios.</small></div>`;
   return html.replace('<div class="field"><label for="school-food">',picker+'<div class="field"><label for="school-food">');
  };
  const previousControls=saveSchoolControls;saveSchoolControls=function(el){previousControls(el);if(el.name==='school'&&el.checked){const estimates=el.closest?.('form')?.querySelector('[name="schoolEstimates"]');if(estimates)estimates.checked=true;}};
 }
 document.addEventListener('change',event=>{if(event.target.id==='school-mode'){const hint=document.getElementById('school-mode-hint');if(hint)hint.outerHTML=schoolModeHintMarkup(event.target.value);}});
+function schoolNamePending(select){return !!select?.value&&select.dataset?.addedName!==select.value;}
+function updateSchoolNameStep(form,animate=false){
+ const select=form?.querySelector?.('#school-manual-dish');if(!select)return true;
+ const pending=schoolNamePending(select),status=form.querySelector('#school-name-status'),button=form.querySelector('[data-action="school-add-name"]');
+ if(status){status.textContent=pending?'Pulsa «Añadir al registro» para incluir el plato y después guarda los cambios.':select.value?'Plato añadido. Todo correcto, puedes guardar cambios.':'Si eliges un plato de la lista, pulsa «Añadir al registro» y después guarda los cambios.';status.dataset.step=pending?'pending':select.value?'done':'idle';}
+ for(const save of form.querySelectorAll('button[type="submit"]')){if(pending){if(!save.dataset.nameGuard)save.dataset.nameGuard=save.disabled?'keep':'release';save.disabled=true;}else if(save.dataset.nameGuard){if(save.dataset.nameGuard==='release')save.disabled=false;delete save.dataset.nameGuard;}}
+ if(button){if(!pending)button.classList.remove('school-add-reminder');else if(animate){button.classList.remove('school-add-reminder');void button.offsetWidth;button.classList.add('school-add-reminder');}}
+ return !pending;
+}
+function schoolNameCanSave(form){const ready=updateSchoolNameStep(form);if(!ready)form.querySelector('[data-action="school-add-name"]')?.focus();return ready;}
+document.addEventListener('change',event=>{const select=event.target;if(select.id!=='school-manual-dish')return;delete select.dataset.addedName;updateSchoolNameStep(select.closest('form'),true);});
+document.addEventListener('input',event=>{const input=event.target;if(input.id!=='school-food')return;const form=input.closest('form'),select=form?.querySelector('#school-manual-dish');if(select&&!input.value.trim())delete select.dataset.addedName;updateSchoolNameStep(form);});
 document.addEventListener('click',event=>{
  const el=event.target.closest?.('[data-action]');if(el?.dataset.action!=='school-add-name')return;
  const select=document.getElementById('school-manual-dish'),input=document.getElementById('school-food'),status=document.getElementById('school-name-status');if(!select||!input||!status)return;
  const name=select.value;if(!name){status.textContent='Selecciona un plato de la lista.';return;}
- if(input.value.split('\n').some(line=>normalizedFood(line.trim())===normalizedFood(name))){status.textContent='Este plato ya está en el registro.';return;}
- const text=(input.value.trim()?input.value.trim()+'\n':'')+name;if(text.length>1500){status.textContent='El registro es demasiado largo. Revisa el texto antes de añadir otro plato.';return;}
- input.value=text;status.textContent='Nombre añadido. Adáptalo al plato del colegio y guarda el registro.';
+ const already=input.value.split('\n').some(line=>normalizedFood(line.trim())===normalizedFood(name));
+ const text=already?input.value:(input.value.trim()?input.value.trim()+'\n':'')+name;
+ if(text.length>1500){status.textContent='El registro es demasiado largo. Acórtalo antes de añadir el plato.';if(status.dataset)status.dataset.step='pending';return;}
+ input.value=text;if(!select.dataset)select.dataset={};select.dataset.addedName=name;
+ const form=select.closest?.('form');if(form)updateSchoolNameStep(form);else status.textContent='Plato añadido. Todo correcto, puedes guardar cambios.';
 });
 
 document.addEventListener('click',event=>{

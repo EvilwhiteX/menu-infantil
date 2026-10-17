@@ -139,3 +139,10 @@ El aviso escolar pendiente se evalúa incluso antes de inicializar una semana. E
 Un texto de estado como Pendiente de anotar, Sin información o Menú del colegio pendiente no se considera un plato real. La presencia de nombres reales o cantidades válidas en un registro sí resuelve el aviso de esa toma, aunque no proceda de un Excel. Una fecha marcada como casa queda fuera del aviso. Los platos conocidos se conservan y la carga parcial solo resuelve las fechas que realmente se guardan.
 
 El resumen ilustrado se sitúa antes del nutricional y permite recuentos de Día/Semana; distingue casa/colegio y sigue señalando información pendiente. No cambia el cálculo nutricional ni añade comidas escolares a la lista de compra.
+
+
+## Actualización V0.22.0
+
+El campo de fecha de nacimiento se adapta al ancho disponible, incluidos móviles. Los avisos de error vacíos no ocupan espacio ni dibujan bandas rojas; los errores con contenido siguen visibles.
+
+En el registro manual del colegio, al seleccionar un plato de la lista, pulsa «Añadir al registro» antes de guardar. El botón se destaca durante cuatro segundos; el mensaje rojo recuerda el paso pendiente. Cuando el plato está añadido aparece «Plato añadido. Todo correcto, puedes guardar cambios.» en verde y se permite guardar. Cambiar la selección exige añadirla de nuevo. La escritura manual continúa disponible, se evitan duplicados y se respeta la preferencia de reducir animaciones.

@@ -46,6 +46,13 @@ Marca centrada con mandarina, Menú en negro e Infantil en azul. Mi semana muest
 EN FAMILIA utiliza el rosa #E63B7A. El bloque superior, las letras destacadas del título, el nombre del perfil, Infantil en el logo y los iconos de cabecera siguen el color elegido en Ajustes, con los tonos suaves y el ajuste de contraste existentes en cada tema. La firma rosa se conserva al cambiar el color principal. No cambia los perfiles ni los menús.
 
 
-## V0.21.2 · Firma rosa pastel
+## V0.22.0 · Firma rosa pastel
 
 EN FAMILIA utiliza el rosa pastel #D8A6B8 elegido y la misma familia tipográfica y grosor que Menú Infantil, a menor tamaño y con espaciado compacto. El bloque y sus destacados siguen el color elegido en Ajustes. No cambia los datos guardados.
+
+
+## Actualización V0.22.0
+
+El campo de fecha de nacimiento se adapta al ancho disponible, incluidos móviles. Los avisos de error vacíos no ocupan espacio ni dibujan bandas rojas; los errores con contenido siguen visibles.
+
+En el registro manual del colegio, al seleccionar un plato de la lista, pulsa «Añadir al registro» antes de guardar. El botón se destaca durante cuatro segundos; el mensaje rojo recuerda el paso pendiente. Cuando el plato está añadido aparece «Plato añadido. Todo correcto, puedes guardar cambios.» en verde y se permite guardar. Cambiar la selección exige añadirla de nuevo. La escritura manual continúa disponible, se evitan duplicados y se respeta la preferencia de reducir animaciones.
