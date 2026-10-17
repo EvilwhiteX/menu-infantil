@@ -32,9 +32,6 @@
 @media(max-width:420px){.topbar.app-topbar{gap:5px;padding:17px 14px;grid-template-columns:44px minmax(0,1fr) 44px}.app-brand{gap:7px}.app-brand-symbol{width:35px;height:41px}.app-brand-title{font-size:1.13rem;letter-spacing:-.6px}.app-brand-sub{font-size:.65rem;letter-spacing:.13em}.hero.app-hero{gap:12px;padding:23px 21px;border-radius:24px}.app-hero h1{font-size:1.95rem}.app-hero-mascot{width:70px;height:78px}.app-hero .lead{font-size:.94rem}.active-profile-bar{gap:10px}.active-profile-bar .profile-select{width:55%;max-width:62%}}
 @media(max-width:350px){.topbar.app-topbar{padding:15px 12px;grid-template-columns:30px minmax(0,1fr) 44px;gap:4px}.app-brand-symbol{width:31px}.app-brand-title{font-size:1.05rem}.app-brand-sub{font-size:.64rem}.hero.app-hero{padding:21px 17px;gap:8px}.app-hero-mascot{width:58px;height:66px}.app-hero h1{font-size:1.8rem}}
 /* Respect enlarged text and long names: controls reflow rather than shrinking. */
-[data-text-size=large] .app-topbar,[data-text-size=extra] .app-topbar{grid-template-columns:minmax(0,1fr) 44px}
-[data-text-size=large] .app-topbar-balance,[data-text-size=extra] .app-topbar-balance{display:none}
-[data-text-size=large] .app-brand,[data-text-size=extra] .app-brand{justify-content:flex-start}
 [data-text-size=large] .app-brand-title,[data-text-size=extra] .app-brand-title{font-size:1.2rem}
 [data-text-size=extra] .active-profile-bar{flex-wrap:wrap}
 [data-text-size=extra] .active-profile-bar .profile-select{width:100%;max-width:100%}
