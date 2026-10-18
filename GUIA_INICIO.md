@@ -1,84 +1,45 @@
-# Primeros pasos · V0.23.0
+# Primeros pasos · V0.24.0
 
-1. Pulsa Crear perfil en la bienvenida. Indica apodo, fecha de nacimiento completa, sexo para referencias y actividad. Guarda el perfil.
-2. El bloque de progreso confirma el guardado y ofrece Ir a Ajustes. Los colores, tamaño de letra y tomas visibles se guardan automáticamente. Pulsa Continuar: generar menú cuando hayas terminado.
-3. Pulsa Generar Menú. La guía avanza si el menú se guarda; Ver mi menú abre la semana y completa el recorrido.
+1. En **Perfiles → Añadir**, indica nombre o apodo, fecha de nacimiento, sexo para referencias nutricionales y actividad habitual. El peso y la estatura son opcionales. Revisa alergias y alimentos excluidos. Guarda el perfil.
+2. En **Ajustes**, elige color principal, tamaño del texto, modo oscuro y tomas visibles. Estos ajustes se guardan automáticamente.
+3. En **Generar**, pulsa **Generar menú**. Revisa los platos, las cantidades y los avisos en **Mi semana** antes de utilizarlo.
 
-Puedes cambiar de sección sin perder el paso pendiente. Continuar más tarde pausa el bloque; en Mi semana puedes reanudarlo. Ajustes → Ayuda → Ya domino la app desactiva ambos asistentes. La preferencia y el recorrido son propios de este navegador y no se transfieren en una copia.
+La guía recuerda el paso pendiente. Puedes pausarla y continuar después. **Ajustes → Ayuda → Ya domino la app** oculta el acceso de Primeros pasos y el acompañamiento.
 
-Los perfiles anteriores mantienen sus menús y fecha desconocida: completa los campos antes de generar otra semana. La fecha no se inventa a partir de la edad antigua. Se calculan meses completos de calendario (incluidos años bisiestos y fin de mes); el cumpleaños actualiza las referencias para nuevas propuestas, sin reescribir gramajes guardados. El planificador conserva su rango de 1 año a 16 años y 11 meses. Fuera de ese rango el perfil y el historial siguen disponibles.
+## Perfiles y edad
 
-Para el colegio, guarda el perfil en modo Automático con Tabla Excel/CSV y usa su bloque Configurar menú del colegio. Descarga la plantilla del mes, cumpliméntala en español, cárgala y revisa antes de confirmar. Puedes repetirlo cada mes sin actualizar la app.
+Cada perfil mantiene sus menús y registros escolares. La edad se calcula a partir de la fecha de nacimiento y se actualiza con el tiempo. Las cantidades guardadas se conservan: revisa o genera de nuevo cuando cambien los datos del perfil.
 
-Reiniciar App y borrar datos abre un diálogo rojo: exporta una copia si la necesitas, cancela para conservar todo o confirma el borrado. Afecta únicamente a los datos de Menú Infantil en este navegador. Tras confirmar, aparece la bienvenida sin perfiles de ejemplo.
+El planificador admite de 12 meses a 16 años y 11 meses. Un perfil fuera de ese rango conserva su historial. Si declaras alergias o exclusiones, las propuestas automáticas se bloquean; utiliza platos revisados individualmente.
 
+## Preparar y ajustar la semana
 
-## Ayuda visual · V0.20.0
+Pulsa un plato para consultar sus ingredientes, preparación y cantidades, editarlo o sustituirlo. Puedes fijar una toma para conservarla al generar otra propuesta. Las comidas externas y del colegio quedan fuera de la lista de compra.
 
-En el perfil, cada modo escolar explica su uso. Al activar las tomas del colegio se marca Usar cantidades orientativas; puedes desmarcarlo si prefieres no incluir estimaciones y guardar tu elección. En la semana, un aviso sobre una toma escolar pendiente permite abrir directamente Cargar menú. Revisa y guarda el archivo para que se vean sus platos.
+**Empezar desde cero** vacía la semana conservando los platos fijados. **Hoy** vuelve a la semana y al día actuales.
 
-Al final de Mi semana, los iconos de «¿Qué hay en nuestros platos?» cuentan en cuántas comidas visibles aparece cada grupo. Un plato con arroz, verdura y huevo suma una aparición en cada uno de esos grupos. No representa número de huevos, gramos o raciones. Las fuentes escolares pueden ser estimadas; los datos que faltan quedan pendientes.
+Los iconos de alimentos cuentan comidas en las que aparece cada grupo. No cuentan huevos, piezas ni raciones. Un plato puede aparecer en varios grupos. Los gráficos permiten ver un día o la semana y distinguen los datos incompletos.
 
+Las cantidades son orientativas. Consulta los objetivos pendientes en la revisión del menú: un gráfico sin avisos no certifica una dieta completa ni mide lo consumido.
 
-## Revisión V0.20.1
+## Comidas del colegio
 
-Volver a pulsar Empezar, Crear perfil o Personalizar en Primeros pasos reactiva el acompañamiento, incluso si antes elegiste Ya domino la app. Continuar más tarde deja un acceso compacto para reanudarlo en las secciones, también antes de tener perfiles. Ya domino la app vuelve a ocultarlo cuando se selecciona.
+Activa las tomas escolares en el perfil y elige días y comidas. Puedes registrar los platos manualmente o cargar la plantilla mensual. Consulta [Menú del colegio](MENU_COLEGIO.md).
 
-Las ventanas mantienen el teclado dentro del diálogo, bloquean la interacción con el fondo y devuelven el foco al control de origen al cerrarse cuando sigue disponible. Al actualizar una ventana se conserva el campo enfocado y su desplazamiento si corresponde al mismo contenido. La acción inicial de las confirmaciones es el cierre seguro.
+Si eliges un plato del catálogo, pulsa **Añadir al registro** y después **Guardar registro**. Con la estimación del catálogo activada se incluyen ingredientes, gramos y nutrientes orientativos. Varios platos se estiman juntos como una misma toma. Comprueba las diferencias con la receta real del colegio.
 
+Para registros anteriores, abre **Menú del colegio → Completar valores desde el catálogo**, revisa las coincidencias exactas y aplica las que correspondan. Después genera de nuevo las comidas de casa para tenerlas en cuenta.
 
-## Novedades V0.20.2
+## Compra y recetario
 
-Antes de Aporte del menú encontrarás «Qué comerá [nombre del perfil] con este menú». Pulsa Mostrar día y elige un día para ver sus grupos de alimentos; pulsa Semana para volver a los siete días. El día elegido también se refleja en el menú y en el gráfico nutricional si este está en modo Día. El cambio Día/Semana de cada bloque se controla por separado.
+En **Compra**, marca lo comprado y utiliza **Ver platos / Ya tengo** para descontar existencias. Las piezas y envases sugeridos son aproximados; comprueba el formato y la parte aprovechable.
 
-Si tienes el colegio en automático y faltan platos de esta semana, verás un aviso sobre el calendario y otro en cada toma pendiente. El aviso semanal se mantiene visible aunque el día seleccionado no sea de colegio. Cargar menú del colegio abre el mes correspondiente. Revisa y guarda el archivo para actualizar sus fechas.
+En **Recetario**, busca por plato o ingrediente. Las fichas incluyen preparación, alérgenos identificados y cantidades del lote. El lote completo no equivale a una ración infantil. Puedes editarlo, calcularlo y guardar una parte en tus preparaciones.
 
-Los seis iconos de la barra inferior ahora son ilustraciones de colores. Sus botones y funciones conservan los nombres habituales.
+## Conservar los datos
 
+La app guarda los datos en este navegador y no los sincroniza entre dispositivos. Borrar los datos del sitio, usar otro navegador o cambiar de dispositivo puede dejarte sin acceso a esa información.
 
-## V0.21.0 · Nueva cabecera
+En **Ajustes → Tus datos**, utiliza **Exportar copia** y guarda el archivo en un lugar privado. **Restaurar copia** permite revisar el archivo antes de sustituir los datos actuales. No basta con guardar el enlace de la app.
 
-Marca centrada con mandarina, Menú en negro e Infantil en azul. Mi semana muestra «La semana de [perfil]» en un bloque azul suave. El selector Perfil activo aparece después de la presentación y antes del calendario; conserva los perfiles y menús guardados. El cambio de tema sigue en la cabecera y la versión puede consultarse en Ajustes. El resto de secciones comparte la nueva presentación, con su título propio.
-
-
-## V0.21.1 · Colores de la cabecera
-
-EN FAMILIA utiliza el rosa #E63B7A. El bloque superior, las letras destacadas del título, el nombre del perfil, Infantil en el logo y los iconos de cabecera siguen el color elegido en Ajustes, con los tonos suaves y el ajuste de contraste existentes en cada tema. La firma rosa se conserva al cambiar el color principal. No cambia los perfiles ni los menús.
-
-
-## V0.21.2 · Firma rosa pastel
-
-EN FAMILIA utiliza el rosa pastel #D8A6B8 elegido y la misma familia tipográfica y grosor que Menú Infantil, a menor tamaño y con espaciado compacto. El bloque y sus destacados siguen el color elegido en Ajustes. No cambia los datos guardados.
-
-
-## Actualización V0.22.0
-
-El campo de fecha de nacimiento se adapta al ancho disponible, incluidos móviles. Los avisos de error vacíos no ocupan espacio ni dibujan bandas rojas; los errores con contenido siguen visibles.
-
-En el registro manual del colegio, al seleccionar un plato de la lista, pulsa «Añadir al registro» antes de guardar. El botón se destaca durante cuatro segundos; el mensaje rojo recuerda el paso pendiente. Cuando el plato está añadido aparece «Plato añadido. Todo correcto, puedes guardar cambios.» en verde y se permite guardar. Cambiar la selección exige añadirla de nuevo. La escritura manual continúa disponible, se evitan duplicados y se respeta la preferencia de reducir animaciones.
-
-
-## V0.22.1 · Manzana cocinera y acceso a la guía
-
-Mi semana muestra una manzana verde sonriente con gorro blanco, brazos, manos y cubiertos de mesa, dibujada como SVG local con el estilo infantil de la app. La marca superior mantiene su mandarina. Primeros pasos aparece dentro del bloque de la semana, debajo de la mascota y alineado con «Pequeños platos, grandes momentos.». Se conserva el acceso en Ajustes → Ayuda y la opción «Ya domino la app»; no se duplica el botón bajo el selector de perfil. No cambia los datos guardados.
-
-
-## V0.22.2 · Cabecera y Ajustes
-
-La marca de cabecera está centrada y permite volver a Mi semana al pulsar el logo o cualquiera de sus textos, también con teclado. El cambio de tema queda en Ajustes → Apariencia. Se conserva el selector de color personalizado y se retiran los cuatro colores sugeridos. La versión aparece centrada. El bloque rojo de reinicio tiene el mismo espacio superior e inferior; mantiene su confirmación y exportación de copia. El gorro de la manzana semanal es un 16 % más estrecho y un 18 % más bajo. Sin cambios en los datos guardados.
-
-
-## V0.22.3 · Perfiles y Compra en escritorio
-
-Perfiles dedica una columna compacta al listado y el espacio principal al formulario. Los bloques tienen alturas independientes. En pantallas por debajo de 1280 píxeles se apilan para mantener el formulario legible. Datos personales mantienen sus filas de dos campos cuando hay espacio; alergias y colegio aprovechan todo el ancho. Compra inteligente muestra sus dos tarjetas en vertical; los textos largos y el detalle de ingredientes se adaptan al ancho disponible. Sin cambios en cálculos, perfiles o datos guardados.
-
-
-## V0.23.0 · Registro escolar con estimaciones del catálogo
-
-Al elegir un plato del catálogo y pulsar Añadir al registro, se incorporan sus ingredientes y cantidades orientativas al formulario. Al guardar se conserva una estimación independiente, con las referencias de nutrientes y los gramos de ingredientes en el estado indicado. La pantalla permite consultar composición, fuentes, otros componentes y la ficha de referencia sin formularios anidados. Las cantidades se calculan para el conjunto de platos de una misma toma; no se agregan pan, fruta o guarniciones que no hayas elegido. No son cantidades medidas ni peso final cocinado, y no confirman la receta ni los alérgenos del comedor.
-
-El generador tiene en cuenta los registros completos del catálogo también en Registro manual plato por plato. Conserva sus cantidades y ajusta las tomas de casa no fijadas con la revisión diaria y semanal existente. Señala información incompleta y objetivos pendientes: el cálculo es una aproximación, no garantiza suficiencia individual. Tras cambiar el colegio, genera de nuevo las comidas de casa que corresponda; los menús guardados se conservan hasta hacerlo.
-
-Para registros anteriores: Mi semana → Menú del colegio → Completar valores desde el catálogo. Revisa las coincidencias exactas de la semana visible y aplica las estimaciones seleccionadas. No se convierten nombres ambiguos ni registros con cantidades manuales. Estas cantidades tienen prioridad. Para un registro individual ya escrito puedes usar Reconocer platos ya escritos; si hay texto sin referencia, el total queda parcial. Mantén los nombres del catálogo para vincularlos o usa cantidades propias/registro de texto cuando difiera la receta.
-
-Las estimaciones se guardan por perfil, semana, día y toma, se incluyen en las copias privadas y se excluyen de la compra. Las copias anteriores siguen siendo compatibles. Ningún dato del usuario se envía al servidor.
+**Reiniciar App y borrar datos** elimina los datos de este navegador tras la confirmación. Exporta una copia antes si quieres conservarlos.

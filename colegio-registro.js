@@ -10,6 +10,7 @@ function schoolCatalogMatches(text,p=profile()){
 }
 function schoolCatalogEstimate(ids,text,slot='lunch',p=profile()){
  if(!Array.isArray(ids)||!ids.length||ids.length>SCHOOL_CATALOG_LIMIT)throw Error('Añade entre 1 y 12 platos del catálogo para esta toma.');
+ if(!SCHOOL_SLOTS.includes(slot))throw Error('Selecciona una toma del colegio válida.');
  const readiness=profileReadiness(p);if(readiness)throw Error(readiness);
  const t=nutritionTargets(p);if(t.guard)throw Error('Revisa el peso, la edad y la actividad del perfil antes de estimar cantidades.');
  const lines=schoolCatalogLines(text).map(n=>normalizedFood(n).trim()),recipes=[...new Set(ids)].map(id=>schoolCatalogRecipe(id,p));
@@ -39,8 +40,10 @@ function schoolCatalogValidate(value,profiles,logs){
   if(!p||![3,4].includes(a.length)||!schoolDate(a[1])||startWeek(parseDate(a[1]))!==a[1]||!/^[0-6]$/.test(a[2])||a.length===4&&!['breakfast','midmorning'].includes(a[3]))throw Error('Fecha o perfil de registro del catálogo no válido.');
   if(!isRecord(v)||typeof v.text!=='string'||v.text.length>1500||v.text!==logs[key]||typeof v.complete!=='boolean'||typeof v.basis!=='string'||v.basis.length>300)throw Error('Texto o base de estimación escolar no válido.');
   if(!Array.isArray(v.recipeIds)||!v.recipeIds.length||v.recipeIds.length>SCHOOL_CATALOG_LIMIT||new Set(v.recipeIds).size!==v.recipeIds.length||v.recipeIds.some(id=>typeof id!=='string'||!FAMILY_RECIPES.some(r=>!r.ageBand&&r.id===id)))throw Error('Recetas escolares no válidas.');
-  if(!Array.isArray(v.names)||v.names.length!==v.recipeIds.length||v.names.some(n=>typeof n!=='string'||!n.trim()||n.length>180))throw Error('Nombres escolares no válidos.');
-  if(!Array.isArray(v.entries)||!v.entries.length||v.entries.length>45)throw Error('Ingredientes escolares no válidos.');
+  if(!Array.isArray(v.names)||v.names.length!==v.recipeIds.length||v.names.some((n,index)=>typeof n!=='string'||!n.trim()||n.length>180||!AGE_RECIPES.some(r=>r.baseRecipeId===v.recipeIds[index]&&r.name===n)))throw Error('Nombres escolares no válidos.');
+  const lines=schoolCatalogLines(v.text).map(n=>normalizedFood(n).trim()),names=v.names.map(n=>normalizedFood(n).trim());
+  if(names.some(n=>!lines.includes(n))||v.complete&&lines.some(n=>!names.includes(n)))throw Error('Los platos estimados no coinciden con el texto del registro.');
+  if(!Array.isArray(v.entries)||!v.entries.length||v.entries.length>45||new Set(v.entries.map(e=>e?.foodId)).size!==v.entries.length)throw Error('Ingredientes escolares no válidos.');
   const entries=v.entries.map(e=>{if(!isRecord(e)||typeof e.foodId!=='string'||!Object.hasOwn(NUTRITION_BY_ID,e.foodId)||!Number.isFinite(e.grams)||e.grams<.1||e.grams>5000||!['fruta','verduras','legumbres','lacteos','cereales','proteinas','otros'].includes(e.group))throw Error('Cantidad escolar no válida.');return {foodId:e.foodId,grams:e.grams,group:e.group};});
   out[key]={text:v.text,recipeIds:[...v.recipeIds],names:[...v.names],entries,complete:v.complete,basis:v.basis};
  }return out;
@@ -49,6 +52,8 @@ function schoolPlanningEnabled(){return schoolComplement()||!!profile().school&&
 function schoolCatalogFormKey(form){return (form.dataset.weekKey||mealKey())+'|'+form.dataset.day+((form.dataset.slot||'lunch')==='lunch'?'':'|'+form.dataset.slot);}
 function schoolCatalogDraft(form){
  if(!form._schoolCatalogIds){const old=state.schoolCatalogLogs?.[schoolCatalogFormKey(form)];form._schoolCatalogIds=old?[...old.recipeIds]:[];}
+ const text=form.querySelector?.('#school-food')?.value;
+ if(typeof text==='string'){const names=schoolCatalogLines(text).map(n=>normalizedFood(n).trim());form._schoolCatalogIds=form._schoolCatalogIds.filter(id=>{const r=schoolCatalogRecipe(id);return r&&names.includes(normalizedFood(r.name).trim());});}
  return form._schoolCatalogIds;
 }
 function schoolCatalogRecipeInfo(r){return `<p><b>Ingredientes de la receta de referencia:</b> ${r.ingredients.map(i=>h(i.name)).join(', ')}.</p><p><b>Alérgenos identificados:</b> ${r.allergens.map(k=>h(ALLERGENS.find(([id])=>id===k)?.[1]||k)).join(', ')||'ninguno identificado'}. Comprueba ingredientes y trazas del colegio.</p><ol>${r.steps.map(s=>`<li>${h(s)}</li>`).join('')}</ol><p>${h(r.safety||'')}</p>`;}
@@ -94,7 +99,7 @@ function installSchoolLogCatalog(){
  const oldRender=render;render=function(){oldRender();const form=document.getElementById('school-form');if(form)schoolCatalogRefresh(form);};
  const oldPanel=schoolPanel;schoolPanel=function(){return oldPanel().replace('<div class="school-list">','<div class="toolbar"><button type="button" class="btn outline" data-action="school-catalog-recover">Completar valores desde el catálogo</button></div><p>Las cantidades conocidas de los registros manuales del catálogo también se tienen en cuenta al generar las comidas de casa. Revisa los objetivos pendientes después de generar.</p><div class="school-list">');};
  renderSchool=schoolPanel;
- const oldBalanceReview=renderBalanceReview;renderBalanceReview=function(){const html=oldBalanceReview();if(schoolPlanningEnabled()&&!menu().schoolBasis&&Object.keys(state.schoolCatalogLogs||{}).some(k=>k.startsWith(mealKey()+'|')))return html.replace('<h2>Revisión nutricional de la propuesta</h2>','<h2>Revisión nutricional de la propuesta</h2><p class="school-mode-hint">Has guardado estimaciones del colegio. Las comidas de casa actuales se conservan: genera de nuevo el menú para ajustarlas con esos datos y revisa los objetivos pendientes.</p>');return html;};
+ const oldBalanceReview=renderBalanceReview;renderBalanceReview=function(){const html=oldBalanceReview();if(schoolPlanningEnabled()&&!menu().schoolBasis&&Object.keys(state.schoolCatalogLogs||{}).some(k=>k.startsWith(mealKey()+'|')))return html.replace(/(<section[^>]*class="[^"]*balance-review[^"]*"[^>]*>)/,'$1<p class="school-mode-hint" role="status">Has guardado estimaciones del colegio. Las comidas de casa actuales se conservan: genera de nuevo el menú para ajustarlas con esos datos y revisa los objetivos pendientes.</p>');return html;};
  const oldRenderModal=renderModal;renderModal=function(){return state.modal?.type==='school-catalog-recovery'?schoolCatalogRecoveryMarkup():oldRenderModal();};
  document.addEventListener('click',event=>{
   const el=event.target.closest?.('[data-action]');if(!el)return;
