@@ -1,4 +1,4 @@
-# Menú del colegio · V0.24.0
+# Menú del colegio · V0.25.0
 
 En **Perfiles**, activa **Tomas en el colegio**, elige las comidas y los días y guarda el perfil. Cada perfil mantiene sus propios registros y calendario.
 

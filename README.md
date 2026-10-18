@@ -1,8 +1,8 @@
-# Menú Infantil · En familia · V0.24.0
+# Menú Infantil · En familia · V0.25.0
 
 Planificador semanal para móvil y ordenador, con perfiles, recetario, comidas del colegio, lista de compra y aportes nutricionales estimados.
 
-[Abrir la app](https://evilwhitex.github.io/menu-infantil/?v=0.24.0) · [Primeros pasos](GUIA_INICIO.md) · [Menú del colegio](MENU_COLEGIO.md)
+[Abrir la app](https://evilwhitex.github.io/menu-infantil/?v=0.25.0) · [Primeros pasos](GUIA_INICIO.md) · [Menú del colegio](MENU_COLEGIO.md)
 
 ## Qué puedes hacer
 
@@ -27,3 +27,5 @@ El planificador admite de 12 meses a 16 años y 11 meses. Las alergias y exclusi
 ## Publicación
 
 La carpeta se sirve desde un alojamiento estático mediante HTTP o HTTPS. No requiere instalación ni claves. Las bibliotecas PDF/Excel y la fuente están incluidas; sus licencias figuran en [THIRD-PARTY-LICENSES.txt](THIRD-PARTY-LICENSES.txt). Los cambios de alojamiento no transfieren los datos del navegador: exporta una copia y restáurala en el destino.
+
+Consulta el [catálogo por categorías y nutrientes](CATALOGO_NUTRIENTES.md), las nuevas preparaciones y la explicación de la barra de azúcares.

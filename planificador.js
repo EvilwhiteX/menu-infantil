@@ -24,14 +24,16 @@ function buildFamilyWeek(old,seed){
  const fixed=Object.values(proteinCounts).reduce((a,b)=>a+b,0),total=editableMain+fixed,quotas=Object.fromEntries(Object.entries(weights).map(([key,w])=>[key,Math.floor(total*w/14)]));
  let remainder=total-Object.values(quotas).reduce((a,b)=>a+b,0);
  const order=Object.keys(weights).sort((a,b)=>(total*weights[b]/14-quotas[b])-(total*weights[a]/14-quotas[a]));for(let i=0;i<remainder;i++)quotas[order[i%order.length]]++;
+ const target=nutritionTargets(),budgetSum=activeMeals().reduce((sum,[slot])=>sum+SLOT_BUDGET[slot],0);
  const rank=r=>{let value=seed>>>0;for(const c of r.id)value=(Math.imul(value,31)+c.charCodeAt(0))>>>0;return value/4294967296;};
  for(let day=0;day<7;day++)for(const [slot] of activeMeals()){
   if(schoolMeal(day,slot))continue;const prev=old.days[day]?.[slot]||emptyMeal();if(prev.locked||prev.external)continue;
   const main=['lunch','dinner'].includes(slot),options=familyCatalog().filter(r=>r.slots.includes(slot)&&r.automatic!==false);
   const score=r=>{const repeats=(used[r.id]||0)*12,other=Object.values(days[day]).some(m=>m.recipeId===r.id)?100:0;
-   if(!main)return repeats+other+rank(r)+(day+seed)%3*.01;
+   const nutritionPreference=nutrientChoiceScore(r,slot,target,SLOT_BUDGET[slot]/budgetSum);
+   if(!main)return repeats+other+rank(r)+(day+seed)%3*.01-nutritionPreference;
    const deficit=(quotas[r.protein]||0)-(proteinCounts[r.protein]||0);
-   return schoolAvoidanceScore(r,day)+(deficit>0?-100-deficit*4:100+(proteinCounts[r.protein]||0)*10)+(dayProteins[day].has(r.protein)?40:0)+repeats+other+rank(r);
+   return schoolAvoidanceScore(r,day)+(deficit>0?-100-deficit*4:100+(proteinCounts[r.protein]||0)*10)+(dayProteins[day].has(r.protein)?40:0)+repeats+other+rank(r)-nutritionPreference;
   };
   options.sort((a,b)=>score(a)-score(b));const chosen=options[0];if(!chosen)continue;days[day][slot]={recipeId:chosen.id,locked:false,external:false};used[chosen.id]=(used[chosen.id]||0)+1;
   if(main){proteinCounts[chosen.protein]=(proteinCounts[chosen.protein]||0)+1;dayProteins[day].add(chosen.protein);}
