@@ -37,3 +37,9 @@ html.modal-open{overflow:hidden}.modal{min-width:0}.modal:focus{outline:none}.mo
 .catalog-nutrient-list>span{min-width:0;overflow-wrap:anywhere}.catalog-nutrient-list b{font-weight:600}
 @media(max-width:700px){.catalog-nutrient-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 10px}}
 @media(max-width:350px){.catalog-nutrient-list{grid-template-columns:minmax(0,1fr)}}
+
+/* Manual ilustrado: accesos disponibles aunque se oculte Primeros pasos. */
+.manual-access{margin:22px 0;padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--paper2);min-width:0}
+.manual-access h3{margin:0 0 10px}.manual-access p{margin:0 0 14px}.manual-access small{display:block;margin-top:12px;color:var(--readable);line-height:1.6}
+.manual-links{display:grid;gap:10px;min-width:0}.manual-links .btn{width:100%;white-space:normal;text-align:center;min-width:0;overflow-wrap:anywhere;line-height:1.4}.manual-links .icon{flex-shrink:0}
+.manual-links a{text-decoration:none}.manual-links .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}

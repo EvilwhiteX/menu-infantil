@@ -1,4 +1,4 @@
-# Primeros pasos · V0.25.0
+# Primeros pasos · V0.26.0
 
 1. En **Perfiles → Añadir**, indica nombre o apodo, fecha de nacimiento, sexo para referencias nutricionales y actividad habitual. El peso y la estatura son opcionales. Revisa alergias y alimentos excluidos. Guarda el perfil.
 2. En **Ajustes**, elige color principal, tamaño del texto, modo oscuro y tomas visibles. Estos ajustes se guardan automáticamente.
@@ -45,3 +45,9 @@ En **Ajustes → Tus datos**, utiliza **Exportar copia** y guarda el archivo en 
 **Reiniciar App y borrar datos** elimina los datos de este navegador tras la confirmación. Exporta una copia antes si quieres conservarlos.
 
 En Recetario puedes combinar búsqueda y categoría y ordenar por aporte de nutrientes. Los valores se comparan por 100 g de ingredientes, sin convertirlos en raciones. La barra de azúcares es informativa y muestra azúcares totales.
+
+## Manual ilustrado
+
+En **Ajustes → Ayuda** encontrarás **Abrir guía** y **Descargar manual en PDF**. Incluye uso básico, opciones avanzadas y ayuda para resolver problemas, con capturas de ejemplo.
+
+[Ver el manual completo](guia.html) · [Descargar el PDF](manual-menu-infantil.pdf)
