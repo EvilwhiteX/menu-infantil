@@ -1,4 +1,4 @@
-# Menú del colegio · V0.20.0
+# Menú del colegio · V0.23.0
 
 ## Corrección de importación V0.17.1
 
@@ -146,3 +146,14 @@ El resumen ilustrado se sitúa antes del nutricional y permite recuentos de Día
 El campo de fecha de nacimiento se adapta al ancho disponible, incluidos móviles. Los avisos de error vacíos no ocupan espacio ni dibujan bandas rojas; los errores con contenido siguen visibles.
 
 En el registro manual del colegio, al seleccionar un plato de la lista, pulsa «Añadir al registro» antes de guardar. El botón se destaca durante cuatro segundos; el mensaje rojo recuerda el paso pendiente. Cuando el plato está añadido aparece «Plato añadido. Todo correcto, puedes guardar cambios.» en verde y se permite guardar. Cambiar la selección exige añadirla de nuevo. La escritura manual continúa disponible, se evitan duplicados y se respeta la preferencia de reducir animaciones.
+
+
+## V0.23.0 · Registro escolar con estimaciones del catálogo
+
+Al elegir un plato del catálogo y pulsar Añadir al registro, se incorporan sus ingredientes y cantidades orientativas al formulario. Al guardar se conserva una estimación independiente, con las referencias de nutrientes y los gramos de ingredientes en el estado indicado. La pantalla permite consultar composición, fuentes, otros componentes y la ficha de referencia sin formularios anidados. Las cantidades se calculan para el conjunto de platos de una misma toma; no se agregan pan, fruta o guarniciones que no hayas elegido. No son cantidades medidas ni peso final cocinado, y no confirman la receta ni los alérgenos del comedor.
+
+El generador tiene en cuenta los registros completos del catálogo también en Registro manual plato por plato. Conserva sus cantidades y ajusta las tomas de casa no fijadas con la revisión diaria y semanal existente. Señala información incompleta y objetivos pendientes: el cálculo es una aproximación, no garantiza suficiencia individual. Tras cambiar el colegio, genera de nuevo las comidas de casa que corresponda; los menús guardados se conservan hasta hacerlo.
+
+Para registros anteriores: Mi semana → Menú del colegio → Completar valores desde el catálogo. Revisa las coincidencias exactas de la semana visible y aplica las estimaciones seleccionadas. No se convierten nombres ambiguos ni registros con cantidades manuales. Estas cantidades tienen prioridad. Para un registro individual ya escrito puedes usar Reconocer platos ya escritos; si hay texto sin referencia, el total queda parcial. Mantén los nombres del catálogo para vincularlos o usa cantidades propias/registro de texto cuando difiera la receta.
+
+Las estimaciones se guardan por perfil, semana, día y toma, se incluyen en las copias privadas y se excluyen de la compra. Las copias anteriores siguen siendo compatibles. Ningún dato del usuario se envía al servidor.

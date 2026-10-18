@@ -35,3 +35,12 @@ fieldset.school-days,.school-config,.school-setup,.school-setup .field,.school-w
 .school-add-reminder{animation:school-add-reminder .8s ease-in-out 5}
 @keyframes school-add-reminder{0%,100%{opacity:1;box-shadow:0 0 0 0 var(--accent-edge)}50%{opacity:.65;box-shadow:0 0 0 4px var(--accent-edge)}}
 @media(prefers-reduced-motion:reduce){.school-add-reminder{animation:none;outline:2px solid var(--green);outline-offset:2px}}
+
+/* V0.23.0 · Estimación explícita del registro escolar. */
+.school-catalog-box{margin:16px 0;padding:16px;border:1px solid var(--line);border-radius:15px;background:var(--paper2);min-width:0;overflow-wrap:anywhere}
+.school-catalog-box>label{font-weight:700;line-height:1.5;display:flex;gap:9px;align-items:flex-start}
+.school-catalog-box>label input{flex:none;margin-top:5px}
+.school-catalog-box p,#school-catalog-recovery-form p{line-height:1.6}
+.school-catalog-box .family-recipe{max-width:100%}
+#school-catalog-preview:empty{display:none}
+#school-catalog-recovery-form>.selected-surface{margin:16px 0}

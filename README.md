@@ -1,4 +1,4 @@
-# Menú Infantil V0.22.3
+# Menú Infantil V0.23.0
 
 Prototipo de interfaz y organización de un menú semanal, compatible con móvil y PC. **No es un generador pediátrico validado ni una pauta alimentaria.**
 
@@ -361,3 +361,14 @@ La marca de cabecera está centrada y permite volver a Mi semana al pulsar el lo
 ## V0.22.3 · Perfiles y Compra en escritorio
 
 Perfiles dedica una columna compacta al listado y el espacio principal al formulario. Los bloques tienen alturas independientes. En pantallas por debajo de 1280 píxeles se apilan para mantener el formulario legible. Datos personales mantienen sus filas de dos campos cuando hay espacio; alergias y colegio aprovechan todo el ancho. Compra inteligente muestra sus dos tarjetas en vertical; los textos largos y el detalle de ingredientes se adaptan al ancho disponible. Sin cambios en cálculos, perfiles o datos guardados.
+
+
+## V0.23.0 · Registro escolar con estimaciones del catálogo
+
+Al elegir un plato del catálogo y pulsar Añadir al registro, se incorporan sus ingredientes y cantidades orientativas al formulario. Al guardar se conserva una estimación independiente, con las referencias de nutrientes y los gramos de ingredientes en el estado indicado. La pantalla permite consultar composición, fuentes, otros componentes y la ficha de referencia sin formularios anidados. Las cantidades se calculan para el conjunto de platos de una misma toma; no se agregan pan, fruta o guarniciones que no hayas elegido. No son cantidades medidas ni peso final cocinado, y no confirman la receta ni los alérgenos del comedor.
+
+El generador tiene en cuenta los registros completos del catálogo también en Registro manual plato por plato. Conserva sus cantidades y ajusta las tomas de casa no fijadas con la revisión diaria y semanal existente. Señala información incompleta y objetivos pendientes: el cálculo es una aproximación, no garantiza suficiencia individual. Tras cambiar el colegio, genera de nuevo las comidas de casa que corresponda; los menús guardados se conservan hasta hacerlo.
+
+Para registros anteriores: Mi semana → Menú del colegio → Completar valores desde el catálogo. Revisa las coincidencias exactas de la semana visible y aplica las estimaciones seleccionadas. No se convierten nombres ambiguos ni registros con cantidades manuales. Estas cantidades tienen prioridad. Para un registro individual ya escrito puedes usar Reconocer platos ya escritos; si hay texto sin referencia, el total queda parcial. Mantén los nombres del catálogo para vincularlos o usa cantidades propias/registro de texto cuando difiera la receta.
+
+Las estimaciones se guardan por perfil, semana, día y toma, se incluyen en las copias privadas y se excluyen de la compra. Las copias anteriores siguen siendo compatibles. Ningún dato del usuario se envía al servidor.
