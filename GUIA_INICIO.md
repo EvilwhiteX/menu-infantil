@@ -1,4 +1,4 @@
-# Primeros pasos · V0.27.0
+# Primeros pasos · V0.27.1
 
 1. En **Perfiles → Añadir**, indica nombre o apodo, fecha de nacimiento, sexo para referencias nutricionales y actividad habitual. El peso y la estatura son opcionales. Revisa alergias y alimentos excluidos. Guarda el perfil.
 2. En **Ajustes**, elige color principal, tamaño del texto, modo oscuro y tomas visibles. Estos ajustes se guardan automáticamente.
@@ -55,3 +55,9 @@ En **Ajustes → Ayuda** encontrarás **Abrir guía** y **Descargar manual en PD
 ## Alergias y exclusiones del perfil
 
 Los filtros se aplican a recetas, acompañamientos y sustituciones. Las comidas guardadas se conservan y los conflictos requieren revisión. Si una comida escolar o fijada no se puede comprobar, revísala antes de generar; no se compensa un alérgeno cambiando la cena. Si no hay suficientes alternativas, se conserva el menú anterior. Comprueba etiquetas, trazas, preparación real y objetivos nutricionales pendientes.
+
+## Crear y guardar el perfil
+
+Si intentas usar una función que necesita un perfil, la app muestra **Crear perfil** o **Completar perfil** y te lleva al formulario correspondiente. Puedes seguir consultando Ayuda, personalizar Ajustes o restaurar una copia.
+
+El botón **Guardar perfil** resalta suavemente durante unos segundos al crear o modificar el perfil. Un recordatorio permanece mientras hay cambios pendientes y desaparece al guardarlos. Si prefieres movimiento reducido, se mantiene el resaltado sin animación.
