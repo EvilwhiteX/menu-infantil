@@ -1,8 +1,8 @@
-# Menú Infantil · En familia · V0.28.0
+# Menú Infantil · En familia · V0.28.1
 
 Planificador semanal para móvil y ordenador, con perfiles, recetario, comidas del colegio, lista de compra y aportes nutricionales estimados.
 
-[Abrir la app](https://evilwhitex.github.io/menu-infantil/?v=0.28.0) · [Primeros pasos](GUIA_INICIO.md) · [Menú del colegio](MENU_COLEGIO.md)
+[Abrir la app](https://evilwhitex.github.io/menu-infantil/?v=0.28.1) · [Primeros pasos](GUIA_INICIO.md) · [Menú del colegio](MENU_COLEGIO.md)
 
 ## Qué puedes hacer
 
@@ -11,6 +11,7 @@ Planificador semanal para móvil y ordenador, con perfiles, recetario, comidas d
 - Registrar las comidas del colegio manualmente o mediante una tabla mensual Excel/CSV.
 - Estimar ingredientes, gramos y nutrientes de los platos escolares elegidos del catálogo y tenerlos en cuenta en las nuevas propuestas de casa.
 - Consultar grupos de alimentos y aportes por día o semana.
+- Imprimir el menú semanal en A4 horizontal con un resumen compacto de platos. Los ingredientes y las cantidades se consultan en la app.
 - Preparar la compra, descontar existencias y exportar menú o compra en PDF.
 - Personalizar color, texto y modo oscuro y conservar una copia de seguridad.
 
