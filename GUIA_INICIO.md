@@ -1,10 +1,10 @@
-# Primeros pasos · V0.27.1
+# Primeros pasos · V0.27.3
 
 1. En **Perfiles → Añadir**, indica nombre o apodo, fecha de nacimiento, sexo para referencias nutricionales y actividad habitual. El peso y la estatura son opcionales. Revisa alergias y alimentos excluidos. Guarda el perfil.
 2. En **Ajustes**, elige color principal, tamaño del texto, modo oscuro y tomas visibles. Estos ajustes se guardan automáticamente.
 3. En **Generar**, pulsa **Generar menú**. Revisa los platos, las cantidades y los avisos en **Mi semana** antes de utilizarlo.
 
-La guía recuerda el paso pendiente. Puedes pausarla y continuar después. **Ajustes → Ayuda → Ya domino la app** oculta el acceso de Primeros pasos y el acompañamiento.
+La guía aparece al principio y al final de la página y recuerda el mismo paso pendiente en ambos lugares. Al completarla, desaparece de los dos. Puedes pausarla y continuar después. **Ajustes → Ayuda → Ya domino la app** oculta el acceso de Primeros pasos y el acompañamiento.
 
 ## Perfiles y edad
 
