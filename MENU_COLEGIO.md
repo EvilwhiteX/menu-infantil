@@ -1,4 +1,4 @@
-# Menú del colegio · V0.25.0
+# Menú del colegio · V0.27.0
 
 En **Perfiles**, activa **Tomas en el colegio**, elige las comidas y los días y guarda el perfil. Cada perfil mantiene sus propios registros y calendario.
 
@@ -38,3 +38,7 @@ Los registros completos estimados desde el catálogo también participan en la g
 Revisa siempre los objetivos pendientes. La app intenta aproximar los aportes y la variedad, pero puede no alcanzar todos los objetivos. No modifica lo que sirve el colegio ni confirma la receta, las trazas, los alérgenos o lo que ha comido el niño.
 
 Las comidas escolares no se añaden a la compra. Las copias de seguridad incluyen tanto el calendario previsto como los registros y sus cantidades. Guarda esas copias en un lugar privado.
+
+## Alergias y exclusiones del perfil
+
+Los filtros se aplican a recetas, acompañamientos y sustituciones. Las comidas guardadas se conservan y los conflictos requieren revisión. Si una comida escolar o fijada no se puede comprobar, revísala antes de generar; no se compensa un alérgeno cambiando la cena. Si no hay suficientes alternativas, se conserva el menú anterior. Comprueba etiquetas, trazas, preparación real y objetivos nutricionales pendientes.

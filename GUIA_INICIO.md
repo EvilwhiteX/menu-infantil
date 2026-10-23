@@ -1,4 +1,4 @@
-# Primeros pasos · V0.26.0
+# Primeros pasos · V0.27.0
 
 1. En **Perfiles → Añadir**, indica nombre o apodo, fecha de nacimiento, sexo para referencias nutricionales y actividad habitual. El peso y la estatura son opcionales. Revisa alergias y alimentos excluidos. Guarda el perfil.
 2. En **Ajustes**, elige color principal, tamaño del texto, modo oscuro y tomas visibles. Estos ajustes se guardan automáticamente.
@@ -10,7 +10,7 @@ La guía recuerda el paso pendiente. Puedes pausarla y continuar después. **Aju
 
 Cada perfil mantiene sus menús y registros escolares. La edad se calcula a partir de la fecha de nacimiento y se actualiza con el tiempo. Las cantidades guardadas se conservan: revisa o genera de nuevo cuando cambien los datos del perfil.
 
-El planificador admite de 12 meses a 16 años y 11 meses. Un perfil fuera de ese rango conserva su historial. Si declaras alergias o exclusiones, las propuestas automáticas se bloquean; utiliza platos revisados individualmente.
+El planificador admite de 12 meses a 16 años y 11 meses. Un perfil fuera de ese rango conserva su historial. En Alimentos y platos a evitar, selecciona cada ingrediente o plato y pulsa Añadir exclusión. Para otro alérgeno, utiliza Otras alergias alimentarias. Guarda el perfil: la generación utiliza opciones compatibles. Identifica el texto pendiente de perfiles anteriores antes de generar.
 
 ## Preparar y ajustar la semana
 
@@ -51,3 +51,7 @@ En Recetario puedes combinar búsqueda y categoría y ordenar por aporte de nutr
 En **Ajustes → Ayuda** encontrarás **Abrir guía** y **Descargar manual en PDF**. Incluye uso básico, opciones avanzadas y ayuda para resolver problemas, con capturas de ejemplo.
 
 [Ver el manual completo](guia.html) · [Descargar el PDF](manual-menu-infantil.pdf)
+
+## Alergias y exclusiones del perfil
+
+Los filtros se aplican a recetas, acompañamientos y sustituciones. Las comidas guardadas se conservan y los conflictos requieren revisión. Si una comida escolar o fijada no se puede comprobar, revísala antes de generar; no se compensa un alérgeno cambiando la cena. Si no hay suficientes alternativas, se conserva el menú anterior. Comprueba etiquetas, trazas, preparación real y objetivos nutricionales pendientes.

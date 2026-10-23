@@ -26,15 +26,16 @@ function ingredientBounds(i,t){
  return [Math.round(lo*10)/10,Math.round(hi*10)/10];
 }
 function quantifiedProposal(source,slot,t,budget,fruitName='Pera madura'){
+ dietEnsureRecipe(source);fruitName=dietFruitName(fruitName);if(!fruitName&&source.ingredients.some(i=>normalizedFood(i.name)==='fruta madura de temporada'))throw Error('No hay fruta compatible para '+source.name);
  const batch=batchForRecipe(source);if(!batch)throw Error('Falta la ficha de cantidades de '+source.name);
  const ingredients=source.ingredients.map((original,n)=>{const i=normalizedFood(original.name)==='fruta madura de temporada'?{...original,name:fruitName}:original;const food=defaultCompositionReference(i);if(!food)throw Error('Falta referencia para '+i.name);return {...i,qty:batch.grams[n]/4,amountStatus:'propuesta estimada editable',unit:'g',foodId:food.id,foodState:food.weightState};});
- const add=(name,group,qty)=>{const food=defaultCompositionReference({name});if(!food)throw Error('Referencia no disponible: '+name);ingredients.push({name,group,qty,unit:'g',foodId:food.id,foodState:food.weightState});};
+ const add=(name,group,qty)=>{if(!dietCanAdd(name))return false;const food=defaultCompositionReference({name});if(!food)throw Error('Referencia no disponible: '+name);ingredients.push({name,group,qty,unit:'g',foodId:food.id,foodState:food.weightState});return true;};
  const main=['lunch','dinner'].includes(slot);
  const additions=[];
- if(main&&!ingredients.some(i=>i.group==='fruta')){add(fruitName,'fruta',80);additions.push('fruta');}
- if(slot==='breakfast'&&!ingredients.some(i=>/leche|yogur/.test(normalizedFood(i.name)))){add(t.age<3?'Leche entera pasteurizada':'Leche pasteurizada sin azúcar','lacteos',150);additions.push('leche');}
- if(slot==='snack'&&!ingredients.some(i=>i.group==='lacteos')){add('Yogur natural sin azúcar','lacteos',125);additions.push('yogur');}
- if(main&&!ingredients.some(i=>/arroz|pasta|macarrones|patata|pan integral|quinoa|cuscus|boniato/.test(normalizedFood(i.name)))){add('Pan integral bajo en sal','cereales',25);additions.push('pan');}
+ if(main&&fruitName&&!ingredients.some(i=>i.group==='fruta')&&add(fruitName,'fruta',80))additions.push('fruta');
+ if(slot==='breakfast'&&!ingredients.some(i=>/leche|yogur/.test(normalizedFood(i.name)))){if(add(t.age<3?'Leche entera pasteurizada':'Leche pasteurizada sin azúcar','lacteos',150))additions.push('leche');}
+ if(slot==='snack'&&!ingredients.some(i=>i.group==='lacteos')){if(add('Yogur natural sin azúcar','lacteos',125))additions.push('yogur');}
+ if(main&&!ingredients.some(i=>/arroz|pasta|macarrones|patata|pan integral|quinoa|cuscus|boniato/.test(normalizedFood(i.name)))){if(add('Pan integral bajo en sal','cereales',25))additions.push('pan');}
  const kcal=ingredients.reduce((sum,i)=>sum+NUTRITION_BY_ID[i.foodId].nutrients.kcal.value*i.qty/100,0),factor=t.kcal*budget/kcal;
  for(const i of ingredients){const [lo,hi]=ingredientBounds(i,t);i.qty=Math.round(Math.max(lo,Math.min(hi,i.qty*factor))*10)/10;}
  const allergens=new Set(source.allergens);for(const i of ingredients){if(/leche|yogur|queso/.test(normalizedFood(i.name)))allergens.add('leche');if(/pan integral/.test(normalizedFood(i.name)))allergens.add('gluten');}
@@ -149,7 +150,7 @@ function savePlannedAmounts(form){
 }
 function replaceQuantifiedMeal(source,day,slot){
  try{const blocked=familyBlock();if(blocked)throw Error(blocked);if(schoolMeal(day,slot))throw Error('El colegio se registra manualmente.');const t=nutritionTargets();if(t.guard)throw Error('Revisa los datos del perfil antes de asignar cantidades.');
-  const budget=activeMeals().reduce((sum,[s])=>sum+SLOT_BUDGET[s],0),r=quantifiedProposal(source,slot,t,SLOT_BUDGET[slot]/budget),rid=id(),days=menu().days.map((d,n)=>n===day?{...d,[slot]:{...d[slot],recipeId:rid,external:false}}:d);
+  const budget=activeMeals().reduce((sum,[s])=>sum+SLOT_BUDGET[s],0),r=dietEnsureRecipe(quantifiedProposal(source,slot,t,SLOT_BUDGET[slot]/budget)),rid=id(),days=menu().days.map((d,n)=>n===day?{...d,[slot]:{...d[slot],recipeId:rid,external:false}}:d);
   const next={...state,customRecipes:{...state.customRecipes,[rid]:{...r,id:rid}},menus:{...state.menus,[mealKey()]:{...menu(),days}},modal:null};const {modal,...stored}=next;localStorage.setItem(STORAGE_KEY,JSON.stringify(stored));state=next;render();notify('Plato sustituido con cantidades iniciales. Revisa el total del día.');return true;
  }catch(e){notify(e.message);return false;}
 }

@@ -1,8 +1,8 @@
-# Menú Infantil · En familia · V0.26.0
+# Menú Infantil · En familia · V0.27.0
 
 Planificador semanal para móvil y ordenador, con perfiles, recetario, comidas del colegio, lista de compra y aportes nutricionales estimados.
 
-[Abrir la app](https://evilwhitex.github.io/menu-infantil/?v=0.26.0) · [Primeros pasos](GUIA_INICIO.md) · [Menú del colegio](MENU_COLEGIO.md)
+[Abrir la app](https://evilwhitex.github.io/menu-infantil/?v=0.27.0) · [Primeros pasos](GUIA_INICIO.md) · [Menú del colegio](MENU_COLEGIO.md)
 
 ## Qué puedes hacer
 
@@ -22,7 +22,7 @@ Los datos se guardan en este navegador. No hay cuentas ni sincronización entre 
 
 Las cantidades y nutrientes son orientativos y describen lo planificado, no lo consumido. El generador revisa 12 componentes con referencias por edad y escenarios de sexo, peso y actividad. Otros componentes disponibles se muestran como información. Los datos desconocidos no se consideran cero y pueden quedar objetivos pendientes.
 
-El planificador admite de 12 meses a 16 años y 11 meses. Las alergias y exclusiones declaradas bloquean las propuestas automáticas. Comprueba ingredientes, etiquetas, trazas, preparación y cantidades antes de utilizar un plato. Las propuestas no equivalen a una pauta individual ni a una dieta pediátrica validada.
+El planificador admite de 12 meses a 16 años y 11 meses. Las alergias y exclusiones identificadas filtran las propuestas automáticas. Con información insuficiente no se utilizan las fichas afectadas; las trazas y la preparación real requieren revisión. Comprueba ingredientes, etiquetas, trazas, preparación y cantidades antes de utilizar un plato. Las propuestas no equivalen a una pauta individual ni a una dieta pediátrica validada.
 
 ## Publicación
 
@@ -35,3 +35,7 @@ Consulta el [catálogo por categorías y nutrientes](CATALOGO_NUTRIENTES.md), la
 En **Ajustes → Ayuda** encontrarás **Abrir guía** y **Descargar manual en PDF**. Incluye uso básico, opciones avanzadas y ayuda para resolver problemas, con capturas de ejemplo.
 
 [Ver el manual completo](guia.html) · [Descargar el PDF](manual-menu-infantil.pdf)
+
+## Alergias y exclusiones del perfil
+
+Los filtros se aplican a recetas, acompañamientos y sustituciones. Las comidas guardadas se conservan y los conflictos requieren revisión. Si una comida escolar o fijada no se puede comprobar, revísala antes de generar; no se compensa un alérgeno cambiando la cena. Si no hay suficientes alternativas, se conserva el menú anterior. Comprueba etiquetas, trazas, preparación real y objetivos nutricionales pendientes.

@@ -2,7 +2,7 @@ const FAMILY_RULE_VERSION='familia-12-203m-v2';
 const FAMILY_SOURCES=Object.values(AGE_SOURCES).map(s=>[s.title,s.url]);
 function profileMonths(p=profile()){return Number(p.ageYears)*12+Number(p.ageMonths||0);}
 function familyEligible(p=profile()){const years=Number(p.ageYears),months=Number(p.ageMonths||0),age=profileMonths(p);return Number.isInteger(years)&&Number.isInteger(months)&&months>=0&&months<=11&&Number.isInteger(age)&&age>=12&&age<=203;}
-function familyBlock(){if(!familyEligible())return 'El planificador admite desde 12 meses hasta 16 años y 11 meses. Revisa la edad del perfil.';if(hasRestrictions())return 'Con alergias o alimentos excluidos declarados, la generación y las sustituciones automáticas siguen bloqueadas. Usa un menú manual revisado.';return '';}
+function familyBlock(){if(!familyEligible())return 'El planificador admite desde 12 meses hasta 16 años y 11 meses. Revisa la edad del perfil.';return dietConfigurationBlock();}
 function sourceLinks(){return `<ul>${FAMILY_SOURCES.map(([label,url])=>`<li><a href="${url}" target="_blank" rel="noopener noreferrer">${h(label)}</a></li>`).join('')}</ul>`;}
 function familyCatalog(p=profile()){const age=profileMonths(p);return AGE_RECIPES.filter(r=>age>=r.minMonths&&age<=r.maxMonths);}
 function recipeAgeWarning(r,p=profile()){const age=profileMonths(p);return !!(r?.family&&(!r.ageBand||age<r.minMonths||age>r.maxMonths));}
@@ -28,14 +28,14 @@ function buildFamilyWeek(old,seed){
  const rank=r=>{let value=seed>>>0;for(const c of r.id)value=(Math.imul(value,31)+c.charCodeAt(0))>>>0;return value/4294967296;};
  for(let day=0;day<7;day++)for(const [slot] of activeMeals()){
   if(schoolMeal(day,slot))continue;const prev=old.days[day]?.[slot]||emptyMeal();if(prev.locked||prev.external)continue;
-  const main=['lunch','dinner'].includes(slot),options=familyCatalog().filter(r=>r.slots.includes(slot)&&r.automatic!==false);
+  const main=['lunch','dinner'].includes(slot),options=familyCatalog().filter(r=>r.slots.includes(slot)&&r.automatic!==false&&dietRecipeCheck(r).ok);
   const score=r=>{const repeats=(used[r.id]||0)*12,other=Object.values(days[day]).some(m=>m.recipeId===r.id)?100:0;
    const nutritionPreference=nutrientChoiceScore(r,slot,target,SLOT_BUDGET[slot]/budgetSum);
    if(!main)return repeats+other+rank(r)+(day+seed)%3*.01-nutritionPreference;
    const deficit=(quotas[r.protein]||0)-(proteinCounts[r.protein]||0);
    return schoolAvoidanceScore(r,day)+(deficit>0?-100-deficit*4:100+(proteinCounts[r.protein]||0)*10)+(dayProteins[day].has(r.protein)?40:0)+repeats+other+rank(r)-nutritionPreference;
   };
-  options.sort((a,b)=>score(a)-score(b));const chosen=options[0];if(!chosen)continue;days[day][slot]={recipeId:chosen.id,locked:false,external:false};used[chosen.id]=(used[chosen.id]||0)+1;
+  options.sort((a,b)=>score(a)-score(b));const chosen=options[0];if(!chosen)throw Error('No hay suficientes platos compatibles para '+slotLabel(slot)+'. Revisa las selecciones o amplía el catálogo.');days[day][slot]={recipeId:chosen.id,locked:false,external:false};used[chosen.id]=(used[chosen.id]||0)+1;
   if(main){proteinCounts[chosen.protein]=(proteinCounts[chosen.protein]||0)+1;dayProteins[day].add(chosen.protein);}
  }
  return {days,seed,kind:'family',createdAt:new Date().toISOString(),ruleVersion:FAMILY_RULE_VERSION,ageMonths:profileMonths(),ageBand:ageBandForMonths(profileMonths())?.id};

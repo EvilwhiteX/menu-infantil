@@ -43,3 +43,9 @@ html.modal-open{overflow:hidden}.modal{min-width:0}.modal:focus{outline:none}.mo
 .manual-access h3{margin:0 0 10px}.manual-access p{margin:0 0 14px}.manual-access small{display:block;margin-top:12px;color:var(--readable);line-height:1.6}
 .manual-links{display:grid;gap:10px;min-width:0}.manual-links .btn{width:100%;white-space:normal;text-align:center;min-width:0;overflow-wrap:anywhere;line-height:1.4}.manual-links .icon{flex-shrink:0}
 .manual-links a{text-decoration:none}.manual-links .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Selecciones de alimentos y platos; el formulario no altera el perfil hasta guardar. */
+.diet-controls{border:1px solid var(--line);border-radius:16px;padding:18px;margin:20px 0;min-width:0}.diet-controls h3{margin:10px 0}.diet-controls small{display:block;color:var(--readable);line-height:1.6}.diet-controls input,.diet-controls textarea{max-width:100%;min-width:0}.diet-chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.diet-chip{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--paper2);border-radius:14px;padding:8px 10px;max-width:100%;overflow-wrap:anywhere}.diet-chip>span{min-width:0}.diet-chip .icon-btn{flex-shrink:0;width:34px;height:34px}.diet-chip small{font-size:.75rem}.diet-summary{border:1px solid var(--accent-edge);border-radius:14px;background:var(--green2);padding:16px;margin-bottom:20px}.diet-summary p{margin:8px 0 0}.diet-conflicts{border-color:#b33b4a;margin-bottom:20px}.diet-conflicts li{margin:10px 0;overflow-wrap:anywhere}.diet-legacy{margin-top:20px}.diet-feedback:empty{display:none}.diet-feedback{font-weight:600;color:var(--green)}
+
+.diet-feedback.form-error{color:#a52d44}
+[data-theme="dark"] .diet-feedback.form-error{color:#ffb4c0}
